@@ -298,12 +298,13 @@ footer{
       <div class="hero-stat-label">Upwork Rating</div>
     </div>
   </div>
-</section>
 
-<section id="landing-pages" style="padding:100px 0 120px;overflow:hidden;position:relative">
+  <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(0deg,var(--tk-navy) 0%,transparent 100%);pointer-events:none;z-index:2"></div></section>
 
-  <!-- Section background texture -->
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,38,58,.2) 100%);pointer-events:none"></div>
+<section id="landing-pages" style="padding:80px 0 120px;overflow:hidden;position:relative;margin-top:-1px">
+
+  <!-- Section background blended from hero -->
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,var(--tk-navy) 0%,rgba(0,38,58,.15) 18%,transparent 100%);pointer-events:none"></div>
   <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%, rgba(0,200,90,.04) 0%, transparent 60%),radial-gradient(circle at 80% 20%, rgba(0,200,90,.03) 0%, transparent 50%);pointer-events:none"></div>
 
   <div style="max-width:1200px;margin:0 auto;padding:0 40px;position:relative">
@@ -386,7 +387,7 @@ footer{
          style="display:grid;grid-template-columns:1fr 380px;gap:0;min-height:220px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;text-decoration:none;transition:background .25s,border-color .25s,transform .25s;position:relative"
          onmouseenter="lpHover(this,true)" onmouseleave="lpHover(this,false)">
         <div style="position:relative;overflow:hidden;min-height:220px">
-          <img src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=900&q=90"
+          <img src="https://images.unsplash.com/photo-1600486913747-55e5470d0a5?w=900&q=90"
                alt="ClearLedger" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s;filter:saturate(.7) brightness(.5)" class="lp-img">
           <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,rgba(0,38,58,.95) 100%)"></div>
           <div style="position:absolute;top:24px;left:28px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25)">03 / 04</div>
@@ -448,6 +449,9 @@ footer{
   </div>
 </section>
 
+<!-- Smooth section divider — gradient fade instead of hard line -->
+<div style="height:1px;background:linear-gradient(90deg,transparent 0%,rgba(218,225,233,.08) 20%,rgba(218,225,233,.12) 50%,rgba(218,225,233,.08) 80%,transparent 100%);margin:0 40px"></div>
+
 <script>
 function lpHover(el, on) {
   const img = el.querySelector('.lp-img');
@@ -478,7 +482,7 @@ function filterLPRows(btn, tag) {
 
 
 
-<section id="portfolio" style="padding:72px 40px 80px;border-top:1px solid var(--tk-border-light)">
+<section id="portfolio" style="padding:72px 40px 80px">
   <div style="max-width:1200px;margin:0 auto">
 
     <!-- Section heading -->
