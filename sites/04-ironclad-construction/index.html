@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironclad Construction — Built to Last</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --steel:#1C2B3A;--steel-mid:#243447;--steel-soft:#2E4057;
+  --orange:#E85D04;--orange-light:#F48C06;--orange-pale:#FFF3E0;
+  --silver:#C8D0D8;--ice:#EDF2F7;--white:#FFFFFF;
+  --text:#1C2B3A;--text-soft:#435A6F;--text-muted:#7B93A6;
+}
+body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,43,58,0.96);backdrop-filter:blur(16px)}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-mark{width:40px;height:40px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:white}
+.nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;letter-spacing:0.05em;color:var(--white);text-transform:uppercase}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);transition:color 0.2s}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{background:var(--orange);color:var(--white);padding:12px 28px;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;clip-path:polygon(8px 0%,100% 0%,100% 100%,0% 100%)}
+.nav-cta:hover{background:var(--orange-light)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
+.hero-left{background:var(--steel);padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-left::after{content:'';position:absolute;bottom:-40px;right:-40px;width:300px;height:300px;background:var(--orange);opacity:0.06;transform:rotate(45deg)}
+.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.hero-h1{font-family:'Barlow Condensed',sans-serif;font-size:80px;font-weight:900;line-height:0.95;color:var(--white);text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:32px}
+.hero-h1 span{color:var(--orange)}
+.hero-sub{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.6);max-width:440px;margin-bottom:48px}
+.hero-btns{display:flex;gap:16px;align-items:center}
+.btn-orange{background:var(--orange);color:var(--white);padding:16px 36px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(10px 0%,100% 0%,100% 100%,0% 100%);transition:background 0.2s}
+.btn-orange:hover{background:var(--orange-light)}
+.btn-ghost-white{color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s}
+.btn-ghost-white:hover{color:var(--orange)}
+.hero-right{background:var(--steel-soft);display:flex;align-items:center;justify-content:center;font-size:120px;position:relative}
+
+.numbers-band{background:var(--orange);padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr)}
+.number-item{padding:32px 0;text-align:center;border-right:1px solid rgba(255,255,255,0.2)}
+.number-item:last-child{border-right:none}
+.number-val{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:var(--white);line-height:1}
+.number-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:6px}
+
+.services{padding:80px 60px;background:var(--ice)}
+.services-inner{max-width:1200px;margin:0 auto}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.services-left .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.services-left h2{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;text-transform:uppercase;line-height:1;color:var(--steel)}
+.services-left h2 span{color:var(--orange)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.service-card{background:var(--white);padding:36px 32px;position:relative;transition:all 0.3s;cursor:default}
+.service-card:hover{background:var(--steel);transform:translateY(-4px)}
+.service-card:hover .service-name,.service-card:hover .service-desc{color:var(--white)}
+.service-card:hover .service-icon{background:var(--orange)}
+.service-num{font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:900;color:rgba(0,0,0,0.04);position:absolute;top:16px;right:20px;line-height:1;transition:color 0.3s}
+.service-card:hover .service-num{color:rgba(255,255,255,0.06)}
+.service-icon{width:52px;height:52px;background:var(--steel);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;transition:background 0.3s;clip-path:polygon(6px 0%,100% 0%,100% 100%,0% 100%)}
+.service-name{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;color:var(--steel);margin-bottom:12px;transition:color 0.3s}
+.service-desc{font-size:14px;line-height:1.7;color:var(--text-soft);transition:color 0.3s}
+
+.projects{padding:80px 60px;max-width:1200px;margin:0 auto}
+.projects-header{margin-bottom:48px}
+.projects-header .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.projects-header h2{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;text-transform:uppercase;color:var(--steel)}
+.projects-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:3px}
+.project-card{background:var(--steel-soft);position:relative;overflow:hidden;display:flex;align-items:flex-end;cursor:pointer}
+.project-card.tall{grid-row:1/3}
+.project-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg,var(--steel) 0%,var(--steel-soft) 100%);transition:transform 0.4s}
+.project-card:hover .project-bg{transform:scale(1.04)}
+.project-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,43,58,0.9) 0%,transparent 60%)}
+.project-info{position:relative;z-index:1;padding:24px}
+.project-type{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.project-name{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;text-transform:uppercase;color:var(--white);line-height:1.1}
+.project-meta{font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px}
+
+.cta-band{background:var(--steel);padding:80px 60px;text-align:center}
+.cta-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.cta-h2{font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;text-transform:uppercase;color:var(--white);margin-bottom:16px;line-height:1}
+.cta-h2 span{color:var(--orange)}
+.cta-sub{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:40px}
+.cta-form{display:flex;max-width:560px;margin:0 auto;gap:0}
+.cta-input{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-right:none;padding:16px 20px;color:white;font-family:'Barlow',sans-serif;font-size:14px;outline:none}
+.cta-input::placeholder{color:rgba(255,255,255,0.35)}
+.cta-input:focus{border-color:var(--orange)}
+.cta-btn{background:var(--orange);color:white;padding:16px 32px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+.cta-btn:hover{background:var(--orange-light)}
+
+footer{background:var(--steel);border-top:1px solid rgba(255,255,255,0.08);padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;text-transform:uppercase;color:var(--white)}
+.footer-logo span{color:var(--orange)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+.footer-links a:hover{color:var(--orange)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:60px 24px}
+  .hero-h1{font-size:56px}
+  .hero-right{min-height:260px}
+  .numbers-band{grid-template-columns:repeat(2,1fr);padding:0 24px}
+  .services{padding:60px 24px}
+  .services-grid{grid-template-columns:1fr}
+  .projects{padding:60px 24px}
+  .projects-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .project-card.tall{grid-row:auto}
+  .project-card{height:200px}
+  .cta-band{padding:60px 24px}
+  .cta-h2{font-size:48px}
+  .cta-form{flex-direction:column}
+  .cta-input{border-right:1px solid rgba(255,255,255,0.15);border-bottom:none}
+  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">IC</div>
+    <div class="nav-logo-text">Ironclad</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Safety</a></li>
+    <li><a href="#">Careers</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Licensed · Bonded · Insured · Since 1987</div>
+    <h1 class="hero-h1">Built<br><span>Iron</span><br>Tough.</h1>
+    <p class="hero-sub">General contracting, commercial construction, and industrial builds delivered on time, on budget, and built to last. No exceptions.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-orange">Request a Bid</a>
+      <a href="#projects" class="btn-ghost-white">▶ View Our Work</a>
+    </div>
+  </div>
+  <div class="hero-right">🏗️</div>
+</section>
+
+<div class="numbers-band">
+  <div class="number-item"><div class="number-val">37</div><div class="number-label">Years in Business</div></div>
+  <div class="number-item"><div class="number-val">$1.2B</div><div class="number-label">Projects Delivered</div></div>
+  <div class="number-item"><div class="number-val">850+</div><div class="number-label">Completed Projects</div></div>
+  <div class="number-item"><div class="number-val">Zero</div><div class="number-label">Lost-Time Incidents</div></div>
+</div>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="services-left">
+        <div class="eyebrow">What We Build</div>
+        <h2>Our <span>Services</span></h2>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-num">01</div><div class="service-icon">🏢</div><div class="service-name">Commercial Construction</div><div class="service-desc">Office buildings, retail centers, mixed-use developments, and multi-story commercial projects from ground-up through CO.</div></div>
+      <div class="service-card reveal"><div class="service-num">02</div><div class="service-icon">🏭</div><div class="service-name">Industrial & Warehouse</div><div class="service-desc">Tilt-wall, pre-engineered steel, and custom industrial facilities. Dock-high, clear-span, heavy-load designs built for operations.</div></div>
+      <div class="service-card reveal"><div class="service-num">03</div><div class="service-icon">🔧</div><div class="service-name">Tenant Improvements</div><div class="service-desc">Full interior buildouts for office, medical, retail, and restaurant tenants. Design-build delivery from permit to punch list.</div></div>
+      <div class="service-card reveal"><div class="service-num">04</div><div class="service-icon">🌉</div><div class="service-name">Infrastructure</div><div class="service-desc">Site utilities, earthwork, paving, bridges, and civil infrastructure for municipalities, developers, and private owners.</div></div>
+      <div class="service-card reveal"><div class="service-num">05</div><div class="service-icon">🏗️</div><div class="service-name">Design-Build</div><div class="service-desc">Single point of responsibility from concept through construction. Faster delivery, cost certainty, and unified accountability.</div></div>
+      <div class="service-card reveal"><div class="service-num">06</div><div class="service-icon">♻️</div><div class="service-name">Renovation & Retrofit</div><div class="service-desc">Occupied building renovations, historic preservation, seismic upgrades, and complete facility rehabilitations.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="projects-header reveal">
+    <div class="eyebrow">Featured Work</div>
+    <h2>Recent Projects</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card tall reveal"><div class="project-bg">🏢</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Commercial</div><div class="project-name">Meridian Tower — Austin, TX</div><div class="project-meta">24-Story · 380,000 SF · $94M</div></div></div>
+    <div class="project-card reveal"><div class="project-bg">🏭</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Industrial</div><div class="project-name">Amazon Fulfillment Hub</div><div class="project-meta">1.2M SF · $58M</div></div></div>
+    <div class="project-card reveal"><div class="project-bg">🏥</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Medical</div><div class="project-name">St. David's MOB</div><div class="project-meta">180,000 SF · $44M</div></div></div>
+    <div class="project-card reveal"><div class="project-bg">🏫</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Education</div><div class="project-name">UT Research Complex</div><div class="project-meta">220,000 SF · $71M</div></div></div>
+    <div class="project-card reveal"><div class="project-bg">🛒</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Retail</div><div class="project-name">Domain Northside Phase III</div><div class="project-meta">310,000 SF · $38M</div></div></div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="cta-eyebrow">Start Your Project</div>
+  <h2 class="cta-h2">Let's Build <span>Something</span> Lasting.</h2>
+  <p class="cta-sub">Tell us about your project. We'll respond within one business day with a preliminary assessment and timeline.</p>
+  <div class="cta-form">
+    <input class="cta-input" type="email" placeholder="your@email.com">
+    <button class="cta-btn">Request a Bid →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">IRON<span>CLAD</span></div>
+  <div class="footer-copy">© 2025 Ironclad Construction Group · TX License #A-1234567 · All Rights Reserved</div>
+  <div class="footer-links"><a href="#">Privacy</a><a href="#">Safety</a><a href="#">Careers</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

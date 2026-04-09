@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdant — Farm-to-Table Fine Dining</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --forest:#1B3A2D;--forest-mid:#2A5240;--forest-light:#3D6B52;
+  --sage:#8FAF8A;--sage-light:#B8D4B0;--cream:#F7F3EC;--cream-mid:#EDE8DF;
+  --gold:#C9A84C;--white:#FFFFFF;--text:#1B2820;--text-soft:#4A5E52;--text-muted:#8A9E92;
+}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:all 0.4s}
+nav.scrolled{background:rgba(27,58,45,0.96);backdrop-filter:blur(20px)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:0.06em}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-reserve{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.nav-reserve:hover{background:var(--gold);color:var(--forest)}
+
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0D2018 0%,#1B3A2D 40%,#2A5240 100%)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,0.08) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:1}
+.hero-sub-label{font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.hero-h1{font-family:'Playfair Display',serif;font-size:88px;font-weight:400;line-height:1.0;color:var(--white);margin-bottom:8px}
+.hero-h1 em{font-style:italic;color:var(--sage-light)}
+.hero-tagline{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,0.5);margin-bottom:48px}
+.hero-btns{display:flex;gap:20px;justify-content:center}
+.btn-gold{background:var(--gold);color:var(--forest);padding:16px 40px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-gold:hover{background:#D4B460}
+.btn-outline-white{border:1px solid rgba(255,255,255,0.3);color:var(--white);padding:16px 40px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-outline-white:hover{border-color:var(--gold);color:var(--gold)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:0.1em;text-transform:uppercase}
+.scroll-line{width:1px;height:40px;background:linear-gradient(180deg,rgba(255,255,255,0.3),transparent);animation:scrollDown 2s infinite}
+@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.about-left{background:var(--forest);padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+.about-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.about-h2{font-family:'Playfair Display',serif;font-size:48px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:24px}
+.about-h2 em{font-style:italic;color:var(--sage-light)}
+.about-p{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.6);margin-bottom:32px}
+.about-right{background:var(--forest-mid);display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
+.about-right::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.06),transparent)}
+
+.menu-section{padding:80px 60px;max-width:1200px;margin:0 auto}
+.menu-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:16px}
+.menu-title{font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:var(--text);text-align:center;margin-bottom:12px}
+.menu-title em{font-style:italic;color:var(--forest)}
+.menu-subtitle{font-size:15px;color:var(--text-muted);text-align:center;margin-bottom:56px;font-style:italic;font-family:'Playfair Display',serif}
+.menu-tabs{display:flex;justify-content:center;gap:0;margin-bottom:48px;border-bottom:1px solid var(--cream-mid)}
+.menu-tab{padding:12px 32px;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s}
+.menu-tab.active{color:var(--forest);border-bottom-color:var(--gold)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.menu-item{padding:28px 32px;border-bottom:1px solid var(--cream-mid);display:flex;justify-content:space-between;align-items:start;gap:24px;transition:background 0.2s}
+.menu-item:hover{background:rgba(27,58,45,0.03)}
+.menu-item:nth-child(odd){border-right:1px solid var(--cream-mid)}
+.menu-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px}
+.menu-desc{font-size:13px;color:var(--text-soft);line-height:1.6;font-style:italic}
+.menu-price{font-size:18px;font-weight:300;color:var(--gold);white-space:nowrap;font-family:'Playfair Display',serif}
+.menu-tag{display:inline-block;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);border:1px solid var(--sage-light);padding:2px 8px;margin-top:8px}
+
+.reserve{background:var(--forest);padding:80px 60px}
+.reserve-inner{max-width:800px;margin:0 auto;text-align:center}
+.reserve-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.reserve-h2{font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:var(--white);margin-bottom:16px}
+.reserve-h2 em{font-style:italic;color:var(--sage-light)}
+.reserve-p{font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:48px;font-style:italic;font-family:'Playfair Display',serif}
+.reserve-form{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.reserve-form-full{grid-column:1/-1}
+.rf{display:flex;flex-direction:column;gap:8px}
+.rf label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-align:left}
+.rf input,.rf select{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:14px 16px;color:var(--white);font-family:'Jost',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+.rf input:focus,.rf select:focus{border-color:var(--gold)}
+.rf select option{background:var(--forest)}
+.reserve-submit{background:var(--gold);color:var(--forest);padding:16px 56px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;width:100%}
+.reserve-submit:hover{background:#D4B460}
+
+footer{background:#0D1F18;padding:48px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white)}
+.footer-info{font-size:13px;color:rgba(255,255,255,0.35);text-align:center;line-height:2}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .nav-links{display:none}
+  .hero-h1{font-size:52px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .about{grid-template-columns:1fr}
+  .about-left{padding:60px 24px}
+  .about-right{min-height:300px}
+  .menu-section{padding:60px 24px}
+  .menu-title{font-size:36px}
+  .menu-grid{grid-template-columns:1fr}
+  .menu-item:nth-child(odd){border-right:none}
+  .reserve{padding:60px 24px}
+  .reserve-h2{font-size:36px}
+  .reserve-form{grid-template-columns:1fr}
+  footer{padding:40px 24px;flex-direction:column;gap:20px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">VERDANT</div>
+  <ul class="nav-links">
+    <li><a href="#">Story</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Wine</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Press</a></li>
+  </ul>
+  <a href="#reserve" class="nav-reserve">Reserve a Table</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-sub-label">Farm-to-Table · Austin, Texas</div>
+    <h1 class="hero-h1">Where the <em>Land</em><br>Meets the Table.</h1>
+    <div class="hero-tagline">Seasonal. Intentional. Unforgettable.</div>
+    <div class="hero-btns">
+      <a href="#reserve" class="btn-gold">Reserve Your Evening</a>
+      <a href="#menu" class="btn-outline-white">View Tonight's Menu</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><div class="scroll-line"></div></div>
+</section>
+
+<section class="about">
+  <div class="about-left reveal">
+    <div class="about-eyebrow">Our Philosophy</div>
+    <h2 class="about-h2">Food rooted in <em>place</em> and season.</h2>
+    <p class="about-p">Verdant was born from a simple belief: the finest ingredients need nothing more than restraint and respect. Our kitchen works with 14 local farms within 150 miles of Austin — harvesting daily, writing menus that follow the land's calendar, not ours.</p>
+    <p class="about-p">Executive Chef Isabelle Moreau brings 18 years of classical French training to a wholly Texan table. Every plate is an edit, not an addition.</p>
+    <a href="#" class="btn-gold" style="align-self:flex-start">Meet Chef Moreau</a>
+  </div>
+  <div class="about-right">🌿</div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="menu-eyebrow">Seasonal Menu</div>
+  <h2 class="menu-title">Spring <em>Harvest</em></h2>
+  <div class="menu-subtitle">"The menu changes as the fields do."</div>
+  <div class="menu-tabs">
+    <div class="menu-tab active">Starters</div>
+    <div class="menu-tab">Mains</div>
+    <div class="menu-tab">Desserts</div>
+    <div class="menu-tab">Wine Pairings</div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item reveal">
+      <div><div class="menu-name">Heirloom Tomato Crudo</div><div class="menu-desc">Burrata, basil oil, pink salt, grilled sourdough</div><div class="menu-tag">Vegetarian</div></div>
+      <div class="menu-price">$18</div>
+    </div>
+    <div class="menu-item reveal">
+      <div><div class="menu-name">Duck Confit Tostada</div><div class="menu-desc">Pickled jalapeño, avocado mousse, micro cilantro</div><div class="menu-tag">Chef's Pick</div></div>
+      <div class="menu-price">$24</div>
+    </div>
+    <div class="menu-item reveal">
+      <div><div class="menu-name">Smoked Bone Marrow</div><div class="menu-desc">Chimichurri, capers, brioche toast points</div></div>
+      <div class="menu-price">$22</div>
+    </div>
+    <div class="menu-item reveal">
+      <div><div class="menu-name">Roasted Beet Salad</div><div class="menu-desc">Whipped goat cheese, candied walnuts, sherry vinaigrette</div><div class="menu-tag">Vegan</div></div>
+      <div class="menu-price">$16</div>
+    </div>
+    <div class="menu-item reveal">
+      <div><div class="menu-name">Gulf Oysters</div><div class="menu-desc">Half dozen, mignonette, lemon, horseradish</div><div class="menu-tag">Seasonal</div></div>
+      <div class="menu-price">$28</div>
+    </div>
+    <div class="menu-item reveal">
+      <div><div class="menu-name">Foie Gras Torchon</div><div class="menu-desc">Fig compote, brioche, Sauternes gelée</div><div class="menu-tag">Signature</div></div>
+      <div class="menu-price">$34</div>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="reserve-inner">
+    <div class="reserve-eyebrow">Reservations</div>
+    <h2 class="reserve-h2">Join Us for an <em>Evening</em></h2>
+    <p class="reserve-p">"A table at Verdant is more than a meal — it's an evening designed from first arrival to final course."</p>
+    <form onsubmit="return false">
+      <div class="reserve-form">
+        <div class="rf"><label>Date</label><input type="date"></div>
+        <div class="rf"><label>Time</label>
+          <select>
+            <option>5:30 PM</option><option>6:00 PM</option><option>6:30 PM</option>
+            <option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option>
+            <option>8:30 PM</option><option>9:00 PM</option>
+          </select>
+        </div>
+        <div class="rf"><label>Guests</label>
+          <select>
+            <option>1 Guest</option><option>2 Guests</option><option>3 Guests</option>
+            <option>4 Guests</option><option>5 Guests</option><option>6+ Guests</option>
+          </select>
+        </div>
+        <div class="rf"><label>First Name</label><input type="text" placeholder="Isabelle"></div>
+        <div class="rf"><label>Last Name</label><input type="text" placeholder="Moreau"></div>
+        <div class="rf"><label>Phone</label><input type="tel" placeholder="(512) 555-0100"></div>
+        <div class="rf reserve-form-full"><label>Special Requests / Dietary Needs</label><input type="text" placeholder="Allergies, anniversaries, dietary restrictions..."></div>
+      </div>
+      <button class="reserve-submit">Confirm Reservation</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">VERDANT</div>
+  <div class="footer-info">1405 South Congress Ave · Austin, TX 78704<br>Dinner: Tuesday – Sunday · 5:30 PM – 10:30 PM<br>(512) 555-0180 · hello@verdantaustin.com</div>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">OpenTable</a>
+    <a href="#">Press</a>
+    <a href="#">Gift Cards</a>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+});
+document.querySelectorAll('.menu-tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.menu-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+  });
+});
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

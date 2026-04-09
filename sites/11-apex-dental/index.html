@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Dental — Austin's Premier Dental Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0B7A75;--teal-mid:#0E9490;--teal-light:#3BBFBA;--teal-pale:#E6F7F7;
+  --sky:#EBF8FF;--white:#FFFFFF;--off-white:#F8FFFE;
+  --text:#0D2B2A;--text-soft:#2D5F5E;--text-muted:#7AADAB;
+  --accent:#FF6B35;
+}
+body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(11,122,117,0.08)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px}
+.nav-logo-text{font-size:20px;font-weight:700;color:var(--text)}
+.nav-logo-text span{color:var(--teal)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--text-soft);transition:color 0.2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-phone{font-size:14px;font-weight:600;color:var(--text-soft);text-decoration:none;transition:color 0.2s}
+.nav-phone:hover{color:var(--teal)}
+.nav-book{background:var(--teal);color:white;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s}
+.nav-book:hover{background:var(--teal-mid)}
+
+.hero{min-height:100vh;padding-top:72px;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.hero-left{padding:80px 60px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal-pale);color:var(--teal);padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:28px}
+.badge-star{color:#FFBA08}
+.hero-h1{font-size:58px;font-weight:800;line-height:1.1;color:var(--text);margin-bottom:24px;letter-spacing:-0.02em}
+.hero-h1 span{color:var(--teal)}
+.hero-sub{font-size:17px;line-height:1.8;color:var(--text-soft);max-width:480px;margin-bottom:40px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-teal{background:var(--teal);color:white;padding:16px 36px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s}
+.btn-teal:hover{background:var(--teal-mid);transform:translateY(-1px)}
+.btn-outline-t{border:2px solid var(--teal);color:var(--teal);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s}
+.btn-outline-t:hover{background:var(--teal-pale)}
+.hero-proof{display:flex;gap:32px}
+.proof-num{font-size:28px;font-weight:800;color:var(--teal)}
+.proof-label{font-size:12px;font-weight:500;color:var(--text-muted);margin-top:2px}
+.hero-right{background:var(--teal-pale);display:flex;align-items:center;justify-content:center;min-height:600px;font-size:120px;position:relative}
+
+.insurance-bar{background:var(--teal);padding:20px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ins-label{font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+.ins-list{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.ins-item{font-size:14px;font-weight:700;color:rgba(255,255,255,0.6)}
+.ins-cta{background:white;color:var(--teal);padding:10px 24px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.ins-cta:hover{background:var(--teal-pale)}
+
+.services{padding:80px 60px;max-width:1200px;margin:0 auto}
+.sec-eyebrow{font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.sec-h2{font-size:46px;font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-0.02em}
+.sec-h2 span{color:var(--teal)}
+.sec-sub{font-size:16px;color:var(--text-soft);margin-bottom:48px;max-width:560px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:var(--off-white);border:1px solid rgba(11,122,117,0.08);border-radius:16px;padding:32px;transition:all 0.3s;cursor:pointer}
+.svc-card:hover{border-color:var(--teal);box-shadow:0 12px 32px rgba(11,122,117,0.12);transform:translateY(-3px)}
+.svc-icon{width:56px;height:56px;background:var(--teal-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.svc-name{font-size:19px;font-weight:700;color:var(--text);margin-bottom:10px}
+.svc-desc{font-size:14px;line-height:1.7;color:var(--text-soft);margin-bottom:16px}
+.svc-from{font-size:13px;font-weight:600;color:var(--teal)}
+
+.team{background:var(--teal-pale);padding:80px 60px}
+.team-inner{max-width:1200px;margin:0 auto}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.doc-card{background:var(--white);border-radius:20px;overflow:hidden;transition:all 0.3s}
+.doc-card:hover{box-shadow:0 20px 48px rgba(11,122,117,0.12);transform:translateY(-4px)}
+.doc-img{height:240px;background:linear-gradient(135deg,var(--teal-pale),var(--sky));display:flex;align-items:center;justify-content:center;font-size:72px;position:relative}
+.doc-accepting{position:absolute;bottom:12px;right:12px;background:rgba(11,122,117,0.9);color:white;font-size:10px;font-weight:700;letter-spacing:0.1em;padding:5px 12px;border-radius:100px}
+.doc-body{padding:24px}
+.doc-name{font-size:21px;font-weight:700;color:var(--text);margin-bottom:4px}
+.doc-title{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.doc-bio{font-size:13px;line-height:1.7;color:var(--text-soft);margin-bottom:16px}
+.doc-creds{display:flex;gap:6px;flex-wrap:wrap}
+.cred-tag{font-size:10px;font-weight:700;background:var(--teal-pale);color:var(--teal);padding:4px 10px;border-radius:100px}
+
+.reviews{padding:80px 60px;max-width:1200px;margin:0 auto}
+.reviews-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.reviews-score{text-align:right}
+.score-num{font-size:64px;font-weight:800;color:var(--teal);line-height:1}
+.score-stars{font-size:24px;color:#FFBA08}
+.score-count{font-size:13px;color:var(--text-muted);margin-top:4px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:var(--off-white);border:1px solid rgba(11,122,117,0.08);border-radius:16px;padding:28px}
+.review-stars{font-size:16px;color:#FFBA08;margin-bottom:12px}
+.review-text{font-size:14px;line-height:1.7;color:var(--text-soft);margin-bottom:16px;font-style:italic}
+.review-author{font-size:13px;font-weight:700;color:var(--text)}
+.review-source{font-size:11px;color:var(--text-muted)}
+
+.booking-cta{background:var(--teal);padding:80px 60px;text-align:center}
+.booking-cta h2{font-size:52px;font-weight:800;color:white;margin-bottom:16px;letter-spacing:-0.02em}
+.booking-cta p{font-size:17px;color:rgba(255,255,255,0.75);margin-bottom:48px}
+.booking-form-inline{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;max-width:900px;margin:0 auto;align-items:end}
+.bfi{display:flex;flex-direction:column;gap:8px}
+.bfi label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-align:left}
+.bfi input,.bfi select{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:14px 16px;color:white;font-family:'Outfit',sans-serif;font-size:14px;outline:none;border-radius:8px;transition:border-color 0.2s;-webkit-appearance:none}
+.bfi input:focus,.bfi select:focus{border-color:rgba(255,255,255,0.6)}
+.bfi input::placeholder{color:rgba(255,255,255,0.45)}
+.bfi select option{background:var(--teal)}
+.bfi-btn{background:white;color:var(--teal);padding:14px 32px;border-radius:8px;font-size:14px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;margin-top:24px;transition:all 0.2s}
+.bfi-btn:hover{background:var(--teal-pale)}
+
+footer{background:var(--text);padding:48px 60px 24px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.ft-logo{font-size:22px;font-weight:800;color:white;margin-bottom:12px}
+.ft-logo span{color:var(--teal-light)}
+.ft-info{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.9}
+.ft-col-title{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.ft-links a:hover{color:var(--teal-light)}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:60px 24px}
+  .hero-h1{font-size:40px}
+  .hero-right{min-height:280px}
+  .insurance-bar{padding:20px 24px;flex-direction:column;text-align:center}
+  .services{padding:60px 24px}
+  .services-grid{grid-template-columns:1fr}
+  .team{padding:60px 24px}
+  .team-grid{grid-template-columns:1fr}
+  .reviews{padding:60px 24px}
+  .reviews-grid{grid-template-columns:1fr}
+  .booking-cta{padding:60px 24px}
+  .booking-cta h2{font-size:36px}
+  .booking-form-inline{grid-template-columns:1fr}
+  footer{padding:48px 24px 24px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><div class="nav-logo-icon">🦷</div><div class="nav-logo-text">Apex<span>Dental</span></div></div>
+  <ul class="nav-links">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Our Doctors</a></li>
+    <li><a href="#">Cosmetic</a></li>
+    <li><a href="#">Implants</a></li>
+    <li><a href="#">Patient Info</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:5125550155" class="nav-phone">📞 (512) 555-0155</a>
+    <a href="#book" class="nav-book">Book Online</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge"><span class="badge-star">★★★★★</span> Austin's #1 Rated Dental Practice — 2,400+ Google Reviews</div>
+    <h1 class="hero-h1">The Smile You<br>Deserve Is <span>Closer</span><br>Than You Think.</h1>
+    <p class="hero-sub">Apex Dental combines cutting-edge technology with genuine, anxiety-free care. From routine cleanings to full-smile transformations — we make dentistry something you'll actually look forward to.</p>
+    <div class="hero-btns">
+      <a href="#book" class="btn-teal">Book an Appointment</a>
+      <a href="#services" class="btn-outline-t">Our Services</a>
+    </div>
+    <div class="hero-proof">
+      <div><div class="proof-num">4.97★</div><div class="proof-label">Average Rating</div></div>
+      <div><div class="proof-num">2,400+</div><div class="proof-label">Happy Patients</div></div>
+      <div><div class="proof-num">24hr</div><div class="proof-label">Emergency Availability</div></div>
+    </div>
+  </div>
+  <div class="hero-right">😁</div>
+</section>
+
+<div class="insurance-bar">
+  <div class="ins-label">Accepted Insurance</div>
+  <div class="ins-list">
+    <div class="ins-item">Delta Dental</div>
+    <div class="ins-item">Cigna</div>
+    <div class="ins-item">Aetna</div>
+    <div class="ins-item">MetLife</div>
+    <div class="ins-item">Humana</div>
+    <div class="ins-item">United Concordia</div>
+    <div class="ins-item">BlueCross BlueShield</div>
+  </div>
+  <a href="#" class="ins-cta">Verify My Insurance →</a>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-eyebrow">What We Offer</div>
+  <h2 class="sec-h2">Comprehensive <span>Care</span></h2>
+  <p class="sec-sub">Everything from your bi-annual cleaning to a complete smile makeover — all in one convenient Austin location.</p>
+  <div class="services-grid">
+    <div class="svc-card reveal"><div class="svc-icon">🦷</div><div class="svc-name">General Dentistry</div><div class="svc-desc">Cleanings, exams, X-rays, fillings, crowns, and preventive care for the whole family. Ages 3+.</div><div class="svc-from">From $0 with insurance</div></div>
+    <div class="svc-card reveal"><div class="svc-icon">✨</div><div class="svc-name">Teeth Whitening</div><div class="svc-desc">In-office Zoom whitening (up to 8 shades lighter in 60 min) and custom take-home tray systems.</div><div class="svc-from">From $299</div></div>
+    <div class="svc-card reveal"><div class="svc-icon">😄</div><div class="svc-name">Veneers</div><div class="svc-desc">Porcelain veneers for chips, gaps, discoloration, and reshaping. Stain-resistant and natural-looking.</div><div class="svc-from">From $1,200/tooth</div></div>
+    <div class="svc-card reveal"><div class="svc-icon">🔩</div><div class="svc-name">Dental Implants</div><div class="svc-desc">Titanium implants with ceramic crowns. The gold standard for replacing missing teeth — looks, feels, and functions like natural.</div><div class="svc-from">From $3,500 complete</div></div>
+    <div class="svc-card reveal"><div class="svc-icon">😬</div><div class="svc-name">Invisalign</div><div class="svc-desc">Certified Invisalign provider. Clear aligners for teens and adults. Most cases 12–18 months.</div><div class="svc-from">From $3,200 complete</div></div>
+    <div class="svc-card reveal"><div class="svc-icon">🚨</div><div class="svc-name">Emergency Dentistry</div><div class="svc-desc">Same-day emergency appointments available for broken teeth, severe pain, lost crowns, and dental trauma.</div><div class="svc-from">Same-day scheduling</div></div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="team-inner">
+    <div class="sec-eyebrow">Our Dentists</div>
+    <h2 class="sec-h2">Meet Your <span>Doctors</span></h2>
+    <div class="team-grid">
+      <div class="doc-card reveal"><div class="doc-img">👨‍⚕️<div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. James Park, DDS</div><div class="doc-title">Founder · General & Cosmetic</div><div class="doc-bio">UT Dental School '04. 20 years crafting exceptional smiles in Austin. Known for a calm chairside manner and artistic cosmetic work.</div><div class="doc-creds"><span class="cred-tag">DDS</span><span class="cred-tag">Invisalign Diamond</span><span class="cred-tag">AACD</span></div></div></div>
+      <div class="doc-card reveal"><div class="doc-img">👩‍⚕️<div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. Priya Sharma, DMD</div><div class="doc-title">Implant & Oral Surgery Specialist</div><div class="doc-bio">Tufts Dental '12. Fellowship-trained implantologist. Placed 1,200+ implants. Offers IV sedation for complex procedures.</div><div class="doc-creds"><span class="cred-tag">DMD</span><span class="cred-tag">Implant Cert.</span><span class="cred-tag">IV Sedation</span></div></div></div>
+      <div class="doc-card reveal"><div class="doc-img">👨‍⚕️<div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. Ethan Cole, DDS</div><div class="doc-title">Orthodontics & Pediatric Care</div><div class="doc-bio">NYU Dental '15, Ortho residency '17. Transforms smiles with Invisalign and braces. Beloved by kids and anxious patients alike.</div><div class="doc-creds"><span class="cred-tag">DDS</span><span class="cred-tag">Orthodontics</span><span class="cred-tag">Pediatric Cert.</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="reviews-header">
+    <div><div class="sec-eyebrow">Patient Reviews</div><h2 class="sec-h2" style="margin-bottom:0">What Patients <span>Say</span></h2></div>
+    <div class="reviews-score"><div class="score-num">4.97</div><div class="score-stars">★★★★★</div><div class="score-count">Based on 2,412 Google reviews</div></div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal"><div class="review-stars">★★★★★</div><div class="review-text">"I was terrified of dentists for 15 years. Dr. Park changed everything. I've now had 4 appointments and I actually don't dread them. The team is warm, efficient, and genuinely kind."</div><div class="review-author">Sarah M.</div><div class="review-source">Google Review · Verified Patient</div></div>
+    <div class="review-card reveal"><div class="review-stars">★★★★★</div><div class="review-text">"Had my implant done by Dr. Sharma. She walked me through every step, the procedure was painless, and my crown looks completely natural. Could not be more impressed."</div><div class="review-author">Thomas R.</div><div class="review-source">Google Review · Verified Patient</div></div>
+    <div class="review-card reveal"><div class="review-stars">★★★★★</div><div class="review-text">"Got Invisalign with Dr. Cole — 14 months and my teeth look incredible. The whole process was smooth, they were proactive about every check-in, and the result exceeded my expectations."</div><div class="review-author">Jessica L.</div><div class="review-source">Google Review · Verified Patient</div></div>
+  </div>
+</section>
+
+<section class="booking-cta" id="book">
+  <h2>Ready for a Better Smile?</h2>
+  <p>Book online in 60 seconds. Most appointments available within 5 business days.</p>
+  <form onsubmit="return false">
+    <div class="booking-form-inline">
+      <div class="bfi"><label>Your Name</label><input type="text" placeholder="First & Last"></div>
+      <div class="bfi"><label>Phone or Email</label><input type="text" placeholder="(512) 555-0100"></div>
+      <div class="bfi"><label>Service Needed</label><select><option>New Patient Exam</option><option>Cleaning</option><option>Teeth Whitening</option><option>Veneers</option><option>Implants</option><option>Invisalign</option><option>Emergency</option></select></div>
+      <button class="bfi-btn" type="submit">Book Now →</button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="ft-logo">Apex<span>Dental</span></div><div class="ft-info">4500 Bee Cave Rd Suite 110<br>Austin, TX 78746<br>(512) 555-0155<br>Mon–Fri 8am–5pm · Sat 9am–2pm</div></div>
+    <div><div class="ft-col-title">Services</div><ul class="ft-links"><li><a href="#">General Dentistry</a></li><li><a href="#">Cosmetic</a></li><li><a href="#">Implants</a></li><li><a href="#">Invisalign</a></li></ul></div>
+    <div><div class="ft-col-title">Patient Info</div><ul class="ft-links"><li><a href="#">New Patients</a></li><li><a href="#">Insurance</a></li><li><a href="#">Financing</a></li><li><a href="#">Patient Forms</a></li></ul></div>
+    <div><div class="ft-col-title">Connect</div><ul class="ft-links"><li><a href="#">Reviews</a></li><li><a href="#">Referrals</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Apex Dental Group · Austin, TX · Texas Licensed Dental Practice</div>
+    <div class="footer-copy">Privacy · HIPAA · Accessibility</div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

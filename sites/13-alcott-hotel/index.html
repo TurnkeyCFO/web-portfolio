@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Alcott — A Boutique Austin Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,700;1,6..96,300;1,6..96,400&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0908;--dark:#141210;--card:#1C1A18;
+  --sand:#C8B89A;--sand-light:#DDD0BC;--sand-pale:#F5EFE6;
+  --cream:#FAF7F2;--white:#FFFFFF;
+  --text:#1C1A18;--text-soft:#4A4540;--text-muted:#9A908A;
+}
+body{font-family:'Mulish',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s}
+nav.dark{background:rgba(10,9,8,0.97);backdrop-filter:blur(20px)}
+.nav-logo{font-family:'Bodoni Moda',serif;font-size:22px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--white)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);transition:color 0.2s}
+.nav-links a:hover{color:var(--sand)}
+.nav-book{border:1px solid var(--sand);color:var(--sand);padding:11px 28px;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.nav-book:hover{background:var(--sand);color:var(--dark)}
+
+.hero{min-height:100vh;background:var(--black);display:flex;align-items:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0D0B09 0%,#1A1610 50%,#0A0908 100%)}
+.hero-text-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bodoni Moda',serif;font-size:280px;font-weight:300;color:rgba(200,184,154,0.04);letter-spacing:0.15em;pointer-events:none;text-transform:uppercase}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--sand);margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--sand)}
+.hero-h1{font-family:'Bodoni Moda',serif;font-size:88px;font-weight:300;line-height:1.0;color:var(--white);margin-bottom:28px;letter-spacing:0.02em}
+.hero-h1 em{font-style:italic;color:var(--sand-light)}
+.hero-sub{font-size:16px;line-height:1.9;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:48px}
+.hero-btns{display:flex;gap:20px;align-items:center}
+.btn-sand{background:var(--sand);color:var(--dark);padding:16px 40px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-sand:hover{background:var(--sand-light)}
+.btn-outline-s{border:1px solid rgba(200,184,154,0.4);color:rgba(255,255,255,0.7);padding:16px 36px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-outline-s:hover{border-color:var(--sand);color:var(--sand)}
+.hero-awards{position:absolute;top:120px;right:60px;display:flex;flex-direction:column;gap:12px;z-index:1}
+.award-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(200,184,154,0.15);padding:10px 16px}
+.award-icon{font-size:16px}
+.award-text{font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
+
+.booking-strip{background:var(--card);padding:32px 60px}
+.booking-form{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:16px;align-items:end}
+.bf{display:flex;flex-direction:column;gap:8px}
+.bf label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.bf input,.bf select{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:13px 16px;color:white;font-family:'Mulish',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+.bf input:focus,.bf select:focus{border-color:var(--sand)}
+.bf select option{background:#1C1A18}
+.bf-btn{background:var(--sand);color:var(--dark);padding:13px 32px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.bf-btn:hover{background:var(--sand-light)}
+
+.rooms{padding:80px 60px;max-width:1400px;margin:0 auto}
+.sec-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sand);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.sec-eyebrow::before{content:'';width:32px;height:1px;background:var(--sand)}
+.sec-h2{font-family:'Bodoni Moda',serif;font-size:52px;font-weight:300;color:var(--text);margin-bottom:48px;letter-spacing:0.02em}
+.sec-h2 em{font-style:italic;color:var(--text-soft)}
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.room-card{background:var(--card);overflow:hidden;cursor:pointer;transition:all 0.3s}
+.room-card:hover{transform:translateY(-4px)}
+.room-img{height:280px;background:linear-gradient(135deg,#1C1A18,#0A0908);display:flex;align-items:center;justify-content:center;font-size:72px;position:relative}
+.room-badge{position:absolute;top:16px;left:0;background:var(--sand);color:var(--dark);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px}
+.room-body{padding:28px 24px}
+.room-name{font-family:'Bodoni Moda',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:8px}
+.room-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.45);margin-bottom:20px}
+.room-footer{display:flex;justify-content:space-between;align-items:center}
+.room-price{font-size:16px;font-weight:300;color:var(--sand)}
+.room-price span{font-size:12px;color:rgba(255,255,255,0.35)}
+.room-details{display:flex;gap:12px}
+.room-detail{font-size:11px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:4px}
+
+.experience{background:var(--dark);padding:80px 60px}
+.experience-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.exp-left{font-size:100px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.02);min-height:400px}
+.exp-right .sec-eyebrow{color:var(--sand)}
+.exp-right h2{font-family:'Bodoni Moda',serif;font-size:48px;font-weight:300;color:var(--white);margin-bottom:24px}
+.exp-right h2 em{font-style:italic;color:var(--sand-light)}
+.exp-right p{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:32px}
+.exp-amenities{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.amenity{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.55);padding:12px;background:rgba(255,255,255,0.03)}
+.amenity-icon{font-size:18px}
+
+.dining{padding:80px 60px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.dining-right .sec-eyebrow{color:var(--sand)}
+.dining-right h2{font-family:'Bodoni Moda',serif;font-size:48px;font-weight:300;color:var(--text);margin-bottom:24px}
+.dining-right h2 em{font-style:italic}
+.dining-right p{font-size:15px;line-height:1.9;color:var(--text-soft);margin-bottom:32px}
+.dining-left{background:var(--sand-pale);min-height:400px;display:flex;align-items:center;justify-content:center;font-size:100px}
+
+.testimonials{background:var(--black);padding:80px 60px}
+.test-inner{max-width:1200px;margin:0 auto;text-align:center}
+.test-inner h2{font-family:'Bodoni Moda',serif;font-size:52px;font-weight:300;color:var(--white);margin-bottom:56px}
+.test-inner h2 em{font-style:italic;color:var(--sand-light)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.test-card{background:var(--card);padding:40px 32px;text-align:left}
+.test-stars{font-size:14px;color:var(--sand);margin-bottom:20px}
+.test-quote{font-family:'Bodoni Moda',serif;font-size:17px;font-style:italic;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.75);margin-bottom:24px}
+.test-author{font-size:13px;font-weight:600;color:var(--sand);letter-spacing:0.06em}
+.test-via{font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px}
+
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);padding:48px 60px 24px}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.footer-hotel-name{font-family:'Bodoni Moda',serif;font-size:20px;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.footer-hotel-info{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9}
+.fc-title{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sand);margin-bottom:16px}
+.fc-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fc-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s}
+.fc-links a:hover{color:var(--sand)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .nav-links{display:none}
+  .hero{padding:0 24px 60px}
+  .hero-h1{font-size:52px}
+  .hero-awards{display:none}
+  .booking-strip{padding:32px 24px}
+  .booking-form{grid-template-columns:1fr}
+  .rooms{padding:60px 24px}
+  .rooms-grid{grid-template-columns:1fr}
+  .experience{padding:60px 24px}
+  .experience-inner{grid-template-columns:1fr}
+  .dining{padding:60px 24px;grid-template-columns:1fr}
+  .testimonials{padding:60px 24px}
+  .test-grid{grid-template-columns:1fr}
+  footer{padding:48px 24px 24px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav id="navbar" class="dark">
+  <div class="nav-logo">The Alcott</div>
+  <ul class="nav-links">
+    <li><a href="#">Rooms & Suites</a></li>
+    <li><a href="#">Dining</a></li>
+    <li><a href="#">Experiences</a></li>
+    <li><a href="#">Wellness</a></li>
+    <li><a href="#">Events</a></li>
+  </ul>
+  <a href="#book" class="nav-book">Book a Stay</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-text-bg">Alcott</div>
+  <div class="hero-awards">
+    <div class="award-pill"><div class="award-icon">🏆</div><div class="award-text">Condé Nast Gold List 2025</div></div>
+    <div class="award-pill"><div class="award-icon">⭐</div><div class="award-text">Travel + Leisure Top 100</div></div>
+    <div class="award-pill"><div class="award-icon">🌟</div><div class="award-text">Forbes Five Stars</div></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Downtown Austin · Established 2018</div>
+    <h1 class="hero-h1">Where <em>Stillness</em><br>Finds You.</h1>
+    <p class="hero-sub">Forty-two rooms. A rooftop bar that disappears into the skyline. A restaurant that changes Austin's mind about hotel dining. The Alcott is not for everyone — and that's the point.</p>
+    <div class="hero-btns">
+      <a href="#book" class="btn-sand">Check Availability</a>
+      <a href="#rooms" class="btn-outline-s">View Rooms</a>
+    </div>
+  </div>
+</section>
+
+<div class="booking-strip" id="book">
+  <form onsubmit="return false">
+    <div class="booking-form">
+      <div class="bf"><label>Check In</label><input type="date"></div>
+      <div class="bf"><label>Check Out</label><input type="date"></div>
+      <div class="bf"><label>Guests</label><select><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
+      <div class="bf"><label>Room Type</label><select><option>Any Available</option><option>Classic Room</option><option>Deluxe Room</option><option>Junior Suite</option><option>The Alcott Suite</option></select></div>
+      <button class="bf-btn" type="submit">Check Rates →</button>
+    </div>
+  </form>
+</div>
+
+<section class="rooms" id="rooms">
+  <div class="sec-eyebrow">Accommodations</div>
+  <h2 class="sec-h2">Rooms &amp; <em>Suites</em></h2>
+  <div class="rooms-grid">
+    <div class="room-card reveal"><div class="room-img">🛏️<div class="room-badge">Most Booked</div></div><div class="room-body"><div class="room-name">Deluxe King</div><div class="room-desc">485 sq ft of curated comfort. Oak floors, Duxiana bed, Malin+Goetz bath program, and downtown views from floor-to-ceiling windows.</div><div class="room-footer"><div class="room-price">From $395 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 2</span><span class="room-detail">📐 485sf</span></div></div></div></div>
+    <div class="room-card reveal"><div class="room-img">🌆</div><div class="room-body"><div class="room-name">Skyline Suite</div><div class="room-desc">900 sq ft, dual-exposure corner suite with living room, soaking tub, private balcony, and panoramic Capitol and skyline views.</div><div class="room-footer"><div class="room-price">From $695 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 2</span><span class="room-detail">📐 900sf</span></div></div></div></div>
+    <div class="room-card reveal"><div class="room-img">🌟<div class="room-badge">Signature</div></div><div class="room-body"><div class="room-name">The Alcott Suite</div><div class="room-desc">The hotel's crown. 1,400 sq ft penthouse suite with private rooftop terrace, dining room, dedicated butler, and twice-daily housekeeping.</div><div class="room-footer"><div class="room-price">From $1,200 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 4</span><span class="room-detail">📐 1,400sf</span></div></div></div></div>
+  </div>
+</section>
+
+<section class="experience">
+  <div class="experience-inner">
+    <div class="exp-left reveal">🍸</div>
+    <div class="exp-right reveal">
+      <div class="sec-eyebrow">Hotel Amenities</div>
+      <h2>Everything You<br><em>Didn't Ask For</em></h2>
+      <p>We thought carefully about what belongs in a truly excellent hotel experience — and what doesn't. The result is a property that feels effortless, because nothing here is accidental.</p>
+      <div class="exp-amenities">
+        <div class="amenity"><div class="amenity-icon">🍸</div>Rooftop Bar & Lounge</div>
+        <div class="amenity"><div class="amenity-icon">🍽️</div>Restaurant Maison</div>
+        <div class="amenity"><div class="amenity-icon">🧖</div>Alcott Wellness Spa</div>
+        <div class="amenity"><div class="amenity-icon">🏋️</div>24hr Fitness Studio</div>
+        <div class="amenity"><div class="amenity-icon">🅿️</div>Valet Parking</div>
+        <div class="amenity"><div class="amenity-icon">🐾</div>Pet Friendly</div>
+        <div class="amenity"><div class="amenity-icon">☕</div>In-Room Nespresso</div>
+        <div class="amenity"><div class="amenity-icon">📶</div>1Gbps WiFi</div>
+        <div class="amenity"><div class="amenity-icon">🚗</div>Tesla House Cars</div>
+        <div class="amenity"><div class="amenity-icon">🌿</div>Turndown Service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dining">
+  <div class="dining-left reveal">🍽️</div>
+  <div class="dining-right reveal">
+    <div class="sec-eyebrow">Dining</div>
+    <h2>Restaurant <em>Maison</em></h2>
+    <p>Chef Lara Voss brings her Paris and Copenhagen training to an entirely local table. Maison is open to hotel guests and the public — reservations are essential and often booked weeks in advance.</p>
+    <p>The rooftop bar, Alcott Heights, is Austin's worst-kept secret: 360° views, an 80-bottle natural wine list, and zero attitude.</p>
+    <a href="#" class="btn-sand" style="display:inline-block">Reserve at Maison →</a>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="test-inner">
+    <h2>What Guests <em>Say</em></h2>
+    <div class="test-grid">
+      <div class="test-card reveal"><div class="test-stars">★ ★ ★ ★ ★</div><div class="test-quote">"The Alcott ruined all other hotels for me. Everything — the bed, the silence, the staff who remembered my name from a year ago — was executed with such quiet perfection."</div><div class="test-author">— R. Hargrove</div><div class="test-via">Google · Verified Stay</div></div>
+      <div class="test-card reveal"><div class="test-stars">★ ★ ★ ★ ★</div><div class="test-quote">"We've stayed at The Peninsula, Aman, and Rosewood. The Alcott belongs in that conversation. It's a third of the price and somehow more personal than all of them."</div><div class="test-author">— S. & J. Chen</div><div class="test-via">TripAdvisor · Verified Stay</div></div>
+      <div class="test-card reveal"><div class="test-stars">★ ★ ★ ★ ★</div><div class="test-quote">"Restaurant Maison alone is worth the trip to Austin. The wine program is extraordinary, and Chef Voss's tasting menu is the best meal I've had in Texas. Full stop."</div><div class="test-author">— Marcus T.</div><div class="test-via">OpenTable · Verified Guest</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-hotel-name">The Alcott</div><div class="footer-hotel-info">200 West Avenue · Austin, TX 78701<br>Reservations: (512) 555-0199<br>concierge@thealcott.com</div></div>
+    <div><div class="fc-title">Hotel</div><ul class="fc-links"><li><a href="#">Rooms & Suites</a></li><li><a href="#">Dining</a></li><li><a href="#">Wellness</a></li><li><a href="#">Rooftop Bar</a></li></ul></div>
+    <div><div class="fc-title">Experiences</div><ul class="fc-links"><li><a href="#">Weddings</a></li><li><a href="#">Events</a></li><li><a href="#">City Guides</a></li><li><a href="#">Gift Cards</a></li></ul></div>
+    <div><div class="fc-title">Information</div><ul class="fc-links"><li><a href="#">About</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li><li><a href="#">Policies</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 The Alcott Hotel · Austin, Texas · All rights reserved.</div>
+    <div class="footer-copy">Privacy · Terms · Accessibility</div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

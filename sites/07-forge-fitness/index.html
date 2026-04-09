@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGE — Elite Performance Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--dark:#111111;--dark-mid:#1A1A1A;--dark-card:#222222;
+  --red:#E53935;--red-light:#EF5350;--red-dark:#C62828;
+  --white:#FFFFFF;--silver:#B0BEC5;--dim:rgba(255,255,255,0.55);--muted:rgba(255,255,255,0.3);
+}
+body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.12em;color:var(--white)}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);transition:color 0.2s}
+.nav-links a:hover{color:var(--red)}
+.nav-join{background:var(--red);color:var(--white);padding:11px 28px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;clip-path:polygon(8px 0%,100% 0%,100% calc(100% - 8px),calc(100% - 8px) 100%,0% 100%,0% 8px);transition:background 0.2s}
+.nav-join:hover{background:var(--red-light)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1A0000 0%,#0A0A0A 40%,#1A0000 100%)}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(229,57,53,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(229,57,53,0.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-num{position:absolute;right:60px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:320px;color:rgba(229,57,53,0.04);line-height:1;letter-spacing:-0.02em;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.hero-tag{font-size:12px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:120px;line-height:0.95;letter-spacing:0.02em;margin-bottom:32px}
+.hero-h1 .accent{color:var(--red)}
+.hero-sub{font-size:17px;line-height:1.7;color:var(--dim);max-width:540px;margin-bottom:48px;font-weight:300}
+.hero-btns{display:flex;gap:16px;align-items:center;margin-bottom:60px}
+.btn-red{background:var(--red);color:var(--white);padding:18px 48px;font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px);transition:background 0.2s}
+.btn-red:hover{background:var(--red-light)}
+.btn-ghost-red{border:1px solid rgba(229,57,53,0.5);color:var(--dim);padding:18px 40px;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-ghost-red:hover{border-color:var(--red);color:var(--red)}
+.hero-proof{display:flex;gap:48px}
+.proof-item{display:flex;flex-direction:column;gap:4px}
+.proof-val{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--white);letter-spacing:0.04em;line-height:1}
+.proof-val span{color:var(--red)}
+.proof-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+
+.programs{padding:80px 60px;max-width:1200px;margin:0 auto}
+.sec-label{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.sec-h2{font-family:'Bebas Neue',sans-serif;font-size:72px;letter-spacing:0.04em;color:var(--white);margin-bottom:48px;line-height:1}
+.sec-h2 span{color:var(--red)}
+.programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+.program-card{background:var(--dark-mid);padding:40px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.3s}
+.program-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);transform:scaleY(0);transition:transform 0.3s}
+.program-card:hover{background:var(--dark-card)}
+.program-card:hover::before{transform:scaleY(1)}
+.program-icon{font-size:40px;margin-bottom:20px}
+.program-num{position:absolute;top:20px;right:24px;font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(255,255,255,0.04);letter-spacing:0.05em}
+.program-name{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.06em;color:var(--white);margin-bottom:12px}
+.program-desc{font-size:14px;line-height:1.7;color:var(--dim);margin-bottom:20px}
+.program-details{display:flex;gap:24px}
+.detail{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--red)}
+
+.trainers{background:var(--dark-mid);padding:80px 60px}
+.trainers-inner{max-width:1200px;margin:0 auto}
+.trainers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:48px}
+.trainer-card{background:var(--dark-card);overflow:hidden;transition:all 0.3s;cursor:pointer}
+.trainer-card:hover{transform:translateY(-4px)}
+.trainer-img{height:260px;background:linear-gradient(135deg,var(--dark),var(--red-dark));display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.trainer-spec{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(229,57,53,0.9) 0%,transparent 100%);padding:20px 16px 12px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;color:white}
+.trainer-body{padding:20px}
+.trainer-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--white);margin-bottom:4px}
+.trainer-creds{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.trainer-bio{font-size:13px;line-height:1.6;color:var(--dim)}
+
+.membership{padding:80px 60px;max-width:1200px;margin:0 auto}
+.membership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:48px}
+.mem-card{background:var(--dark-mid);padding:40px;position:relative;transition:all 0.3s}
+.mem-card.featured{background:var(--red-dark);border:none}
+.mem-card.featured .mem-price,.mem-card.featured .mem-tier{color:var(--white)}
+.mem-card.featured .mem-feature{color:rgba(255,255,255,0.8)}
+.mem-badge{position:absolute;top:-1px;left:0;right:0;text-align:center;background:var(--red-light);color:white;font-size:10px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;padding:7px}
+.mem-tier{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px;margin-top:8px}
+.mem-price{font-family:'Bebas Neue',sans-serif;font-size:64px;color:var(--white);letter-spacing:-0.02em;line-height:1}
+.mem-price span{font-size:24px;color:var(--dim);font-family:'Barlow',sans-serif;font-weight:300}
+.mem-period{font-size:13px;color:var(--muted);margin-bottom:32px}
+.mem-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.mem-feature{font-size:14px;color:var(--dim);display:flex;align-items:center;gap:10px}
+.mem-feature::before{content:'→';color:var(--red);font-weight:700}
+.mem-cta{display:block;text-align:center;padding:16px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.mem-cta-outline{border:1px solid rgba(229,57,53,0.4);color:var(--white)}
+.mem-cta-outline:hover{border-color:var(--red);color:var(--red)}
+.mem-cta-white{background:white;color:var(--red-dark)}
+.mem-cta-white:hover{background:rgba(255,255,255,0.9)}
+
+.cta-strip{background:var(--red);padding:60px;text-align:center}
+.cta-strip h2{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--white);letter-spacing:0.04em;margin-bottom:12px}
+.cta-strip p{font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:36px}
+.cta-strip-form{display:flex;max-width:500px;margin:0 auto;gap:0}
+.cta-strip-input{flex:1;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.3);border-right:none;padding:16px 20px;color:white;font-family:'Barlow',sans-serif;font-size:14px;outline:none}
+.cta-strip-input::placeholder{color:rgba(255,255,255,0.5)}
+.cta-strip-btn{background:var(--black);color:white;padding:16px 32px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+.cta-strip-btn:hover{background:#1A1A1A}
+
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.12em;color:var(--white)}
+.footer-logo span{color:var(--red)}
+.footer-copy{font-size:12px;color:var(--muted)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+.footer-links a:hover{color:var(--red)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:0 24px 60px}
+  .hero-h1{font-size:72px}
+  .hero-num{display:none}
+  .hero-proof{flex-wrap:wrap;gap:24px}
+  .programs{padding:60px 24px}
+  .sec-h2{font-size:48px}
+  .programs-grid{grid-template-columns:1fr}
+  .trainers{padding:60px 24px}
+  .trainers-grid{grid-template-columns:repeat(2,1fr)}
+  .membership{padding:60px 24px}
+  .membership-grid{grid-template-columns:1fr}
+  .cta-strip{padding:60px 24px}
+  .cta-strip h2{font-size:52px}
+  .cta-strip-form{flex-direction:column}
+  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">FOR<span>GE</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Programs</a></li>
+    <li><a href="#">Trainers</a></li>
+    <li><a href="#">Membership</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">Nutrition</a></li>
+  </ul>
+  <a href="#membership" class="nav-join">Join Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-num">01</div>
+  <div class="hero-content">
+    <div class="hero-tag">Austin's #1 Elite Training Facility</div>
+    <h1 class="hero-h1">NO<br>LIMITS.<br><span class="accent">NO</span> EXCUSES.</h1>
+    <p class="hero-sub">Forge is built for athletes who demand more. World-class coaches, elite programming, and a community that pushes you past every limit you thought you had.</p>
+    <div class="hero-btns">
+      <a href="#membership" class="btn-red">Start Training Today</a>
+      <a href="#programs" class="btn-ghost-red">▶ Our Programs</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><div class="proof-val">2<span>,400</span></div><div class="proof-label">Active Members</div></div>
+      <div class="proof-item"><div class="proof-val">48<span>+</span></div><div class="proof-label">Weekly Classes</div></div>
+      <div class="proof-item"><div class="proof-val">14<span>+</span></div><div class="proof-label">Elite Coaches</div></div>
+      <div class="proof-item"><div class="proof-val">6<span>yrs</span></div><div class="proof-label">Ranked #1 Austin</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="sec-label">Training Programs</div>
+  <h2 class="sec-h2">TRAIN <span>HARDER.</span></h2>
+  <div class="programs-grid">
+    <div class="program-card reveal"><div class="program-icon">🏋️</div><div class="program-num">01</div><div class="program-name">STRENGTH & POWER</div><div class="program-desc">Periodized strength programming built around compound movements. Olympic lifting, powerlifting, and hypertrophy blocks. 12-week progressive cycles.</div><div class="program-details"><span class="detail">5x/week</span><span class="detail">All Levels</span><span class="detail">Barbell Focus</span></div></div>
+    <div class="program-card reveal"><div class="program-icon">🔥</div><div class="program-num">02</div><div class="program-name">HIIT & CONDITIONING</div><div class="program-desc">High-intensity interval training designed for maximum metabolic output. Kettlebell complexes, sled work, rower intervals, and battle ropes. Burn hard, recover faster.</div><div class="program-details"><span class="detail">45 min</span><span class="detail">Group Format</span><span class="detail">6/day</span></div></div>
+    <div class="program-card reveal"><div class="program-icon">🥊</div><div class="program-num">03</div><div class="program-name">COMBAT FITNESS</div><div class="program-desc">Boxing, Muay Thai, and mixed martial arts conditioning. Technique, footwork, heavy bag work, and partner drilling. No experience necessary.</div><div class="program-details"><span class="detail">1hr classes</span><span class="detail">Beginner–Pro</span><span class="detail">Ring Access</span></div></div>
+    <div class="program-card reveal"><div class="program-icon">🧘</div><div class="program-num">04</div><div class="program-name">MOBILITY & RECOVERY</div><div class="program-desc">Yoga-inspired mobility work, foam rolling, breathwork, and active recovery protocols. Built to optimize your performance days, not just fill them.</div><div class="program-details"><span class="detail">Daily</span><span class="detail">All Members</span><span class="detail">Open Mat</span></div></div>
+  </div>
+</section>
+
+<section class="trainers">
+  <div class="trainers-inner">
+    <div class="sec-label">Our Coaches</div>
+    <h2 class="sec-h2">ELITE <span style="color:var(--red)">COACHES.</span></h2>
+    <div class="trainers-grid">
+      <div class="trainer-card reveal"><div class="trainer-img">💪<div class="trainer-spec">Strength & Olympic Lifting</div></div><div class="trainer-body"><div class="trainer-name">MARCUS REYES</div><div class="trainer-creds">NSCA-CSCS · USAW Level 2</div><div class="trainer-bio">Former D1 athlete. 12 years coaching. Specializes in athletic performance and Olympic weightlifting development.</div></div></div>
+      <div class="trainer-card reveal"><div class="trainer-img">🥊<div class="trainer-spec">Combat & Conditioning</div></div><div class="trainer-body"><div class="trainer-name">JADE WILLIAMS</div><div class="trainer-creds">USA Boxing · NASM-CPT</div><div class="trainer-bio">Pro boxer turned coach. Known for technical precision and building incredible conditioning baselines in every athlete.</div></div></div>
+      <div class="trainer-card reveal"><div class="trainer-img">🏃<div class="trainer-spec">HIIT & Metabolic</div></div><div class="trainer-body"><div class="trainer-name">TYLER BROOKS</div><div class="trainer-creds">CrossFit L3 · NSCA-CPT</div><div class="trainer-bio">10x top-100 CrossFit Open competitor. Builds high-intensity programming that scales to every fitness level.</div></div></div>
+      <div class="trainer-card reveal"><div class="trainer-img">🧘<div class="trainer-spec">Mobility & Recovery</div></div><div class="trainer-body"><div class="trainer-name">ELENA VASQUEZ</div><div class="trainer-creds">RYT-500 · FRC Mobility</div><div class="trainer-bio">Functional Range Conditioning specialist. Restores, rebuilds, and re-patterns movement for longevity and performance.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="membership" id="membership">
+  <div class="sec-label">Membership Plans</div>
+  <h2 class="sec-h2">YOUR <span style="color:var(--red)">PLAN.</span></h2>
+  <div class="membership-grid">
+    <div class="mem-card reveal"><div class="mem-tier">Foundation</div><div class="mem-price">$79<span>/mo</span></div><div class="mem-period">Billed monthly · No contract</div><ul class="mem-features"><li class="mem-feature">Unlimited floor access</li><li class="mem-feature">10 group classes/month</li><li class="mem-feature">Locker access</li><li class="mem-feature">App programming</li></ul><a href="#" class="mem-cta mem-cta-outline">Get Started →</a></div>
+    <div class="mem-card featured reveal"><div class="mem-badge">Most Popular</div><div class="mem-tier">Elite</div><div class="mem-price">$149<span>/mo</span></div><div class="mem-period">Billed monthly · No contract</div><ul class="mem-features"><li class="mem-feature">Unlimited everything</li><li class="mem-feature">Unlimited group classes</li><li class="mem-feature">2 PT sessions/month</li><li class="mem-feature">Nutrition coaching</li><li class="mem-feature">Recovery suite access</li></ul><a href="#" class="mem-cta mem-cta-white">Join Elite →</a></div>
+    <div class="mem-card reveal"><div class="mem-tier">Champion</div><div class="mem-price">$249<span>/mo</span></div><div class="mem-period">Billed monthly · No contract</div><ul class="mem-features"><li class="mem-feature">Everything in Elite</li><li class="mem-feature">4 PT sessions/month</li><li class="mem-feature">Custom programming</li><li class="mem-feature">Contest prep support</li><li class="mem-feature">Priority booking</li></ul><a href="#" class="mem-cta mem-cta-outline">Go Champion →</a></div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <h2>7 DAYS. FREE.</h2>
+  <p>No credit card. No contracts. Just show up.</p>
+  <div class="cta-strip-form">
+    <input class="cta-strip-input" type="email" placeholder="your@email.com">
+    <button class="cta-strip-btn">Claim Free Week →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">FOR<span>GE</span></div>
+  <div class="footer-copy">© 2025 Forge Performance Training · 1824 E 6th St, Austin TX · (512) 555-0140</div>
+  <div class="footer-links"><a href="#">Instagram</a><a href="#">Schedule</a><a href="#">Privacy</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

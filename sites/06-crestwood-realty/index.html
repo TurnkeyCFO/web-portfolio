@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crestwood Realty — Luxury Austin Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Josefin+Sans:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0B1F3A;--navy-mid:#142D50;--navy-light:#1E3D68;
+  --champagne:#C9A96E;--champagne-light:#E2C98A;--champagne-pale:#F9F4EC;
+  --white:#FFFFFF;--off-white:#FAFAF8;--cream:#F4F0E8;
+  --text:#1A1A2E;--text-soft:#4A5568;--text-muted:#8A9BB0;
+}
+body{font-family:'Lato',sans-serif;background:var(--off-white);color:var(--text);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s}
+nav.scrolled{background:rgba(11,31,58,0.97);backdrop-filter:blur(20px)}
+.nav-logo{font-family:'Josefin Sans',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--white)}
+.nav-logo span{color:var(--champagne)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.8);transition:color 0.2s}
+.nav-links a:hover{color:var(--champagne)}
+.nav-cta{border:1px solid var(--champagne);color:var(--champagne);padding:11px 28px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--champagne);color:var(--navy)}
+
+.hero{height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#071429 0%,#0B1F3A 45%,#142D50 100%)}
+.hero-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 2px 2px,rgba(201,169,110,0.08) 1px,transparent 0);background-size:40px 40px}
+.hero-content{position:relative;z-index:1;max-width:780px;padding:0 60px}
+.hero-eyebrow{font-family:'Josefin Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--champagne);margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--champagne)}
+.hero-h1{font-family:'Josefin Sans',sans-serif;font-size:72px;font-weight:300;line-height:1.1;color:var(--white);letter-spacing:0.02em;margin-bottom:28px}
+.hero-h1 strong{font-weight:700;display:block;color:var(--champagne-light)}
+.hero-sub{font-size:16px;line-height:1.9;color:rgba(255,255,255,0.55);max-width:520px;margin-bottom:48px}
+.hero-btns{display:flex;gap:16px;align-items:center}
+.btn-champagne{background:var(--champagne);color:var(--navy);padding:16px 40px;font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-champagne:hover{background:var(--champagne-light)}
+.btn-outline-c{border:1px solid rgba(255,255,255,0.3);color:var(--white);padding:16px 40px;font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-outline-c:hover{border-color:var(--champagne);color:var(--champagne)}
+.hero-scroll{position:absolute;bottom:40px;right:60px;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:0.15em;text-transform:uppercase}
+.scroll-line-h{width:48px;height:1px;background:rgba(255,255,255,0.2)}
+
+.search-bar{background:var(--white);padding:40px 60px;box-shadow:0 8px 40px rgba(11,31,58,0.12)}
+.search-inner{max-width:1200px;margin:0 auto}
+.search-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid var(--cream)}
+.search-tab{padding:10px 28px;font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s}
+.search-tab.active{color:var(--navy);border-bottom-color:var(--champagne)}
+.search-form{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:16px;align-items:end}
+.search-field{display:flex;flex-direction:column;gap:8px}
+.search-field label{font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.search-field input,.search-field select{border:1px solid var(--cream);padding:12px 16px;font-family:'Lato',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color 0.2s;background:var(--off-white);-webkit-appearance:none}
+.search-field input:focus,.search-field select:focus{border-color:var(--champagne)}
+.search-field select option{background:white}
+.search-btn{background:var(--navy);color:white;padding:13px 36px;font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+.search-btn:hover{background:var(--champagne);color:var(--navy)}
+
+.featured{padding:80px 60px;max-width:1200px;margin:0 auto}
+.sec-eyebrow{font-family:'Josefin Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne);margin-bottom:12px}
+.sec-title{font-family:'Josefin Sans',sans-serif;font-size:46px;font-weight:300;color:var(--navy);margin-bottom:48px;letter-spacing:0.02em}
+.sec-title strong{font-weight:700}
+.listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.listing-card{background:var(--white);overflow:hidden;transition:all 0.3s;cursor:pointer}
+.listing-card:hover{box-shadow:0 20px 56px rgba(11,31,58,0.15);transform:translateY(-4px)}
+.listing-img{height:260px;background:var(--navy-mid);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.listing-badge{position:absolute;top:16px;left:16px;background:var(--champagne);color:var(--navy);font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px}
+.listing-status{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px}
+.status-new{background:rgba(11,31,58,0.85);color:var(--champagne)}
+.status-open{background:rgba(52,199,89,0.85);color:white}
+.listing-body{padding:24px}
+.listing-price{font-family:'Josefin Sans',sans-serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.listing-address{font-size:15px;font-weight:400;color:var(--text);margin-bottom:4px}
+.listing-area{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+.listing-specs{display:flex;gap:16px;padding-top:16px;border-top:1px solid var(--cream)}
+.spec{display:flex;flex-direction:column;align-items:center;gap:2px}
+.spec-val{font-size:15px;font-weight:700;color:var(--navy)}
+.spec-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}
+
+.why-us{background:var(--navy);padding:80px 60px}
+.why-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-left .sec-eyebrow{color:var(--champagne)}
+.why-left h2{font-family:'Josefin Sans',sans-serif;font-size:48px;font-weight:300;color:var(--white);margin-bottom:24px;letter-spacing:0.02em;line-height:1.2}
+.why-left h2 strong{font-weight:700;display:block}
+.why-left p{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.55);margin-bottom:40px}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.why-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.2);padding:24px}
+.why-stat-val{font-family:'Josefin Sans',sans-serif;font-size:36px;font-weight:700;color:var(--champagne-light)}
+.why-stat-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:300}
+.why-right{display:grid;grid-template-columns:1fr;gap:20px}
+.why-point{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:24px;transition:all 0.3s}
+.why-point:hover{border-color:rgba(201,169,110,0.3);background:rgba(201,169,110,0.06)}
+.why-point-icon{font-size:24px;margin-bottom:12px}
+.why-point-title{font-family:'Josefin Sans',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:0.04em}
+.why-point-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.5)}
+
+.agents{padding:80px 60px;max-width:1200px;margin:0 auto}
+.agents-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.agent-card{background:var(--white);text-align:center;padding:32px 20px;transition:all 0.3s;border:1px solid var(--cream)}
+.agent-card:hover{box-shadow:0 16px 40px rgba(11,31,58,0.1);transform:translateY(-2px)}
+.agent-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--champagne));display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:24px;font-weight:700;color:white;margin:0 auto 16px}
+.agent-name{font-family:'Josefin Sans',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.agent-title{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--champagne);margin-bottom:12px}
+.agent-stat{font-size:13px;color:var(--text-muted)}
+
+footer{background:#07111F;padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Josefin Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--white)}
+.footer-logo span{color:var(--champagne)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none}
+.footer-links a:hover{color:var(--champagne)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .nav-links{display:none}
+  .hero-content{padding:0 24px}
+  .hero-h1{font-size:46px}
+  .search-bar{padding:32px 24px}
+  .search-form{grid-template-columns:1fr}
+  .featured{padding:60px 24px}
+  .listings-grid{grid-template-columns:1fr}
+  .why-us{padding:60px 24px}
+  .why-inner{grid-template-columns:1fr}
+  .agents{padding:60px 24px}
+  .agents-grid{grid-template-columns:repeat(2,1fr)}
+  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-logo">CREST<span>WOOD</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Buy</a></li>
+    <li><a href="#">Sell</a></li>
+    <li><a href="#">Neighborhoods</a></li>
+    <li><a href="#">Our Team</a></li>
+    <li><a href="#">Market Reports</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Talk to an Agent</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Austin's Premier Luxury Brokerage</div>
+    <h1 class="hero-h1">Live in<strong>Austin's Finest.</strong></h1>
+    <p class="hero-sub">Crestwood Realty represents Austin's most discerning buyers and sellers. We move $400M in residential real estate annually with white-glove service from offer to close.</p>
+    <div class="hero-btns">
+      <a href="#listings" class="btn-champagne">View Listings</a>
+      <a href="#" class="btn-outline-c">Sell Your Home</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line-h"></div>Scroll</div>
+</section>
+
+<div class="search-bar">
+  <div class="search-inner">
+    <div class="search-tabs">
+      <div class="search-tab active">Buy</div>
+      <div class="search-tab">Rent</div>
+      <div class="search-tab">New Homes</div>
+    </div>
+    <form class="search-form" onsubmit="return false">
+      <div class="search-field"><label>Location</label><input type="text" placeholder="Neighborhood, ZIP, or Address"></div>
+      <div class="search-field"><label>Price Range</label><select><option>Any Price</option><option>Under $500K</option><option>$500K – $1M</option><option>$1M – $2M</option><option>$2M – $5M</option><option>$5M+</option></select></div>
+      <div class="search-field"><label>Bedrooms</label><select><option>Any</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
+      <div class="search-field"><label>Property Type</label><select><option>All Types</option><option>Single Family</option><option>Condo/Townhome</option><option>Land</option><option>Multi-Family</option></select></div>
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+<section class="featured" id="listings">
+  <div class="sec-eyebrow">Featured Listings</div>
+  <h2 class="sec-title">Exceptional <strong>Properties</strong></h2>
+  <div class="listings-grid">
+    <div class="listing-card reveal"><div class="listing-img">🏡<div class="listing-badge">Exclusive</div><div class="listing-status status-new">Just Listed</div></div><div class="listing-body"><div class="listing-price">$4,850,000</div><div class="listing-address">2847 Westlake Drive</div><div class="listing-area">Westlake Hills, TX 78746</div><div class="listing-specs"><div class="spec"><div class="spec-val">5</div><div class="spec-label">Beds</div></div><div class="spec"><div class="spec-val">6.5</div><div class="spec-label">Baths</div></div><div class="spec"><div class="spec-val">6,240</div><div class="spec-label">Sq Ft</div></div><div class="spec"><div class="spec-val">1.2</div><div class="spec-label">Acres</div></div></div></div></div>
+    <div class="listing-card reveal"><div class="listing-img">🏠<div class="listing-badge">Price Reduced</div><div class="listing-status status-open">Open Sun</div></div><div class="listing-body"><div class="listing-price">$2,190,000</div><div class="listing-address">509 Barton Hills Drive</div><div class="listing-area">Barton Hills, TX 78704</div><div class="listing-specs"><div class="spec"><div class="spec-val">4</div><div class="spec-label">Beds</div></div><div class="spec"><div class="spec-val">4</div><div class="spec-label">Baths</div></div><div class="spec"><div class="spec-val">3,820</div><div class="spec-label">Sq Ft</div></div><div class="spec"><div class="spec-val">0.4</div><div class="spec-label">Acres</div></div></div></div></div>
+    <div class="listing-card reveal"><div class="listing-img">🏙️<div class="listing-badge">New</div></div><div class="listing-body"><div class="listing-price">$1,750,000</div><div class="listing-address">360 Nueces St, Unit 2802</div><div class="listing-area">Downtown Austin, TX 78701</div><div class="listing-specs"><div class="spec"><div class="spec-val">3</div><div class="spec-label">Beds</div></div><div class="spec"><div class="spec-val">3</div><div class="spec-label">Baths</div></div><div class="spec"><div class="spec-val">2,440</div><div class="spec-label">Sq Ft</div></div><div class="spec"><div class="spec-val">28th</div><div class="spec-label">Floor</div></div></div></div></div>
+  </div>
+</section>
+
+<section class="why-us">
+  <div class="why-inner">
+    <div class="why-left reveal">
+      <div class="sec-eyebrow">Why Crestwood</div>
+      <h2>The Standard for <strong>Austin Luxury.</strong></h2>
+      <p>In Austin's fast-moving market, representation matters. Our agents average 18 years of experience, close 3.2× faster than the market, and negotiate prices that outperform comps by an average of 4.1%.</p>
+      <div class="why-stats">
+        <div class="why-stat"><div class="why-stat-val">$400M+</div><div class="why-stat-label">Annual Volume</div></div>
+        <div class="why-stat"><div class="why-stat-val">18 Days</div><div class="why-stat-label">Avg. Days on Market</div></div>
+        <div class="why-stat"><div class="why-stat-val">4.1%</div><div class="why-stat-label">Above Asking Avg.</div></div>
+        <div class="why-stat"><div class="why-stat-val">97%</div><div class="why-stat-label">Client Return Rate</div></div>
+      </div>
+    </div>
+    <div class="why-right reveal">
+      <div class="why-point"><div class="why-point-icon">🏆</div><div class="why-point-title">Top 1% in Austin Metro</div><div class="why-point-desc">Ranked #1 independently owned brokerage in Austin by transaction volume for 6 consecutive years.</div></div>
+      <div class="why-point"><div class="why-point-icon">📸</div><div class="why-point-title">Luxury Marketing Package</div><div class="why-point-desc">Architectural photography, drone footage, 3D Matterport tours, and targeted digital campaigns included on every listing.</div></div>
+      <div class="why-point"><div class="why-point-icon">🤝</div><div class="why-point-title">Off-Market Network</div><div class="why-point-desc">Access to Austin's largest off-market inventory through 20+ years of agent relationships and private buyer/seller networks.</div></div>
+      <div class="why-point"><div class="why-point-icon">⚡</div><div class="why-point-title">Always Responsive</div><div class="why-point-desc">Every client gets a dedicated agent plus a transaction coordinator. Real answers in real time — not next-day callbacks.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="agents">
+  <div class="sec-eyebrow">Meet the Team</div>
+  <h2 class="sec-title">Your <strong>Agents</strong></h2>
+  <div class="agents-grid">
+    <div class="agent-card reveal"><div class="agent-avatar">JC</div><div class="agent-name">James Crestwood</div><div class="agent-title">Founder & Broker</div><div class="agent-stat">$2.1B Lifetime Volume</div></div>
+    <div class="agent-card reveal"><div class="agent-avatar">LM</div><div class="agent-name">Lauren Mitchell</div><div class="agent-title">Luxury Specialist</div><div class="agent-stat">Top Producer 2024</div></div>
+    <div class="agent-card reveal"><div class="agent-avatar">DP</div><div class="agent-name">David Park</div><div class="agent-title">Buyer's Specialist</div><div class="agent-stat">250+ Closings</div></div>
+    <div class="agent-card reveal"><div class="agent-avatar">AV</div><div class="agent-name">Ana Vargas</div><div class="agent-title">New Development</div><div class="agent-stat">$180M in New Builds</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">CREST<span>WOOD</span></div>
+  <div class="footer-copy">© 2025 Crestwood Realty · Licensed Real Estate Broker · TREC #789456 · Austin, TX</div>
+  <div class="footer-links"><a href="#">Privacy</a><a href="#">TREC Notices</a><a href="#">Careers</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)});
+document.querySelectorAll('.search-tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.search-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')})});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

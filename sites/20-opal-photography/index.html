@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opal — Editorial & Portrait Photography</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--dark:#141414;--mid:#1E1E1E;
+  --ivory:#F5F0E8;--ivory-mid:#EDE8DF;--white:#FFFFFF;
+  --gold:#C8A86A;--gold-light:#D9C08A;
+  --text:#1A1510;--text-soft:#4A4035;--text-muted:#9A9085;
+  --dim:rgba(255,255,255,0.5);
+}
+body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:all 0.4s}
+nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--white)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-book{border:1px solid rgba(200,168,106,0.5);color:var(--gold);padding:10px 24px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.nav-book:hover{background:var(--gold);color:var(--black)}
+
+.hero{min-height:100vh;background:var(--black);display:flex;align-items:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
+.hero-bg-words{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:8px;overflow:hidden;pointer-events:none}
+.hero-bg-word{font-family:'Cormorant Garamond',serif;font-size:200px;font-weight:300;color:rgba(200,168,106,0.03);letter-spacing:0.1em;white-space:nowrap;text-transform:uppercase;line-height:1}
+.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:84px;font-weight:300;line-height:1.0;color:var(--white);margin-bottom:24px;letter-spacing:0.02em}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;line-height:1.9;color:var(--dim);max-width:480px;margin-bottom:48px}
+.hero-btns{display:flex;gap:20px;align-items:center;margin-bottom:56px}
+.btn-gold{background:var(--gold);color:var(--black);padding:15px 40px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-ghost-g{color:var(--dim);font-size:13px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s}
+.btn-ghost-g:hover{color:var(--gold)}
+.hero-scroll-hint{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+.scroll-line{width:48px;height:1px;background:rgba(255,255,255,0.15)}
+.hero-right-num{position:absolute;right:60px;bottom:80px;font-family:'Cormorant Garamond',serif;font-size:200px;font-weight:300;color:rgba(255,255,255,0.02);line-height:1}
+
+.portfolio{padding:0}
+.portfolio-header{padding:80px 60px 40px}
+.portfolio-header .sec-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.portfolio-header .sec-eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
+.portfolio-header h2{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:var(--white);letter-spacing:0.04em}
+.portfolio-header h2 em{font-style:italic;color:var(--gold)}
+.portfolio-filter{display:flex;gap:8px;padding:0 60px;margin-bottom:32px;flex-wrap:wrap}
+.pf-btn{padding:8px 20px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.1);color:var(--dim);cursor:pointer;background:transparent;transition:all 0.2s}
+.pf-btn.active,.pf-btn:hover{border-color:var(--gold);color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.gallery-item{background:var(--mid);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
+.gallery-item.tall{aspect-ratio:3/4}
+.gallery-item.wide{grid-column:span 2;aspect-ratio:16/7}
+.gallery-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform 0.4s;background:linear-gradient(135deg,var(--dark),var(--mid))}
+.gallery-item:hover .gallery-inner{transform:scale(1.04)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,0.85) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:24px}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-caption{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--white)}
+.gallery-cat{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+
+.services{background:var(--ivory);padding:80px 60px;color:var(--text)}
+.services-inner{max-width:1200px;margin:0 auto}
+.s-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.s-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.s-h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--text);margin-bottom:48px;letter-spacing:0.02em}
+.s-h2 em{font-style:italic;color:var(--text-soft)}
+.s-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.s-card{background:var(--white);padding:36px;transition:all 0.3s;cursor:default}
+.s-card:hover{box-shadow:0 16px 48px rgba(26,21,16,0.08);transform:translateY(-3px)}
+.s-icon{font-size:32px;margin-bottom:20px}
+.s-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--text);margin-bottom:10px}
+.s-desc{font-size:14px;line-height:1.8;color:var(--text-soft);margin-bottom:16px}
+.s-from{font-size:13px;font-weight:600;color:var(--gold)}
+
+.about{background:var(--dark);padding:80px 60px}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-left .sec-eyebrow-dark{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.about-left .sec-eyebrow-dark::before{content:'';width:28px;height:1px;background:var(--gold)}
+.about-left h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--white);margin-bottom:24px;line-height:1.2}
+.about-left h2 em{font-style:italic;color:var(--gold)}
+.about-left p{font-size:15px;line-height:1.9;color:var(--dim);margin-bottom:24px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+.a-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(200,168,106,0.15);padding:20px}
+.a-val{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--gold);line-height:1}
+.a-label{font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;letter-spacing:0.06em}
+.about-right{background:var(--mid);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
+.about-right::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(200,168,106,0.05),transparent 60%)}
+
+.contact{background:var(--black);padding:80px 60px;text-align:center}
+.contact-inner{max-width:720px;margin:0 auto}
+.c-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.c-h2{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;color:var(--white);margin-bottom:12px}
+.c-h2 em{font-style:italic;color:var(--gold)}
+.c-sub{font-size:15px;color:var(--dim);margin-bottom:48px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px}
+.c-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf{display:flex;flex-direction:column;gap:8px}
+.cf label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-align:left}
+.cf input,.cf select,.cf textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 16px;color:white;font-family:'Montserrat',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+.cf input:focus,.cf select:focus,.cf textarea:focus{border-color:var(--gold)}
+.cf select option{background:var(--black)}
+.cf textarea{height:100px;resize:vertical}
+.cf-full{grid-column:1/-1}
+.c-submit{background:var(--gold);color:var(--black);padding:16px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;grid-column:1/-1;transition:all 0.2s}
+.c-submit:hover{background:var(--gold-light)}
+
+footer{background:#080808;padding:40px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.04);flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:white}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .nav-links{display:none}
+  .hero{padding:80px 24px 60px}
+  .hero-h1{font-size:52px}
+  .hero-bg-words{display:none}
+  .portfolio-header{padding:60px 24px 32px}
+  .portfolio-filter{padding:0 24px}
+  .gallery{grid-template-columns:1fr}
+  .gallery-item.tall,.gallery-item.wide{aspect-ratio:4/3;grid-column:span 1}
+  .services{padding:60px 24px}
+  .s-grid{grid-template-columns:1fr}
+  .about{padding:60px 24px}
+  .about-inner{grid-template-columns:1fr}
+  .about-right{aspect-ratio:4/3}
+  .contact{padding:60px 24px}
+  .c-h2{font-size:40px}
+  .c-form{grid-template-columns:1fr}
+  footer{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-logo">OPAL</div>
+  <ul class="nav-links"><li><a href="#">Portfolio</a></li><li><a href="#">Services</a></li><li><a href="#">About</a></li><li><a href="#">Journal</a></li></ul>
+  <a href="#contact" class="nav-book">Book a Session</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-words">
+    <div class="hero-bg-word">LIGHT</div>
+    <div class="hero-bg-word" style="opacity:0.4;transform:translateX(80px)">STORY</div>
+    <div class="hero-bg-word">FRAME</div>
+  </div>
+  <div class="hero-right-num">I</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Editorial · Portrait · Commercial</div>
+    <h1 class="hero-h1">Light that tells <em>your</em> story.</h1>
+    <p class="hero-sub">Opal is the photography studio of Maya Reyes — Austin-based editorial and portrait photographer crafting images that stop time and move people.</p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-gold">View Portfolio</a>
+      <a href="#contact" class="btn-ghost-g">Book a Session →</a>
+    </div>
+    <div class="hero-scroll-hint"><div class="scroll-line"></div>Scroll to explore</div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div class="sec-eyebrow">Selected Work</div>
+    <h2>The Portfolio of <em>Maya Reyes</em></h2>
+  </div>
+  <div class="portfolio-filter">
+    <div class="pf-btn active">All Work</div>
+    <div class="pf-btn">Editorial</div>
+    <div class="pf-btn">Portraits</div>
+    <div class="pf-btn">Weddings</div>
+    <div class="pf-btn">Commercial</div>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item wide reveal"><div class="gallery-inner">🎭</div><div class="gallery-overlay"><div><div class="gallery-cat">Editorial</div><div class="gallery-caption">Texas Monthly — Winter 2024 Feature</div></div></div></div>
+    <div class="gallery-item tall reveal"><div class="gallery-inner">👤</div><div class="gallery-overlay"><div><div class="gallery-cat">Portrait</div><div class="gallery-caption">Artist Series — Maria Santos</div></div></div></div>
+    <div class="gallery-item reveal"><div class="gallery-inner">💍</div><div class="gallery-overlay"><div><div class="gallery-cat">Wedding</div><div class="gallery-caption">Villa del Lago — June 2024</div></div></div></div>
+    <div class="gallery-item reveal"><div class="gallery-inner">👗</div><div class="gallery-overlay"><div><div class="gallery-cat">Commercial</div><div class="gallery-caption">Freda Salvador — SS25 Campaign</div></div></div></div>
+    <div class="gallery-item tall reveal"><div class="gallery-inner">🌅</div><div class="gallery-overlay"><div><div class="gallery-cat">Editorial</div><div class="gallery-caption">Austin Monthly — Architecture Issue</div></div></div></div>
+    <div class="gallery-item wide reveal"><div class="gallery-inner">🎪</div><div class="gallery-overlay"><div><div class="gallery-cat">Commercial</div><div class="gallery-caption">ACL Festival 2024 — Official Photographer</div></div></div></div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="s-eyebrow">What I Offer</div>
+    <h2 class="s-h2">Sessions & <em>Services</em></h2>
+    <div class="s-grid">
+      <div class="s-card reveal"><div class="s-icon">👤</div><div class="s-name">Portrait Sessions</div><div class="s-desc">Individual and family portraits, executive headshots, musician and artist sessions. Studio or location, natural or studio lighting.</div><div class="s-from">From $450 · 1–2 hours · 40 edited images</div></div>
+      <div class="s-card reveal"><div class="s-icon">💒</div><div class="s-name">Wedding Photography</div><div class="s-desc">Full wedding day coverage — from getting ready through send-off. A second shooter for weddings over 100 guests.</div><div class="s-from">From $3,200 · 8 hours · 500+ edited images</div></div>
+      <div class="s-card reveal"><div class="s-icon">📰</div><div class="s-name">Editorial & Commercial</div><div class="s-desc">Magazine features, brand campaigns, product photography, and creative collaborations with agencies and publications.</div><div class="s-from">Custom rate · Contact for inquiry</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-inner">
+    <div class="about-left reveal">
+      <div class="sec-eyebrow-dark">About</div>
+      <h2>I photograph <em>light</em>.<br>People just happen to be in it.</h2>
+      <p>I'm Maya — a photographer based in Austin, TX, shooting editorial, portrait, wedding, and commercial work since 2015. My background is in film photography and documentary work, which is probably why I'm still obsessed with available light and decisive moments.</p>
+      <p>My work has been published in Texas Monthly, Austin Monthly, Condé Nast Traveler, and featured in campaigns for brands you'd recognize. Mostly, I'm just glad people trust me to show up and make honest pictures.</p>
+      <div class="about-stats">
+        <div class="a-stat"><div class="a-val">10+</div><div class="a-label">Years Shooting</div></div>
+        <div class="a-stat"><div class="a-val">320</div><div class="a-label">Weddings Covered</div></div>
+        <div class="a-stat"><div class="a-val">4.99</div><div class="a-label">★ Google Rating</div></div>
+        <div class="a-stat"><div class="a-val">28</div><div class="a-label">Publications Featured</div></div>
+      </div>
+    </div>
+    <div class="about-right reveal">📷</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="c-eyebrow">Get in Touch</div>
+    <h2 class="c-h2">Let's make <em>something</em>.</h2>
+    <p class="c-sub">"Every great image starts with a conversation."</p>
+    <form onsubmit="return false">
+      <div class="c-form">
+        <div class="cf"><label>Your Name</label><input type="text" placeholder="Emma Rodriguez"></div>
+        <div class="cf"><label>Email</label><input type="email" placeholder="emma@email.com"></div>
+        <div class="cf"><label>Phone</label><input type="tel" placeholder="(512) 555-0100"></div>
+        <div class="cf"><label>Session Type</label><select><option>Portrait Session</option><option>Wedding Photography</option><option>Editorial</option><option>Commercial / Brand</option><option>Other</option></select></div>
+        <div class="cf"><label>Preferred Date</label><input type="date"></div>
+        <div class="cf"><label>Budget Range</label><select><option>Under $500</option><option>$500–$1,500</option><option>$1,500–$3,500</option><option>$3,500+</option><option>Custom (contact me)</option></select></div>
+        <div class="cf cf-full"><label>Tell Me About Your Vision</label><textarea placeholder="What are you envisioning? Where? What feeling do you want in the images?"></textarea></div>
+        <button class="c-submit" type="submit">Send Inquiry →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">OPAL</div>
+  <div class="footer-copy">© 2025 Opal Photography · Maya Reyes · Austin, TX · maya@opalphotography.com</div>
+  <div class="footer-links"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">Privacy</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)});
+document.querySelectorAll('.pf-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.pf-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active')})});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

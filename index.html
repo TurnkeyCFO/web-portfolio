@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurnkeyWEB — Web Design Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --tk-navy:       #00263A;
+  --tk-navy-mid:   #003A56;
+  --tk-navy-soft:  #0A4A6A;
+  --tk-green:        #00C85A;
+  --tk-green-bright: #05DD69;
+  --tk-ice:       #DAE1E9;
+  --tk-ice-light: #EEF1F5;
+  --tk-white:     #FFFFFF;
+  --tk-text-muted: #7A909F;
+  --tk-border-light: rgba(218,225,233,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--tk-navy);
+  color:var(--tk-ice);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:64px;
+  background:rgba(0,38,58,0.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--tk-border-light);
+}
+.nav-logo{
+  font-size:18px;font-weight:800;letter-spacing:-0.02em;
+  color:var(--tk-white);
+}
+.nav-logo span{color:var(--tk-green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:500;color:var(--tk-text-muted);
+  text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--tk-white)}
+.nav-cta{
+  background:var(--tk-green);color:var(--tk-navy);
+  padding:8px 20px;border-radius:40px;font-size:13px;font-weight:700;
+  text-decoration:none;transition:background .2s,transform .2s;
+}
+.nav-cta:hover{background:var(--tk-green-bright);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:100px 24px 80px;
+  overflow:hidden;
+}
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+}
+.orb-1{width:600px;height:600px;background:var(--tk-green);opacity:.10;top:-100px;right:-150px;animation:drift 14s ease-in-out infinite alternate;}
+.orb-2{width:500px;height:500px;background:var(--tk-navy-soft);opacity:.40;bottom:-100px;left:-100px;animation:drift 18s ease-in-out infinite alternate-reverse;}
+.orb-3{width:300px;height:300px;background:var(--tk-green);opacity:.07;top:40%;left:50%;transform:translate(-50%,-50%);animation:drift 10s ease-in-out infinite alternate;}
+@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(30px,20px)}}
+
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tk-green);margin-bottom:20px;
+}
+.hero-title{
+  font-size:clamp(44px,7vw,84px);font-weight:800;line-height:1.05;
+  letter-spacing:-.03em;color:var(--tk-white);max-width:900px;
+}
+.shimmer{
+  background:linear-gradient(90deg,var(--tk-green) 0%,var(--tk-ice) 50%,var(--tk-green) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shimmer 5s linear infinite;
+}
+@keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+.hero-sub{
+  max-width:540px;margin:24px auto 0;
+  font-size:17px;font-weight:400;line-height:1.65;
+  color:rgba(218,225,233,.72);
+}
+.hero-actions{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--tk-green);color:var(--tk-navy);
+  padding:14px 32px;border-radius:50px;font-size:14px;font-weight:700;
+  text-decoration:none;transition:all .2s;
+}
+.btn-primary:hover{background:var(--tk-green-bright);transform:translateY(-2px)}
+.btn-ghost{
+  border:1px solid rgba(218,225,233,.22);color:var(--tk-ice);
+  padding:14px 32px;border-radius:50px;font-size:14px;font-weight:600;
+  text-decoration:none;transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--tk-green);color:var(--tk-green)}
+
+.hero-stats{
+  display:flex;gap:48px;justify-content:center;margin-top:64px;
+  flex-wrap:wrap;
+}
+.hero-stat{text-align:center}
+.hero-stat-val{font-size:32px;font-weight:800;color:var(--tk-white)}
+.hero-stat-val span{color:var(--tk-green)}
+.hero-stat-label{font-size:12px;font-weight:500;color:var(--tk-text-muted);margin-top:4px;letter-spacing:.04em}
+
+/* ── FILTERS ── */
+.filter-section{
+  padding:60px 40px 32px;max-width:1240px;margin:0 auto;
+}
+.filter-label{
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--tk-text-muted);margin-bottom:16px;
+}
+.filters{display:flex;gap:10px;flex-wrap:wrap}
+.filter-btn{
+  padding:8px 18px;border-radius:40px;font-size:13px;font-weight:600;
+  border:1px solid rgba(218,225,233,.16);color:var(--tk-ice-light);
+  background:transparent;cursor:pointer;transition:all .2s;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.filter-btn:hover,.filter-btn.active{
+  background:var(--tk-green);border-color:var(--tk-green);
+  color:var(--tk-navy);
+}
+
+/* ── GRID ── */
+.portfolio-section{padding:20px 40px 80px;max-width:1240px;margin:0 auto}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:20px;
+}
+.site-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(218,225,233,.10);
+  border-radius:20px;overflow:hidden;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  opacity:0;transform:translateY(20px);
+}
+.site-card.visible{
+  opacity:1;transform:translateY(0);
+  transition:opacity .5s ease,transform .5s ease,box-shadow .25s,border-color .25s;
+}
+.site-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 48px rgba(0,200,90,.08);
+  border-color:rgba(0,200,90,.25);
+}
+.card-preview{
+  width:100%;height:180px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;
+  position:relative;overflow:hidden;
+}
+.card-preview::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,38,58,.6));
+}
+.card-body{padding:20px 22px 22px}
+.card-industry{
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--tk-green);margin-bottom:6px;
+}
+.card-title{font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:6px}
+.card-desc{font-size:13px;color:rgba(218,225,233,.60);line-height:1.5;margin-bottom:18px}
+.card-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:600;color:var(--tk-green);text-decoration:none;
+  transition:gap .2s;
+}
+.card-link:hover{gap:10px}
+.card-link svg{width:14px;height:14px}
+
+/* ── SERVICES ── */
+.services-section{
+  padding:80px 40px;
+  background:rgba(255,255,255,.02);
+  border-top:1px solid var(--tk-border-light);
+  border-bottom:1px solid var(--tk-border-light);
+}
+.services-inner{max-width:1240px;margin:0 auto}
+.section-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--tk-green);margin-bottom:14px;
+}
+.section-title{
+  font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--tk-white);
+  margin-bottom:12px;letter-spacing:-.02em;
+}
+.section-sub{
+  font-size:16px;color:rgba(218,225,233,.60);max-width:500px;line-height:1.6;margin-bottom:48px;
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;
+}
+.service-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(218,225,233,.10);
+  border-radius:16px;padding:28px 24px;
+  transition:border-color .2s,transform .2s;
+}
+.service-card:hover{border-color:rgba(0,200,90,.3);transform:translateY(-2px)}
+.service-icon{font-size:28px;margin-bottom:14px}
+.service-name{font-size:15px;font-weight:700;color:var(--tk-white);margin-bottom:6px}
+.service-desc{font-size:13px;color:rgba(218,225,233,.55);line-height:1.55}
+
+/* ── CTA ── */
+.cta-section{
+  padding:100px 40px;text-align:center;max-width:700px;margin:0 auto;
+}
+.cta-title{
+  font-size:clamp(32px,5vw,54px);font-weight:800;color:var(--tk-white);
+  letter-spacing:-.02em;margin-bottom:18px;
+}
+.cta-sub{font-size:17px;color:rgba(218,225,233,.60);line-height:1.6;margin-bottom:36px}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--tk-border-light);
+  padding:32px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  max-width:100%;flex-wrap:wrap;gap:16px;
+}
+.footer-logo{font-size:15px;font-weight:800;color:var(--tk-white)}
+.footer-logo span{color:var(--tk-green)}
+.footer-copy{font-size:12px;color:var(--tk-text-muted)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:var(--tk-text-muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--tk-green)}
+
+/* ── HIDDEN ── */
+.hidden{display:none!important}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 60px}
+  .hero-stats{gap:28px}
+  .filter-section,.portfolio-section,.services-section{padding-left:20px;padding-right:20px}
+  .portfolio-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Turnkey<span>WEB</span></div>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Start a Project</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <p class="hero-eyebrow">Web Design · Development · Strategy</p>
+  <h1 class="hero-title">Websites that <span class="shimmer">work hard</span> for your business</h1>
+  <p class="hero-sub">Premium web design for small businesses, service firms, and growth-stage companies. Fast delivery. Clean code. Results-driven.</p>
+  <div class="hero-actions">
+    <a href="#portfolio" class="btn-primary">View Portfolio</a>
+    <a href="#contact" class="btn-ghost">Get a Quote</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-val">20<span>+</span></div>
+      <div class="hero-stat-label">Industries Served</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">48<span>hr</span></div>
+      <div class="hero-stat-label">Avg. Turnaround</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">100<span>%</span></div>
+      <div class="hero-stat-label">Custom Built</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">5<span>★</span></div>
+      <div class="hero-stat-label">Upwork Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="filter-section" id="portfolio">
+  <p class="filter-label">Filter by Industry</p>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="law">Law</button>
+    <button class="filter-btn" data-filter="saas">SaaS / Tech</button>
+    <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+    <button class="filter-btn" data-filter="construction">Construction</button>
+    <button class="filter-btn" data-filter="medspa">Med Spa</button>
+    <button class="filter-btn" data-filter="realestate">Real Estate</button>
+    <button class="filter-btn" data-filter="fitness">Fitness</button>
+    <button class="filter-btn" data-filter="health">Health</button>
+    <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+    <button class="filter-btn" data-filter="nonprofit">Nonprofit</button>
+    <button class="filter-btn" data-filter="finance">Finance</button>
+    <button class="filter-btn" data-filter="hospitality">Hospitality</button>
+    <button class="filter-btn" data-filter="events">Events</button>
+    <button class="filter-btn" data-filter="creative">Creative</button>
+    <button class="filter-btn" data-filter="education">Education</button>
+    <button class="filter-btn" data-filter="automotive">Automotive</button>
+    <button class="filter-btn" data-filter="petservices">Pet Services</button>
+    <button class="filter-btn" data-filter="food">Food & Bev</button>
+    <button class="filter-btn" data-filter="photography">Photography</button>
+  </div>
+</div>
+
+<!-- PORTFOLIO GRID -->
+<section class="portfolio-section">
+  <div class="portfolio-grid" id="portfolioGrid">
+
+    <div class="site-card" data-industry="law">
+      <div class="card-preview" style="background:linear-gradient(135deg,#1a1209 0%,#2d1f08 100%)">⚖️</div>
+      <div class="card-body">
+        <p class="card-industry">Law Firm</p>
+        <h3 class="card-title">Meridian Law Group</h3>
+        <p class="card-desc">Sophisticated legal website with gold/charcoal palette, practice areas, attorney bios, and consultation booking.</p>
+        <a href="sites/01-meridian-law/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="saas">
+      <div class="card-preview" style="background:linear-gradient(135deg,#0f0520 0%,#1a0835 100%)">📊</div>
+      <div class="card-body">
+        <p class="card-industry">SaaS / Tech</p>
+        <h3 class="card-title">Apex Revenue Intelligence</h3>
+        <p class="card-desc">Dark SaaS landing page with dashboard mockup, feature grid, pricing tiers, and conversion-focused CTAs.</p>
+        <a href="sites/02-apex-saas/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="restaurant">
+      <div class="card-preview" style="background:linear-gradient(135deg,#0d1f0f 0%,#1a3316 100%)">🍽️</div>
+      <div class="card-body">
+        <p class="card-industry">Fine Dining</p>
+        <h3 class="card-title">Verdant Restaurant</h3>
+        <p class="card-desc">Elegant restaurant site with forest green palette, menu showcase, seasonal specials, and reservation form.</p>
+        <a href="sites/03-verdant-restaurant/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="construction">
+      <div class="card-preview" style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%)">🏗️</div>
+      <div class="card-body">
+        <p class="card-industry">Construction</p>
+        <h3 class="card-title">Ironclad Construction</h3>
+        <p class="card-desc">Industrial design with steel/orange palette, project portfolio grid, services, and quote request form.</p>
+        <a href="sites/04-ironclad-construction/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="medspa">
+      <div class="card-preview" style="background:linear-gradient(135deg,#2a0a12 0%,#3d1520 100%)">✨</div>
+      <div class="card-body">
+        <p class="card-industry">Medical Aesthetics</p>
+        <h3 class="card-title">Lumina Med Spa</h3>
+        <p class="card-desc">Luxurious blush/rose aesthetic with treatment cards, before/after gallery, and consultation booking.</p>
+        <a href="sites/05-lumina-medspa/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="realestate">
+      <div class="card-preview" style="background:linear-gradient(135deg,#060e1a 0%,#0d1e33 100%)">🏡</div>
+      <div class="card-body">
+        <p class="card-industry">Real Estate</p>
+        <h3 class="card-title">Crestwood Realty</h3>
+        <p class="card-desc">Navy/champagne brokerage site with property listing cards, search filters, agent profiles, and contact forms.</p>
+        <a href="sites/06-crestwood-realty/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="fitness">
+      <div class="card-preview" style="background:linear-gradient(135deg,#0a0a0a 0%,#1a0000 100%)">💪</div>
+      <div class="card-body">
+        <p class="card-industry">Gym / Fitness</p>
+        <h3 class="card-title">FORGE Fitness</h3>
+        <p class="card-desc">High-energy black/red gym site with membership plans, class schedule, trainer profiles, and free trial CTA.</p>
+        <a href="sites/07-forge-fitness/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="health">
+      <div class="card-preview" style="background:linear-gradient(135deg,#0e1a12 0%,#1a2a1e 100%)">🌿</div>
+      <div class="card-body">
+        <p class="card-industry">Mental Health</p>
+        <h3 class="card-title">Solace Therapy</h3>
+        <p class="card-desc">Warm sage/neutral therapy site with specialties, therapist bios, insurance info, and secure booking form.</p>
+        <a href="sites/08-solace-therapy/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="ecommerce">
+      <div class="card-preview" style="background:linear-gradient(135deg,#050505 0%,#0f0f0f 100%)">🚴</div>
+      <div class="card-body">
+        <p class="card-industry">E-commerce / DTC</p>
+        <h3 class="card-title">VELO Cycling</h3>
+        <p class="card-desc">Bold black/lime DTC brand with product grid, marquee ticker, spec details, and add-to-cart flow.</p>
+        <a href="sites/09-velo-ecommerce/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="nonprofit">
+      <div class="card-preview" style="background:linear-gradient(135deg,#0a0d1f 0%,#131a33 100%)">⛪</div>
+      <div class="card-body">
+        <p class="card-industry">Church / Nonprofit</p>
+        <h3 class="card-title">Cornerstone Church</h3>
+        <p class="card-desc">Indigo/gold church site with sermon library, ministry cards, event calendar, and online giving integration.</p>
+        <a href="sites/10-cornerstone-church/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="health">
+      <div class="card-preview" style="background:linear-gradient(135deg,#041214 0%,#082028 100%)">🦷</div>
+      <div class="card-body">
+        <p class="card-industry">Dental / Healthcare</p>
+        <h3 class="card-title">Apex Dental</h3>
+        <p class="card-desc">Clean teal dental site with services, patient reviews, insurance partners, and new patient appointment flow.</p>
+        <a href="sites/11-apex-dental/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="finance">
+      <div class="card-preview" style="background:linear-gradient(135deg,#080f06 0%,#111a0c 100%)">📈</div>
+      <div class="card-body">
+        <p class="card-industry">Financial Advisory</p>
+        <h3 class="card-title">Arbor Wealth</h3>
+        <p class="card-desc">Forest/bronze RIA site with $2.8B AUM positioning, fiduciary pledge, service tiers, and advisor team.</p>
+        <a href="sites/12-arbor-wealth/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="hospitality">
+      <div class="card-preview" style="background:linear-gradient(135deg,#0a0807 0%,#1a1612 100%)">🏨</div>
+      <div class="card-body">
+        <p class="card-industry">Boutique Hotel</p>
+        <h3 class="card-title">The Alcott</h3>
+        <p class="card-desc">Black/sand luxury hotel with room gallery, amenities, rooftop bar section, and direct booking widget.</p>
+        <a href="sites/13-alcott-hotel/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="events">
+      <div class="card-preview" style="background:linear-gradient(135deg,#1a0e0e 0%,#2a1818 100%)">💐</div>
+      <div class="card-body">
+        <p class="card-industry">Events / Wedding</p>
+        <h3 class="card-title">Magnolia Estate</h3>
+        <p class="card-desc">Dusty rose/sage Hill Country venue with gallery, venue packages, capacity details, and inquiry form.</p>
+        <a href="sites/14-magnolia-venue/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="creative">
+      <div class="card-preview" style="background:linear-gradient(135deg,#020202 0%,#080808 100%)">🎨</div>
+      <div class="card-body">
+        <p class="card-industry">Creative Agency</p>
+        <h3 class="card-title">Studio Haus</h3>
+        <p class="card-desc">Black/electric green agency site with work grid, monospace type, service modules, and new project intake.</p>
+        <a href="sites/15-studiohaus-agency/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="education">
+      <div class="card-preview" style="background:linear-gradient(135deg,#020c1f 0%,#051428 100%)">🎓</div>
+      <div class="card-body">
+        <p class="card-industry">Childcare / Education</p>
+        <h3 class="card-title">Bright Minds</h3>
+        <p class="card-desc">Friendly blue/yellow childcare site with NAEYC accreditation, age groups, curriculum, and tour booking.</p>
+        <a href="sites/16-brightminds-childcare/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="automotive">
+      <div class="card-preview" style="background:linear-gradient(135deg,#08080a 0%,#12121a 100%)">🚗</div>
+      <div class="card-body">
+        <p class="card-industry">Automotive</p>
+        <h3 class="card-title">Premier Auto Group</h3>
+        <p class="card-desc">Sleek dealership site with vehicle inventory, financing calculator, trade-in form, and service scheduling.</p>
+        <a href="sites/17-premier-auto/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="petservices">
+      <div class="card-preview" style="background:linear-gradient(135deg,#060f1a 0%,#0d1a2a 100%)">🐾</div>
+      <div class="card-body">
+        <p class="card-industry">Pet Services / Vet</p>
+        <h3 class="card-title">Pawsome Vet</h3>
+        <p class="card-desc">Warm, friendly veterinary site with services, meet-the-team section, pet portal login, and appointment booking.</p>
+        <a href="sites/18-pawsome-vet/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="food">
+      <div class="card-preview" style="background:linear-gradient(135deg,#120a02 0%,#1e1104 100%)">☕</div>
+      <div class="card-body">
+        <p class="card-industry">Food & Beverage</p>
+        <h3 class="card-title">Grounds Coffee Co</h3>
+        <p class="card-desc">Warm coffee brand with roast origins, brew guides, seasonal menu, online ordering, and loyalty program.</p>
+        <a href="sites/19-grounds-coffee/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="site-card" data-industry="photography">
+      <div class="card-preview" style="background:linear-gradient(135deg,#050508 0%,#0a0a10 100%)">📷</div>
+      <div class="card-body">
+        <p class="card-industry">Photography</p>
+        <h3 class="card-title">Opal Photography</h3>
+        <p class="card-desc">Moody editorial photography portfolio with gallery grid, session packages, about section, and inquiry form.</p>
+        <a href="sites/20-opal-photography/index.html" class="card-link" target="_blank">View Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <p class="section-eyebrow">What I Build</p>
+    <h2 class="section-title">Full-service web design,<br>start to finish</h2>
+    <p class="section-sub">Every project is custom-built — no page builders, no templates. Clean code that loads fast and converts.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Brand & Visual Design</div>
+        <div class="service-desc">Custom color systems, typography pairings, and visual identity built to match your business positioning.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <div class="service-name">Landing Pages</div>
+        <div class="service-desc">High-converting single pages for ads, launches, and service offers — optimized for speed and clarity.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <div class="service-name">Business Websites</div>
+        <div class="service-desc">Full multi-page sites with services, team, testimonials, contact, and everything in between.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Mobile-First Build</div>
+        <div class="service-desc">Every site stacks perfectly on phones and tablets — no afterthought responsiveness, built mobile-first.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Performance Optimization</div>
+        <div class="service-desc">Lightweight, fast-loading HTML/CSS with no bloat. Built for Core Web Vitals and real-world speed.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔗</div>
+        <div class="service-name">GitHub Pages Deployment</div>
+        <div class="service-desc">Clean deployment to GitHub Pages, Netlify, or Vercel. Includes DNS setup and SSL configuration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <p class="section-eyebrow">Ready to Build?</p>
+  <h2 class="cta-title">Let's build your next website</h2>
+  <p class="cta-sub">Fast turnaround. Fixed pricing. Custom-built HTML that's yours to own — no subscriptions, no page builders.</p>
+  <div class="hero-actions">
+    <a href="mailto:hello@turnkeyservices.com" class="btn-primary">Send a Message</a>
+    <a href="https://turnkeycfo.com" target="_blank" class="btn-ghost">TurnkeyCFO.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Turnkey<span>WEB</span></div>
+  <div class="footer-copy">© 2025 Turnkey Services · Austin, TX · hello@turnkeyservices.com</div>
+  <div class="footer-links">
+    <a href="https://turnkeycfo.com" target="_blank">TurnkeyCFO</a>
+    <a href="mailto:hello@turnkeyservices.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Filter logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.site-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.industry === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach(card => observer.observe(card));
+document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+</script>
+</body>
+</html>

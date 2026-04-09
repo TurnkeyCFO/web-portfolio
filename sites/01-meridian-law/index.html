@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Law Group — Elite Legal Counsel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#B8960C;--gold-light:#D4AF37;--gold-pale:#F5EFD6;
+  --charcoal:#1A1A1A;--charcoal-mid:#2D2D2D;--charcoal-soft:#3D3D3D;
+  --cream:#FAF8F3;--cream-mid:#F2EEE4;--white:#FFFFFF;
+  --text:#1A1A1A;--text-soft:#4A4A4A;--text-muted:#888;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,243,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(184,150,12,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:0.08em;color:var(--charcoal)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-soft);transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--charcoal);color:var(--white);padding:10px 24px;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:80px}
+.hero-left{background:var(--charcoal);display:flex;flex-direction:column;justify-content:center;padding:80px 60px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8960C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:1}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;position:relative}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:32px;position:relative}
+.hero-h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.6);max-width:420px;margin-bottom:48px;position:relative}
+.hero-btns{display:flex;gap:16px;position:relative}
+.btn-primary{background:var(--gold);color:var(--charcoal);padding:14px 32px;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-ghost{border:1px solid rgba(255,255,255,0.3);color:var(--white);padding:14px 32px;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{background:var(--cream-mid);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#2D2D2D 0%,#1A1A1A 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.hero-img-placeholder::after{content:'MERIDIAN';font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;color:rgba(184,150,12,0.08);letter-spacing:0.1em;position:absolute}
+.scales-icon{font-size:80px;opacity:0.15;color:var(--gold-light);z-index:1}
+
+/* STATS BAR */
+.stats-bar{background:var(--charcoal-mid);padding:28px 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--gold-light)}
+.stat-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:4px}
+
+/* PRACTICE AREAS */
+.section{padding:80px 60px;max-width:1200px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1.2;color:var(--charcoal);margin-bottom:48px}
+.section-title em{font-style:italic;color:var(--gold)}
+.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.practice-card{background:var(--white);padding:40px 32px;border-left:3px solid transparent;transition:all 0.3s;cursor:default}
+.practice-card:hover{border-left-color:var(--gold);transform:translateX(4px)}
+.practice-icon{font-size:28px;margin-bottom:20px}
+.practice-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:12px}
+.practice-desc{font-size:14px;line-height:1.7;color:var(--text-soft)}
+
+/* ATTORNEYS */
+.attorneys-section{background:var(--charcoal);padding:80px 60px}
+.attorneys-inner{max-width:1200px;margin:0 auto}
+.attorneys-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--white);margin-bottom:48px}
+.attorneys-title em{color:var(--gold-light);font-style:italic}
+.attorneys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.attorney-card{background:rgba(255,255,255,0.04);border:1px solid rgba(184,150,12,0.2);padding:32px;transition:all 0.3s}
+.attorney-card:hover{background:rgba(184,150,12,0.06);border-color:rgba(184,150,12,0.4)}
+.attorney-avatar{width:72px;height:72px;background:linear-gradient(135deg,var(--gold),var(--charcoal-soft));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--white);margin-bottom:20px}
+.attorney-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:4px}
+.attorney-title{font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.attorney-bio{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.55)}
+
+/* TESTIMONIALS */
+.testimonials{padding:80px 60px;background:var(--cream-mid)}
+.testimonials-inner{max-width:1200px;margin:0 auto}
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px}
+.test-card{background:var(--white);padding:40px;border-top:3px solid var(--gold)}
+.test-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;line-height:1.6;color:var(--charcoal);margin-bottom:24px}
+.test-author{font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-soft)}
+.test-case{font-size:12px;color:var(--gold);margin-top:4px}
+
+/* CONTACT */
+.contact-section{background:var(--charcoal);padding:80px 60px}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--white);margin-bottom:24px}
+.contact-left h2 em{color:var(--gold-light);font-style:italic}
+.contact-left p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.55);margin-bottom:40px}
+.contact-details{display:flex;flex-direction:column;gap:16px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-item-icon{color:var(--gold);font-size:16px;margin-top:2px}
+.contact-item-text{font-size:14px;color:rgba(255,255,255,0.7)}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:flex;flex-direction:column;gap:8px}
+.form-field label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:14px 16px;color:var(--white);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--gold)}
+.form-field textarea{height:120px;resize:vertical}
+.form-field select option{background:var(--charcoal);color:var(--white)}
+.form-submit{background:var(--gold);color:var(--charcoal);padding:16px 40px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;align-self:flex-start}
+.form-submit:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:#111;padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--white)}
+.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links,.nav-cta{display:none}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto}
+  .hero-left{padding:60px 24px}
+  .hero-h1{font-size:44px}
+  .hero-right{min-height:300px}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:28px 24px;gap:24px}
+  .section{padding:60px 24px}
+  .section-title{font-size:36px}
+  .practice-grid{grid-template-columns:1fr}
+  .attorneys-section{padding:60px 24px}
+  .attorneys-grid{grid-template-columns:1fr}
+  .testimonials{padding:60px 24px}
+  .test-grid{grid-template-columns:1fr}
+  .contact-section{padding:60px 24px}
+  .contact-inner{grid-template-columns:1fr;gap:40px}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MERIDIAN<span>.</span>LAW</div>
+  <ul class="nav-links">
+    <li><a href="#">Practice Areas</a></li>
+    <li><a href="#">Our Attorneys</a></li>
+    <li><a href="#">Results</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Free Consultation</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Established 1994 · Dallas, Texas</div>
+    <h1 class="hero-h1">When the Stakes Are <em>Highest</em>, Choose Meridian.</h1>
+    <p class="hero-sub">For three decades, Meridian Law Group has delivered decisive legal outcomes for corporations, families, and individuals navigating the most complex matters in law.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Schedule Consultation</a>
+      <a href="#practice" class="btn-ghost">Our Practice Areas</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <div class="scales-icon">⚖️</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">$2.4B</div><div class="stat-label">Recovered for Clients</div></div>
+  <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Case Success Rate</div></div>
+  <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">Years of Excellence</div></div>
+  <div class="stat-item"><div class="stat-num">1,200+</div><div class="stat-label">Cases Won</div></div>
+</div>
+
+<section class="section reveal" id="practice">
+  <div class="section-eyebrow">What We Do</div>
+  <h2 class="section-title">Areas of <em>Practice</em></h2>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <div class="practice-icon">🏛️</div>
+      <div class="practice-name">Corporate Litigation</div>
+      <div class="practice-desc">Aggressive representation in commercial disputes, breach of contract, shareholder conflicts, and complex business litigation at every court level.</div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🏠</div>
+      <div class="practice-name">Real Estate Law</div>
+      <div class="practice-desc">From acquisitions and development to title disputes and landlord-tenant matters — comprehensive real estate counsel for investors and developers.</div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🛡️</div>
+      <div class="practice-name">Criminal Defense</div>
+      <div class="practice-desc">Tenacious defense from investigation through trial. Federal, state, and white-collar criminal matters handled with precision and discretion.</div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">📋</div>
+      <div class="practice-name">Estate Planning</div>
+      <div class="practice-desc">Wills, trusts, probate, and wealth transfer strategies crafted to protect your legacy and minimize tax exposure for generations.</div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">💼</div>
+      <div class="practice-name">Employment Law</div>
+      <div class="practice-desc">Workplace discrimination, wrongful termination, non-compete enforcement, and executive employment agreements — both sides of the table.</div>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🌐</div>
+      <div class="practice-name">Mergers & Acquisitions</div>
+      <div class="practice-desc">Due diligence, deal structuring, regulatory approvals, and post-close integration counsel for transactions of every scale.</div>
+    </div>
+  </div>
+</section>
+
+<section class="attorneys-section">
+  <div class="attorneys-inner">
+    <h2 class="attorneys-title">Meet Our <em>Attorneys</em></h2>
+    <div class="attorneys-grid">
+      <div class="attorney-card reveal">
+        <div class="attorney-avatar">RH</div>
+        <div class="attorney-name">Robert D. Hargrove</div>
+        <div class="attorney-title">Managing Partner</div>
+        <div class="attorney-bio">Yale Law '91. Former federal prosecutor with 15 years at the DOJ. Recognized by Texas Super Lawyers for six consecutive years. Specializes in white-collar defense and complex commercial litigation.</div>
+      </div>
+      <div class="attorney-card reveal">
+        <div class="attorney-avatar">SC</div>
+        <div class="attorney-name">Sandra L. Chen</div>
+        <div class="attorney-title">Partner — M&A</div>
+        <div class="attorney-bio">Harvard Law '98. Led over $800M in completed transactions. Formerly at Sullivan & Cromwell. Named among the top 50 M&A attorneys in the Southwest by Corporate Counsel Magazine.</div>
+      </div>
+      <div class="attorney-card reveal">
+        <div class="attorney-avatar">MV</div>
+        <div class="attorney-name">Marcus A. Vidal</div>
+        <div class="attorney-title">Partner — Litigation</div>
+        <div class="attorney-bio">UT Law '03. Board Certified in Civil Trial Law by the Texas Board of Legal Specialization. Jury trial record: 47 wins, 3 losses across 12 years of active trial practice.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-eyebrow">Client Outcomes</div>
+    <h2 class="section-title">Results That <em>Speak</em></h2>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-quote">"Meridian recovered $14.2 million for our company in a complex breach of contract suit that two other firms said was unwinnable. Their preparation and courtroom presence are unmatched."</div>
+        <div class="test-author">— CEO, Dallas Manufacturing Firm</div>
+        <div class="test-case">Commercial Litigation · $14.2M Recovery</div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-quote">"When I was facing federal charges, I needed more than a lawyer — I needed someone who understood the system from the inside. Robert Hargrove is that person."</div>
+        <div class="test-author">— Private Client</div>
+        <div class="test-case">Federal Criminal Defense · All Charges Dismissed</div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-quote">"Sandra structured our acquisition with a precision I've never seen before. She identified three critical liabilities our previous counsel missed entirely. Saved us $2.8M at close."</div>
+        <div class="test-author">— Founder, Private Equity Group</div>
+        <div class="test-case">M&A · $47M Transaction</div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-quote">"Meridian handled our entire estate plan — 11 entities, a family trust, and complex gift strategies. Exceptionally thorough and always available. Exactly what we needed."</div>
+        <div class="test-author">— Retired Surgeon & Client Since 2009</div>
+        <div class="test-case">Estate Planning · Multi-Entity Structure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Request a <em>Confidential</em> Consultation</h2>
+      <p>Every matter is handled with absolute discretion. Our attorneys review all inquiries within one business day. Initial consultations are complimentary.</p>
+      <div class="contact-details">
+        <div class="contact-item"><div class="contact-item-icon">📍</div><div class="contact-item-text">2100 Ross Avenue, Suite 2700<br>Dallas, Texas 75201</div></div>
+        <div class="contact-item"><div class="contact-item-icon">📞</div><div class="contact-item-text">(214) 555-0190</div></div>
+        <div class="contact-item"><div class="contact-item-icon">✉️</div><div class="contact-item-text">counsel@meridianlaw.com</div></div>
+        <div class="contact-item"><div class="contact-item-icon">🕐</div><div class="contact-item-text">Monday – Friday, 8:00 AM – 6:00 PM<br>24/7 Emergency Line Available</div></div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="return false">
+      <div class="form-row">
+        <div class="form-field"><label>First Name</label><input type="text" placeholder="Robert"></div>
+        <div class="form-field"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+      </div>
+      <div class="form-field"><label>Email Address</label><input type="email" placeholder="robert@company.com"></div>
+      <div class="form-field"><label>Phone</label><input type="tel" placeholder="(214) 555-0000"></div>
+      <div class="form-field">
+        <label>Practice Area</label>
+        <select>
+          <option value="">Select area of need</option>
+          <option>Corporate Litigation</option>
+          <option>Real Estate Law</option>
+          <option>Criminal Defense</option>
+          <option>Estate Planning</option>
+          <option>Employment Law</option>
+          <option>Mergers & Acquisitions</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Brief Summary of Matter</label><textarea placeholder="Please describe your legal matter in confidence..."></textarea></div>
+      <button type="submit" class="form-submit">Request Consultation →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">MERIDIAN<span>.</span>LAW</div>
+  <div class="footer-copy">© 2025 Meridian Law Group, P.C. · Attorney Advertising · Past results do not guarantee future outcomes.</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Careers</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnolia Estate — Hill Country Wedding Venue</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dusty:#8B7B6E;--dusty-mid:#A8968A;--dusty-pale:#F5EDE8;
+  --sage:#6B7F5A;--sage-light:#8FA07A;--sage-pale:#EEF2EA;
+  --ivory:#FAF6F0;--ivory-mid:#F0E8DF;--white:#FFFFFF;
+  --text:#2C2420;--text-soft:#5A4A42;--text-muted:#9A8A82;
+  --blush:#E8C4B0;
+}
+body{font-family:'Lato',sans-serif;background:var(--ivory);color:var(--text);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,246,240,0.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,123,110,0.1)}
+.nav-logo{font-family:'Cinzel',serif;font-size:18px;font-weight:400;letter-spacing:0.12em;color:var(--text)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-soft);transition:color 0.2s}
+.nav-links a:hover{color:var(--dusty)}
+.nav-inquire{background:var(--dusty);color:white;padding:11px 28px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.nav-inquire:hover{background:var(--dusty-mid)}
+
+.hero{min-height:100vh;background:var(--text);display:flex;align-items:flex-end;padding:0 60px 100px;position:relative;overflow:hidden;padding-top:80px}
+.hero-bg-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:220px;font-weight:700;color:rgba(139,123,110,0.04);letter-spacing:0.1em;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.hero-florals{position:absolute;top:80px;right:60px;font-size:80px;opacity:0.4;z-index:1}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--blush);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--blush)}
+.hero-h1{font-family:'Cinzel',serif;font-size:72px;font-weight:400;line-height:1.1;color:var(--white);margin-bottom:20px;letter-spacing:0.04em}
+.hero-tagline{font-family:'Crimson Text',serif;font-size:22px;font-style:italic;color:rgba(255,255,255,0.5);margin-bottom:48px;line-height:1.5}
+.hero-btns{display:flex;gap:20px;align-items:center}
+.btn-blush{background:var(--blush);color:var(--text);padding:16px 40px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-blush:hover{background:var(--dusty-pale)}
+.btn-ghost-ivory{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);padding:16px 36px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-ghost-ivory:hover{border-color:var(--blush);color:var(--blush)}
+
+.stats-ribbon{background:var(--dusty);padding:28px 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.stat{text-align:center;border-right:1px solid rgba(255,255,255,0.2)}
+.stat:last-child{border-right:none}
+.stat-val{font-family:'Cinzel',serif;font-size:36px;font-weight:600;color:var(--white);line-height:1}
+.stat-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:6px}
+
+.venue{padding:80px 60px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.venue-left .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--dusty);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.venue-left .eyebrow::before{content:'';width:28px;height:1px;background:var(--dusty)}
+.venue-left h2{font-family:'Cinzel',serif;font-size:44px;font-weight:400;line-height:1.2;color:var(--text);margin-bottom:24px;letter-spacing:0.04em}
+.venue-left p{font-size:15px;line-height:1.9;color:var(--text-soft);margin-bottom:24px;font-family:'Crimson Text',serif;font-size:17px}
+.venue-right{background:var(--dusty-pale);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-size:100px}
+
+.spaces{background:var(--ivory-mid);padding:80px 60px}
+.spaces-inner{max-width:1200px;margin:0 auto}
+.spaces-title{font-family:'Cinzel',serif;font-size:44px;font-weight:400;color:var(--text);margin-bottom:8px;letter-spacing:0.04em}
+.spaces-subtitle{font-family:'Crimson Text',serif;font-size:18px;font-style:italic;color:var(--text-muted);margin-bottom:48px}
+.spaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.space-card{background:var(--white);overflow:hidden;transition:all 0.3s}
+.space-card:hover{box-shadow:0 16px 48px rgba(44,36,32,0.1);transform:translateY(-4px)}
+.space-img{height:240px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.space-tag{position:absolute;bottom:16px;left:16px;background:var(--dusty);color:white;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px}
+.space-body{padding:28px}
+.space-name{font-family:'Cinzel',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:8px;letter-spacing:0.04em}
+.space-desc{font-family:'Crimson Text',serif;font-size:15px;line-height:1.7;color:var(--text-soft);margin-bottom:16px}
+.space-cap{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dusty)}
+
+.packages{padding:80px 60px;max-width:1200px;margin:0 auto}
+.packages-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--dusty);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.packages-eyebrow::before{content:'';width:28px;height:1px;background:var(--dusty)}
+.packages-title{font-family:'Cinzel',serif;font-size:44px;font-weight:400;color:var(--text);margin-bottom:48px;letter-spacing:0.04em}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pkg{background:var(--white);border:1px solid var(--ivory-mid);padding:40px 32px;transition:all 0.3s}
+.pkg:hover{border-color:var(--dusty)}
+.pkg.featured{background:var(--text);border-color:var(--text)}
+.pkg.featured .pkg-name,.pkg.featured .pkg-price,.pkg.featured .pkg-feature{color:var(--white)}
+.pkg.featured .pkg-period{color:rgba(255,255,255,0.45)}
+.pkg.featured .pkg-feature{color:rgba(255,255,255,0.7)}
+.pkg.featured .pkg-cta{background:var(--blush);color:var(--text);border:none}
+.pkg-tier{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--dusty);margin-bottom:12px}
+.pkg.featured .pkg-tier{color:var(--blush)}
+.pkg-name{font-family:'Cinzel',serif;font-size:26px;font-weight:400;color:var(--text);margin-bottom:8px;letter-spacing:0.04em}
+.pkg-price{font-size:36px;font-weight:300;color:var(--text)}
+.pkg-period{font-size:13px;color:var(--text-muted);margin-bottom:28px}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.pkg-feature{font-size:14px;color:var(--text-soft);display:flex;align-items:center;gap:10px}
+.pkg-feature::before{content:'✦';color:var(--dusty);font-size:10px}
+.pkg-cta{display:block;text-align:center;padding:14px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;border:2px solid var(--dusty);color:var(--dusty)}
+.pkg-cta:hover{background:var(--dusty);color:white}
+
+.inquiry{background:var(--text);padding:80px 60px;text-align:center}
+.inquiry-inner{max-width:700px;margin:0 auto}
+.inquiry-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--blush);margin-bottom:20px}
+.inquiry-h2{font-family:'Cinzel',serif;font-size:52px;font-weight:400;color:var(--white);margin-bottom:12px;letter-spacing:0.04em}
+.inquiry-sub{font-family:'Crimson Text',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,0.45);margin-bottom:48px}
+.inquiry-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.iq{display:flex;flex-direction:column;gap:8px}
+.iq label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-align:left}
+.iq input,.iq select,.iq textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:14px 16px;color:white;font-family:'Lato',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+.iq input:focus,.iq select:focus,.iq textarea:focus{border-color:var(--blush)}
+.iq select option{background:#2C2420}
+.iq textarea{height:100px;resize:vertical}
+.iq-full{grid-column:1/-1}
+.iq-submit{background:var(--blush);color:var(--text);padding:16px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;grid-column:1/-1;transition:all 0.2s}
+.iq-submit:hover{background:var(--dusty-pale)}
+
+footer{background:#1A1210;padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cinzel',serif;font-size:18px;font-weight:400;color:white;letter-spacing:0.12em}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25);text-align:center}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+.footer-links a:hover{color:var(--blush)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .hero{padding:80px 24px 60px}
+  .hero-h1{font-size:48px}
+  .hero-florals{display:none}
+  .stats-ribbon{grid-template-columns:repeat(2,1fr);padding:28px 24px}
+  .venue{padding:60px 24px;grid-template-columns:1fr}
+  .spaces{padding:60px 24px}
+  .spaces-grid{grid-template-columns:1fr}
+  .packages{padding:60px 24px}
+  .packages-grid{grid-template-columns:1fr}
+  .inquiry{padding:60px 24px}
+  .inquiry-h2{font-size:36px}
+  .inquiry-form{grid-template-columns:1fr}
+  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">MAGNOLIA ESTATE</div>
+  <ul class="nav-links">
+    <li><a href="#">The Estate</a></li>
+    <li><a href="#">Spaces</a></li>
+    <li><a href="#">Packages</a></li>
+    <li><a href="#">Real Weddings</a></li>
+    <li><a href="#">Vendors</a></li>
+  </ul>
+  <a href="#inquiry" class="nav-inquire">Check Availability</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-text">MAGNOLIA</div>
+  <div class="hero-florals">🌸</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Hill Country · Dripping Springs, TX</div>
+    <h1 class="hero-h1">Your Day.<br>Made<br>Forever.</h1>
+    <div class="hero-tagline">"Forty acres of Texas Hill Country, built for the moments that last a lifetime."</div>
+    <div class="hero-btns">
+      <a href="#inquiry" class="btn-blush">Check Our Availability</a>
+      <a href="#spaces" class="btn-ghost-ivory">Take a Virtual Tour</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-ribbon">
+  <div class="stat"><div class="stat-val">400+</div><div class="stat-label">Weddings Hosted</div></div>
+  <div class="stat"><div class="stat-val">40 ac</div><div class="stat-label">Hill Country Estate</div></div>
+  <div class="stat"><div class="stat-val">4.98★</div><div class="stat-label">Avg. Couple Rating</div></div>
+  <div class="stat"><div class="stat-val">250</div><div class="stat-label">Max Guest Capacity</div></div>
+</div>
+
+<section class="venue">
+  <div class="venue-left reveal">
+    <div class="eyebrow">The Estate</div>
+    <h2>40 Acres of Pure<br>Hill Country Beauty</h2>
+    <p>Magnolia Estate sits on 40 private acres in Dripping Springs — just 35 minutes from downtown Austin — with sweeping hilltop views, a cedar-lined ceremony lawn, and a converted 1920s barn that's become one of Texas's most photographed wedding venues.</p>
+    <p>We host an intentionally limited number of weddings each year — never more than one per weekend — so your celebration receives the full attention of our team from rehearsal dinner through send-off.</p>
+    <a href="#inquiry" class="btn-blush" style="display:inline-block">Inquire About Your Date</a>
+  </div>
+  <div class="venue-right reveal">🌿</div>
+</section>
+
+<section class="spaces" id="spaces">
+  <div class="spaces-inner">
+    <div class="spaces-eyebrow" style="font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--dusty);margin-bottom:12px;display:flex;align-items:center;gap:12px"><span style="width:28px;height:1px;background:var(--dusty);display:inline-block"></span>Our Spaces</div>
+    <h2 class="spaces-title">Every Setting Tells a Story</h2>
+    <p class="spaces-subtitle">"From intimate elopements to grand celebrations — we have a space for every vision."</p>
+    <div class="spaces-grid">
+      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#3D2B1A,#2A1E12)">🌅<div class="space-tag">Most Popular</div></div><div class="space-body"><div class="space-name">The Hilltop Lawn</div><div class="space-desc">Open-air ceremony lawn with panoramic Hill Country views, mature oak trees, and a natural stone altar.</div><div class="space-cap">Up to 250 guests</div></div></div>
+      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#3A3020,#2C2418)">🏚️<div class="space-tag">Signature</div></div><div class="space-body"><div class="space-name">The Heritage Barn</div><div class="space-desc">Restored 1920s cedar barn with original post-and-beam structure, bistro lighting, and a 3,200 sq ft dance floor.</div><div class="space-cap">Up to 200 guests</div></div></div>
+      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#2A3020,#1E2818)">🌳</div><div class="space-body"><div class="space-name">The Grove</div><div class="space-desc">Intimate woodland clearing surrounded by century-old live oaks — perfect for elopements and micro-weddings up to 40.</div><div class="space-cap">Up to 40 guests</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="packages">
+  <div class="packages-eyebrow">Packages</div>
+  <h2 class="packages-title">Find Your Package</h2>
+  <div class="packages-grid">
+    <div class="pkg reveal"><div class="pkg-tier">Elopement</div><div class="pkg-name">The Simple Vow</div><div class="pkg-price">$4,500</div><div class="pkg-period">Weekday · Up to 20 guests</div><ul class="pkg-features"><li class="pkg-feature">3-hour venue access</li><li class="pkg-feature">The Grove ceremony space</li><li class="pkg-feature">Bridal suite access</li><li class="pkg-feature">1 venue coordinator</li></ul><a href="#inquiry" class="pkg-cta">Inquire →</a></div>
+    <div class="pkg featured reveal"><div class="pkg-tier">Full Celebration</div><div class="pkg-name">The Magnolia</div><div class="pkg-price">$12,500</div><div class="pkg-period">Weekend · Up to 200 guests</div><ul class="pkg-features"><li class="pkg-feature">Full Friday–Sunday access</li><li class="pkg-feature">Barn + Hilltop Lawn</li><li class="pkg-feature">Day-of coordinator</li><li class="pkg-feature">Tables, chairs, lighting</li><li class="pkg-feature">Bridal & groom suites</li><li class="pkg-feature">Catering kitchen</li></ul><a href="#inquiry" class="pkg-cta" style="background:var(--blush);color:var(--text);border:none">Inquire →</a></div>
+    <div class="pkg reveal"><div class="pkg-tier">Full Estate</div><div class="pkg-name">Estate Buyout</div><div class="pkg-price">$22,000</div><div class="pkg-period">Weekend · Up to 250 guests</div><ul class="pkg-features"><li class="pkg-feature">All three spaces</li><li class="pkg-feature">Full weekend exclusive</li><li class="pkg-feature">On-site cottage accommodation</li><li class="pkg-feature">Rehearsal dinner included</li><li class="pkg-feature">Preferred vendor access</li></ul><a href="#inquiry" class="pkg-cta">Inquire →</a></div>
+  </div>
+</section>
+
+<section class="inquiry" id="inquiry">
+  <div class="inquiry-inner">
+    <div class="inquiry-eyebrow">Check Availability</div>
+    <h2 class="inquiry-h2">Your Date is Waiting</h2>
+    <p class="inquiry-sub">"Every love story deserves the perfect setting."</p>
+    <form onsubmit="return false">
+      <div class="inquiry-form">
+        <div class="iq"><label>Partner 1 Name</label><input type="text" placeholder="Emma"></div>
+        <div class="iq"><label>Partner 2 Name</label><input type="text" placeholder="James"></div>
+        <div class="iq"><label>Email</label><input type="email" placeholder="emma@email.com"></div>
+        <div class="iq"><label>Phone</label><input type="tel" placeholder="(512) 555-0100"></div>
+        <div class="iq"><label>Wedding Date</label><input type="date"></div>
+        <div class="iq"><label>Guest Count</label><select><option>Under 50</option><option>50–100</option><option>100–150</option><option>150–200</option><option>200–250</option></select></div>
+        <div class="iq iq-full"><label>Tell Us About Your Vision</label><textarea placeholder="Style, inspiration, must-haves, questions..."></textarea></div>
+        <button class="iq-submit" type="submit">Send Inquiry — We Respond Within 24 Hours</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">MAGNOLIA ESTATE</div>
+  <div class="footer-copy">1200 Ranch Road 12 · Dripping Springs, TX 78620 · (512) 555-0188 · hello@magnoliaestatedtx.com</div>
+  <div class="footer-links"><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Privacy</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
