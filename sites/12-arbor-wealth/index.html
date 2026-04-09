@@ -81,6 +81,18 @@ footer{border-top:1px solid var(--rule);padding:32px 80px;display:flex;justify-c
   .cf-row{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center;padding:24px}
 }
+
+/* Advisory meeting atmospheric background */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1800&q=90') center/cover no-repeat;
+  opacity:.06;
+  pointer-events:none;
+  z-index:0;
+}
+.topbar,.masthead,.chapter,.cta-chapter{position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -105,9 +117,6 @@ footer{border-top:1px solid var(--rule);padding:32px 80px;display:flex;justify-c
   <h2 class="chap-h">We manage wealth the way it was <em>meant</em> to be managed.</h2>
   <p class="chap-body">Most wealth managers optimize for assets under management. We optimize for outcomes. That means fewer clients, deeper relationships, and investment strategies built around your life — not a model portfolio.</p>
   
-    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80" 
-         alt="Financial planning" 
-         style="width:100%;aspect-ratio:16/9;object-fit:cover;margin:40px 0;filter:brightness(.85)">
     <p class="chap-body">Arbor has operated as a fee-only, fiduciary advisory firm since 2001. We've never taken commissions. We've never sold a financial product. That independence is not a talking point — it's our entire operating model.</p>
   <div class="pull-quote">
     <div class="pq-text">"Our best clients don't come to us asking for returns. They come asking for clarity. We give them both."</div>
@@ -117,7 +126,18 @@ footer{border-top:1px solid var(--rule);padding:32px 80px;display:flex;justify-c
     <div class="tenet"><div class="tenet-n">I</div><div><div class="tenet-name">Fiduciary, Always</div><div class="tenet-desc">We are legally and ethically required to act in your best interest — always. No hidden fees, no product incentives, no conflicts of interest.</div></div></div>
     <div class="tenet"><div class="tenet-n">II</div><div><div class="tenet-name">Fee-Only Independence</div><div class="tenet-desc">You pay us directly. No commissions, no kickbacks, no referral arrangements. Our only incentive is your financial success.</div></div></div>
     <div class="tenet"><div class="tenet-n">III</div><div><div class="tenet-name">Long-Term Discipline</div><div class="tenet-desc">We don't react to markets. We build portfolios that endure volatility — and help you maintain the discipline to let compounding do its work.</div></div></div>
+  
+  <!-- Advisor meeting image -->
+  <div style="position:relative;margin:48px 0;overflow:hidden">
+    <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1400&q=92" 
+         alt="Financial advisor meeting with clients"
+         style="width:100%;aspect-ratio:16/7;object-fit:cover;object-position:center 40%;filter:brightness(.55)">
+    <div style="position:absolute;bottom:28px;left:0;right:0;padding:0 40px;display:flex;justify-content:space-between;align-items:flex-end">
+      <div style="font-family:'EB Garamond',serif;font-size:22px;font-style:italic;color:rgba(240,235,224,.85);max-width:480px;line-height:1.4">"The most important meeting is the one where we listen more than we speak."</div>
+      <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,235,224,.3)">Arbor Wealth · Client Consultation</div>
+    </div>
   </div>
+</div>
 </section>
 
 <section class="chapter" id="chap2">
@@ -129,12 +149,7 @@ footer{border-top:1px solid var(--rule);padding:32px 80px;display:flex;justify-c
     <div class="ne-item"><div class="ne-val">94%</div><div class="ne-label">Client retention rate, lifetime</div></div>
   </div>
   
-    <figure style="margin:40px 0">
-      <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1200&q=80" 
-           alt="Investment strategy" 
-           style="width:100%;aspect-ratio:21/9;object-fit:cover;filter:brightness(.7)">
-      <figcaption style="font-size:10px;color:rgba(240,235,224,.3);letter-spacing:.12em;text-transform:uppercase;margin-top:8px">Our Austin office · 300 W 6th Street, Suite 1800</figcaption>
-    </figure>
+
   <div class="svc-list">
     <div class="svc-item"><div><div class="svc-name">Investment Management</div><div class="svc-desc">Globally diversified, tax-efficient portfolios built around your goals, time horizon, and risk tolerance.</div></div><div class="svc-arrow">→</div></div>
     <div class="svc-item"><div><div class="svc-name">Financial Planning</div><div class="svc-desc">Retirement, education, insurance, tax, and estate planning — integrated into a single, living financial plan.</div></div><div class="svc-arrow">→</div></div>

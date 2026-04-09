@@ -41,22 +41,22 @@ h1 em{font-style:italic;color:var(--lime);display:block}
 .btn-outline:hover{border-color:var(--lime);color:var(--lime)}
 /* PRODUCT GRID — dominant, full width */
 .products{padding:80px 48px;border-top:1px solid rgba(255,255,255,.06)}
-.products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
-.products-header h2{font-size:clamp(36px,5vw,64px);font-weight:800;text-transform:uppercase;line-height:.92}
-.products-header h2 span{color:var(--lime)}
-.products-meta{font-family:'Syne Mono',monospace;font-size:11px;color:var(--gray);text-align:right}
-.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
-.product-card{background:var(--dark);overflow:hidden;cursor:pointer;max-height:420px}
-.product-card:first-child{grid-row:span 1}
-.product-img{aspect-ratio:3/4;overflow:hidden;position:relative}
-.product-card:first-child .product-img{aspect-ratio:3/4;height:auto}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.product-card:hover .product-img img{transform:scale(1.06)}
-.product-badge{position:absolute;top:14px;left:14px;background:var(--lime);color:var(--black);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px}
-.product-body{padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
-.product-name{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.product-sub{font-size:11px;color:var(--gray);margin-top:2px}
-.product-price{font-family:'Syne Mono',monospace;font-size:16px;color:var(--lime);font-weight:400}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* TECH STRIP */
 .tech-strip{background:var(--mid);padding:60px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-top:1px solid rgba(255,255,255,.06)}
 .tech-item{padding:32px 28px;border-right:1px solid rgba(255,255,255,.06);text-align:center}
@@ -76,31 +76,44 @@ footer{background:#060606;border-top:1px solid rgba(255,255,255,.05);padding:20p
 @media(max-width:768px){
   header{padding:0 20px}.header-nav{display:none}
   .hero-content{padding:0 24px 60px}.hero-btns{flex-direction:column}
-  .products{padding:48px 20px}
-  .products-grid{grid-template-columns:1fr}.product-card:first-child{grid-row:span 1}
+  .gallery-section{padding:48px 20px}
+  .products-grid{grid-template-columns:1fr}
   .tech-strip{grid-template-columns:1fr 1fr;padding:40px 24px}
   .about-strip{grid-template-columns:1fr}
   .about-img{min-height:300px}.about-text{padding:48px 24px}
   footer{flex-direction:column;text-align:center;padding:16px 24px}
 }
+
+.gallery-section{padding:80px 48px;border-top:1px solid rgba(255,255,255,.06)}
+.gallery-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;gap:40px}
+.gallery-eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);margin-bottom:8px}
+.gallery-h{font-size:clamp(36px,5vw,64px);font-weight:800;text-transform:uppercase;line-height:.92}
+.gallery-h span{color:var(--lime)}
+.gallery-sub{font-size:14px;font-weight:300;color:var(--gray);max-width:320px;line-height:1.7;padding-top:8px}
+.ride-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:2px}
+.ride-cell{overflow:hidden;position:relative}
+.ride-cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:brightness(.85)}
+.ride-cell:hover img{transform:scale(1.05);filter:brightness(1)}
+.ride-tall{grid-row:span 2}
+.ride-wide{grid-column:span 2}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">VE<span>LO</span></div>
   <nav class="header-nav">
-    <a href="#products">Shop</a><a href="#about">About</a><a href="#contact">Contact</a>
+    <a href="#gallery">Shop</a><a href="#about">About</a><a href="#contact">Contact</a>
   </nav>
-  <div class="header-actions"><a href="#products" class="cart">Cart (0)</a></div>
+  <div class="header-actions"><a href="#gallery" class="cart">Cart (0)</a></div>
 </header>
 <div class="marquee-band">
   <div class="marquee-track">
-    <span class="marquee-item">SS25 Drop — Live Now</span><span class="marquee-dot">◆</span>
-    <span class="marquee-item">Free Shipping Over $120</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">SS25 Collection — Out Now</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Ships Worldwide</span><span class="marquee-dot">◆</span>
     <span class="marquee-item">Recycled Fabrics</span><span class="marquee-dot">◆</span>
     <span class="marquee-item">Aerodynamic Construction</span><span class="marquee-dot">◆</span>
-    <span class="marquee-item">SS25 Drop — Live Now</span><span class="marquee-dot">◆</span>
-    <span class="marquee-item">Free Shipping Over $120</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">SS25 Collection — Out Now</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Ships Worldwide</span><span class="marquee-dot">◆</span>
     <span class="marquee-item">Recycled Fabrics</span><span class="marquee-dot">◆</span>
     <span class="marquee-item">Aerodynamic Construction</span><span class="marquee-dot">◆</span>
   </div>
@@ -113,21 +126,24 @@ footer{background:#060606;border-top:1px solid rgba(255,255,255,.05);padding:20p
     <h1>RIDE<br>LIKE IT<br><em>MATTERS.</em></h1>
     <p class="hero-sub">VELO engineers cycling apparel for riders who refuse to compromise. Aerodynamic, sustainable, and built for the demands of real performance.</p>
     <div class="hero-btns">
-      <a href="#products" class="btn-lime">Shop SS25 Drop</a>
+      <a href="#gallery" class="btn-lime">Explore Our Rides</a>
       <a href="#about" class="btn-outline">Our Story</a>
     </div>
   </div>
 </section>
-<section class="products" id="products">
-  <div class="products-header">
-    <h2>SS25<br><span>Collection.</span></h2>
-    <div class="products-meta">6 styles available<br>Limited run — no restocks</div>
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="gallery-eyebrow">Built for the Road</div>
+      <h2 class="gallery-h">Engineered for<br><span>performance.</span></h2>
+    </div>
+    <p class="gallery-sub">Every VELO piece is developed alongside competitive cyclists — tested in real race conditions before it ever reaches you.</p>
   </div>
-  <div class="products-grid">
-    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&q=90" alt="Pro Race Kit"><div class="product-badge">New</div></div><div class="product-body"><div><div class="product-name">Pro Race Kit</div><div class="product-sub">Bib + Jersey Set</div></div><div class="product-price">$248</div></div></div>
-    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=90" alt="Aero Jersey"><div class="product-badge">Bestseller</div></div><div class="product-body"><div><div class="product-name">Aero Jersey</div><div class="product-sub">Short Sleeve</div></div><div class="product-price">$138</div></div></div>
-    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1471506480297-f03fbf84e2df?w=600&q=85" alt="Race Bibs"></div><div class="product-body"><div><div class="product-name">Race Bibs</div><div class="product-sub">Padded · Unisex</div></div><div class="product-price">$162</div></div></div>
-    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=85" alt="Wind Jacket"></div><div class="product-body"><div><div class="product-name">Wind Jacket</div><div class="product-sub">Packable · Waterproof</div></div><div class="product-price">$198</div></div></div>
+  <div class="ride-grid">
+    <div class="ride-cell ride-tall"><img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=900&q=90" alt="Race cycling"></div>
+    <div class="ride-cell"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=700&q=90" alt="Cycling kit detail"></div>
+    <div class="ride-cell"><img src="https://images.unsplash.com/photo-1471506480297-f03fbf84e2df?w=700&q=90" alt="Road cyclist"></div>
+    <div class="ride-cell ride-wide"><img src="https://images.unsplash.com/photo-1516972810927-80185027ca84?w=1000&q=90" alt="Group ride"></div>
   </div>
 </section>
 <div class="tech-strip">
@@ -142,7 +158,7 @@ footer{background:#060606;border-top:1px solid rgba(255,255,255,.05);padding:20p
     <div class="about-eyebrow">Built Different</div>
     <h2 class="about-h">MADE FOR<br>RIDERS,<br>BY RIDERS.</h2>
     <p class="about-p">VELO started in a garage in Austin in 2019. Two cyclists, one sewing machine, and a refusal to accept mediocre kit. We've shipped to 42 countries since.</p>
-    <a href="#products" class="btn-lime" style="align-self:flex-start">Shop Now</a>
+    <a href="#about" class="btn-lime" style="align-self:flex-start">Our Story</a>
   </div>
 </section>
 <div id="contact" style="display:none"></div>
