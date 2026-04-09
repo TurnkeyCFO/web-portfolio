@@ -46,18 +46,18 @@ nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);padding
 .treat-desc{font-size:12px;font-weight:300;color:var(--silver);line-height:1.5;margin-top:4px}
 .treat-price{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--rose);text-align:right}
 .treat-from{font-size:9px;color:var(--silver);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:2px}
-/* ASYMMETRIC FEATURE — image left, text right */
-.feature{display:grid;grid-template-columns:55% 1fr;background:var(--blush)}
-.feature-img img{width:100%;height:100%;object-fit:cover;min-height:600px}
-.feature-text{padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
-.feature-eyebrow{font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:20px}
-.feature-h{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:20px}
-.feature-h em{font-style:italic}
-.feature-body{font-size:13px;font-weight:300;line-height:1.85;color:var(--silver);margin-bottom:32px}
-.provider{display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid rgba(44,24,16,.1)}
-.provider-img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top}
-.provider-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink)}
-.provider-title{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--silver)}
+
+
+
+
+
+
+
+
+
+
+
+
 /* BOOKING */
 .booking{background:var(--ink);padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .booking-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:20px}
@@ -82,9 +82,9 @@ footer{background:var(--mist);border-top:1px solid rgba(44,24,16,.08);padding:40
   nav,.nav-links{padding:18px 24px}.nav-links{display:none}
   .intro,.treatments,.booking{padding:100px 24px 60px;grid-template-columns:1fr}
   .intro-inner,.treat-header,.booking{grid-template-columns:1fr;gap:40px}
-  .feature{grid-template-columns:1fr}
-  .feature-img img{min-height:320px}
-  .feature-text{padding:48px 28px}
+  
+
+  
   .intro-img-caption{left:0;bottom:16px}
   .treat-item{grid-template-columns:40px 1fr;gap:12px}
   .treat-price{display:none}
@@ -98,7 +98,7 @@ footer{background:var(--mist);border-top:1px solid rgba(44,24,16,.08);padding:40
   <div class="nav-logo">Lumina</div>
   <div class="nav-links">
     <a href="#treatments">Treatments</a>
-    <a href="#team">Our Team</a>
+    <a href="#book">Our Approach</a>
     <a href="#book">Book</a>
   </div>
   <a href="#book" class="nav-book">Book a Consultation</a>
@@ -142,18 +142,6 @@ footer{background:var(--mist);border-top:1px solid rgba(44,24,16,.08);padding:40
   </div>
 </section>
 
-<section class="feature" id="team">
-  <div class="feature-img"><img src="https://images.unsplash.com/photo-1519824145371-296894a3dba9?w=900&q=80" alt="Dr. Sarah Chen"></div>
-  <div class="feature-text">
-    <div class="feature-eyebrow">Medical Director</div>
-    <h2 class="feature-h">Where medicine<br>meets <em>artistry.</em></h2>
-    <p class="feature-body">Dr. Sarah Chen, MD is double board-certified in Dermatology and Plastic & Reconstructive Surgery. She founded Lumina in 2016 with a single conviction: that medical aesthetics should be as precise as surgery and as thoughtful as art.</p>
-    <p class="feature-body" style="margin-top:0">Every provider at Lumina trained under Dr. Chen's direct supervision. We don't hire technicians — we develop artists.</p>
-    <div class="provider">
-      <div><div class="provider-name">Dr. Sarah Chen, MD</div><div class="provider-title">Founder · Double Board-Certified</div></div>
-    </div>
-  </div>
-</section>
 
 <section class="booking" id="book">
   <div class="booking-text">
