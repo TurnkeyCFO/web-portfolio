@@ -1,244 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grounds — Artisan Coffee & Café</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounds Coffee Co. — Single Origin · Austin, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --espresso:#1C0F06;--espresso-mid:#2E1A0E;--espresso-card:#3D2412;
-  --caramel:#C67C35;--caramel-light:#D9943F;--caramel-pale:#FBF0E4;
-  --cream:#FAF4EC;--cream-mid:#F0E4D4;--white:#FFFFFF;
-  --text:#1C0F06;--text-soft:#4A2E1A;--text-muted:#9A7A5A;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,15,6,0.95);backdrop-filter:blur(20px)}
-.nav-logo{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:0.04em}
-.nav-logo em{font-style:italic;color:var(--caramel)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);letter-spacing:0.04em;transition:color 0.2s}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--espresso:#1A0E06;--roast:#3D1F0D;--caramel:#C8813A;--cream:#F5EDD8;--warm:#FAF5EE;--muted:#8C6545;--white:#fff;--rule:rgba(26,14,6,.1)}
+body{font-family:'Hanken Grotesk',sans-serif;background:var(--warm);color:var(--espresso);overflow-x:hidden}
+/* MINIMAL STICKY NAV */
+nav{background:var(--warm);border-bottom:1px solid var(--rule);padding:0 72px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--espresso)}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-left:28px;transition:color .2s}
 .nav-links a:hover{color:var(--caramel)}
-.nav-order{background:var(--caramel);color:var(--espresso);padding:10px 24px;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s}
-.nav-order:hover{background:var(--caramel-light)}
-
-.hero{min-height:100vh;background:var(--espresso);display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
-.hero-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.hero-left::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(198,124,53,0.08),transparent 70%)}
-.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--caramel);margin-bottom:24px;display:flex;align-items:center;gap:12px}
-.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--caramel)}
-.hero-h1{font-family:'Fraunces',serif;font-size:72px;font-weight:700;line-height:1.05;color:var(--white);margin-bottom:24px}
-.hero-h1 em{font-style:italic;color:var(--caramel)}
-.hero-sub{font-size:16px;line-height:1.9;color:rgba(255,255,255,0.55);max-width:420px;margin-bottom:48px}
-.hero-btns{display:flex;gap:16px;align-items:center;margin-bottom:56px}
-.btn-caramel{background:var(--caramel);color:var(--espresso);padding:15px 36px;border-radius:4px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s}
-.btn-caramel:hover{background:var(--caramel-light)}
-.btn-ghost-c{color:rgba(255,255,255,0.6);font-size:14px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s}
-.btn-ghost-c:hover{color:var(--caramel)}
-.hero-hours{display:flex;flex-direction:column;gap:8px}
-.hour-row{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.4)}
-.hour-dot{width:6px;height:6px;border-radius:50%;background:var(--caramel)}
-.hero-right{background:var(--espresso-mid);display:flex;align-items:center;justify-content:center;font-size:140px;position:relative;overflow:hidden}
-.hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(198,124,53,0.06),transparent 70%)}
-
-.menu-section{padding:80px 60px;max-width:1200px;margin:0 auto}
-.sec-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.sec-eyebrow::before{content:'';width:28px;height:1px;background:var(--caramel)}
-.sec-h2{font-family:'Fraunces',serif;font-size:52px;font-weight:700;color:var(--text);margin-bottom:12px}
-.sec-h2 em{font-style:italic;color:var(--caramel)}
-.sec-sub{font-family:'Fraunces',serif;font-size:16px;font-style:italic;color:var(--text-muted);margin-bottom:48px}
-.menu-tabs{display:flex;gap:0;margin-bottom:40px;border-bottom:1px solid var(--cream-mid)}
-.menu-tab{padding:12px 28px;font-size:13px;font-weight:600;letter-spacing:0.06em;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s}
-.menu-tab.active{color:var(--espresso);border-bottom-color:var(--caramel)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.menu-item{padding:24px 28px;border-bottom:1px solid var(--cream-mid);display:flex;justify-content:space-between;align-items:start;gap:20px;transition:background 0.2s}
-.menu-item:hover{background:var(--caramel-pale)}
-.menu-item:nth-child(odd){border-right:1px solid var(--cream-mid)}
-.mi-left{}
-.mi-name{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
-.mi-desc{font-size:13px;color:var(--text-soft);line-height:1.5;font-style:italic}
-.mi-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:var(--caramel-pale);color:var(--caramel);padding:3px 8px;margin-top:6px;border-radius:2px}
-.mi-price{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--caramel);white-space:nowrap}
-
-.story{background:var(--espresso);padding:80px 60px}
-.story-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.story-left .sec-eyebrow{color:var(--caramel)}
-.story-left h2{font-family:'Fraunces',serif;font-size:48px;font-weight:700;color:var(--white);margin-bottom:24px;line-height:1.2}
-.story-left h2 em{font-style:italic;color:var(--caramel)}
-.story-left p{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.55);margin-bottom:24px}
-.story-right{display:flex;flex-direction:column;gap:20px}
-.origin-card{background:rgba(255,255,255,0.04);border:1px solid rgba(198,124,53,0.2);padding:24px}
-.oc-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--caramel);margin-bottom:8px}
-.oc-text{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.55)}
-
-.roasts{padding:80px 60px;max-width:1200px;margin:0 auto}
-.roasts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.roast-card{background:var(--white);border-radius:4px;overflow:hidden;transition:all 0.3s;cursor:pointer}
-.roast-card:hover{box-shadow:0 16px 40px rgba(28,15,6,0.12);transform:translateY(-3px)}
-.roast-top{height:200px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
-.roast-origin{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(28,15,6,0.7),transparent);padding:20px 20px 12px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:white}
-.roast-body{padding:24px}
-.roast-name{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:4px}
-.roast-profile{font-family:'Fraunces',serif;font-size:14px;font-style:italic;color:var(--caramel);margin-bottom:10px}
-.roast-notes{font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:14px}
-.roast-footer{display:flex;justify-content:space-between;align-items:center}
-.roast-price{font-size:17px;font-weight:700;color:var(--espresso)}
-.roast-btn{background:var(--caramel);color:var(--espresso);padding:8px 18px;font-size:12px;font-weight:700;border-radius:2px;cursor:pointer;border:none;transition:all 0.2s}
-.roast-btn:hover{background:var(--caramel-light)}
-
-.visit{background:linear-gradient(135deg,var(--espresso) 0%,var(--espresso-mid) 100%);padding:80px 60px;text-align:center}
-.visit-inner{max-width:700px;margin:0 auto}
-.visit h2{font-family:'Fraunces',serif;font-size:52px;font-weight:700;color:var(--white);margin-bottom:12px}
-.visit h2 em{font-style:italic;color:var(--caramel)}
-.visit p{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:40px;line-height:1.8}
-.visit-info{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
-.vi{background:rgba(255,255,255,0.04);border:1px solid rgba(198,124,53,0.2);padding:24px;text-align:left}
-.vi-icon{font-size:24px;margin-bottom:12px}
-.vi-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--caramel);margin-bottom:6px}
-.vi-text{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7}
-.subscribe-form{display:flex;max-width:460px;margin:0 auto;gap:0}
-.sub-input{flex:1;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-right:none;padding:14px 20px;color:white;font-family:'DM Sans',sans-serif;font-size:14px;outline:none}
-.sub-input::placeholder{color:rgba(255,255,255,0.4)}
-.sub-input:focus{border-color:var(--caramel)}
-.sub-btn{background:var(--caramel);color:var(--espresso);padding:14px 24px;font-size:13px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;transition:all 0.2s}
-.sub-btn:hover{background:var(--caramel-light)}
-
-footer{background:var(--espresso);padding:40px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:white}
-.footer-logo em{font-style:italic;color:var(--caramel)}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
-.footer-links a:hover{color:var(--caramel)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
+.nav-order{background:var(--espresso);color:var(--cream);font-size:11px;font-weight:600;padding:9px 22px;text-decoration:none;margin-left:20px;transition:background .2s}
+.nav-order:hover{background:var(--caramel)}
+/* CRAFT STORY — VERTICAL CHAPTERS */
+/* CHAPTER 1: INTRO — full bleed opening */
+.ch1{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:80px 72px}
+.ch1-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover no-repeat}
+.ch1-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,14,6,.2) 0%,rgba(26,14,6,.7) 100%)}
+.ch1-content{position:relative;z-index:2;max-width:700px}
+.ch1-tag{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--caramel);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.ch1-tag::before{content:'';width:24px;height:1px;background:var(--caramel)}
+h1{font-family:'Libre Baskerville',serif;font-size:clamp(48px,7vw,96px);font-weight:700;line-height:1.05;color:var(--cream)}
+h1 em{font-style:italic;color:var(--caramel)}
+.ch1-sub{font-size:16px;font-weight:300;color:rgba(245,237,216,.6);line-height:1.75;max-width:480px;margin-top:20px;margin-bottom:36px}
+.ch1-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-caramel{background:var(--caramel);color:var(--white);padding:13px 32px;font-size:12px;font-weight:600;letter-spacing:.08em;text-decoration:none;transition:opacity .2s}
+.btn-caramel:hover{opacity:.85}
+.btn-ghost-cream{border:1px solid rgba(245,237,216,.35);color:var(--cream);padding:13px 32px;font-size:12px;font-weight:600;letter-spacing:.08em;text-decoration:none;transition:border-color .2s}
+.btn-ghost-cream:hover{border-color:var(--caramel);color:var(--caramel)}
+.scroll-cue{position:absolute;bottom:32px;right:72px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,216,.4)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(180deg,transparent,rgba(245,237,216,.3));animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+/* CHAPTER 2: ORIGIN STORY — text heavy */
+.ch2{padding:100px 72px;background:var(--warm);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.ch2-label{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--caramel);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ch2-label::before{content:'';width:16px;height:1px;background:var(--caramel)}
+.chapter-h{font-family:'Libre Baskerville',serif;font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.12;color:var(--espresso);margin-bottom:24px}
+.chapter-h em{font-style:italic;color:var(--caramel)}
+.chapter-body{font-size:15px;font-weight:300;line-height:1.9;color:var(--muted);margin-bottom:16px}
+.origin-callout{border-left:3px solid var(--caramel);padding:20px 0 20px 24px;margin:28px 0}
+.origin-callout p{font-family:'Libre Baskerville',serif;font-size:18px;font-style:italic;line-height:1.5;color:var(--espresso)}
+.ch2-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.ch2-img figcaption{font-size:11px;color:var(--muted);margin-top:8px;font-style:italic}
+/* CHAPTER 3: FULL WIDTH IMAGE DIVIDER */
+.ch-img-full{width:100%;height:60vh;overflow:hidden;position:relative}
+.ch-img-full img{width:100%;height:100%;object-fit:cover}
+.ch-img-full-caption{position:absolute;bottom:32px;left:72px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,237,216,.5)}
+/* CHAPTER 4: COFFEES */
+.ch4{padding:100px 72px;background:var(--espresso)}
+.ch4-label{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--caramel);margin-bottom:16px}
+.ch4-h{font-family:'Libre Baskerville',serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:var(--cream);margin-bottom:48px}
+.coffee-list{display:flex;flex-direction:column;gap:1px}
+.coffee-item{display:grid;grid-template-columns:1fr auto auto;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(245,237,216,.08)}
+.coffee-item:first-child{border-top:1px solid rgba(245,237,216,.08)}
+.coffee-origin{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--caramel);margin-bottom:4px}
+.coffee-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--cream)}
+.coffee-notes{font-size:12px;color:rgba(245,237,216,.4);margin-top:3px}
+.coffee-roast{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,237,216,.3);white-space:nowrap}
+.coffee-price{font-size:16px;font-weight:600;color:var(--caramel);white-space:nowrap}
+/* CHAPTER 5: FULL WIDTH IMAGE */
+.ch5-img{width:100%;height:50vh;overflow:hidden}
+.ch5-img img{width:100%;height:100%;object-fit:cover}
+/* CHAPTER 6: VISIT US */
+.ch6{padding:100px 72px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ch6-text h2{font-family:'Libre Baskerville',serif;font-size:clamp(36px,4vw,56px);font-weight:700;line-height:1.1;color:var(--espresso);margin-bottom:20px}
+.ch6-text h2 em{font-style:italic;color:var(--caramel)}
+.ch6-text p{font-size:14px;font-weight:300;line-height:1.85;color:var(--muted);margin-bottom:28px}
+.hours-list{display:flex;flex-direction:column;gap:0}
+.hour-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.hour-day{font-weight:600;color:var(--espresso)}
+.hour-time{color:var(--muted)}
+.ch6-img img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px}
+footer{background:var(--espresso);padding:28px 72px;display:flex;justify-content:space-between;font-size:11px;color:rgba(245,237,216,.3);flex-wrap:wrap;gap:10px}
+.footer-logo{font-family:'Libre Baskerville',serif;font-size:16px;color:var(--cream)}
 @media(max-width:768px){
-  nav{padding:16px 24px}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:60px 24px}
-  .hero-h1{font-size:48px}
-  .hero-right{min-height:280px}
-  .menu-section{padding:60px 24px}
-  .sec-h2{font-size:36px}
-  .menu-tabs{overflow-x:auto;flex-wrap:nowrap}
-  .menu-grid{grid-template-columns:1fr}
-  .menu-item:nth-child(odd){border-right:none}
-  .story{padding:60px 24px}
-  .story-inner{grid-template-columns:1fr}
-  .roasts{padding:60px 24px}
-  .roasts-grid{grid-template-columns:1fr}
-  .visit{padding:60px 24px}
-  .visit h2{font-size:36px}
-  .visit-info{grid-template-columns:1fr}
-  footer{padding:32px 24px}
+  nav{padding:0 20px}.nav-links{display:none}
+  .ch1{padding:0 24px 60px}.scroll-cue{display:none}
+  .ch2,.ch4,.ch6{grid-template-columns:1fr;padding:60px 24px;gap:40px}
+  .ch-img-full,.ch5-img{height:40vh}
+  .ch-img-full-caption{left:24px}
+  .coffee-item{grid-template-columns:1fr auto;gap:12px}.coffee-roast{display:none}
+  footer{flex-direction:column;text-align:center;padding:20px}
 }
 </style>
 </head>
 <body>
 <nav>
-  <div class="nav-logo">Grounds<em>.</em></div>
-  <ul class="nav-links"><li><a href="#">Menu</a></li><li><a href="#">Our Roasts</a></li><li><a href="#">Wholesale</a></li><li><a href="#">Find Us</a></li></ul>
-  <a href="#visit" class="nav-order">Order Online</a>
+  <div class="nav-logo">Grounds Coffee Co.</div>
+  <div class="nav-links"><a href="#coffees">Our Coffees</a><a href="#story">Our Story</a><a href="#visit">Visit Us</a></div>
+  <a href="#coffees" class="nav-order">Order Online</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Specialty Coffee · Austin, TX</div>
-    <h1 class="hero-h1">Coffee worth <em>waking up</em> for.</h1>
-    <p class="hero-sub">Grounds sources single-origin beans from 12 countries, roasts in-house weekly, and serves every cup with the kind of care that makes you feel the difference from the first sip.</p>
-    <div class="hero-btns">
-      <a href="#menu" class="btn-caramel">View Our Menu</a>
-      <a href="#roasts" class="btn-ghost-c">Shop Our Roasts →</a>
-    </div>
-    <div class="hero-hours">
-      <div class="hour-row"><div class="hour-dot"></div><span>Mon–Fri: 6:30 AM – 7:00 PM</span></div>
-      <div class="hour-row"><div class="hour-dot"></div><span>Sat–Sun: 7:00 AM – 8:00 PM</span></div>
-      <div class="hour-row"><div class="hour-dot" style="background:rgba(255,255,255,0.2)"></div><span>2 Locations · South Lamar & East 6th</span></div>
+<!-- CHAPTER 1: OPENING -->
+<section class="ch1">
+  <div class="ch1-bg"></div>
+  <div class="ch1-overlay"></div>
+  <div class="ch1-content">
+    <div class="ch1-tag">Single Origin · Direct Trade · Austin, TX</div>
+    <h1>Coffee worth<br><em>waking up</em> for.</h1>
+    <p class="ch1-sub">Every bean tells a story. We travel to find the best lots on earth and bring them back to Austin — roasted in small batches, brewed with intention.</p>
+    <div class="ch1-btns">
+      <a href="#coffees" class="btn-caramel">Explore Our Coffees</a>
+      <a href="#story" class="btn-ghost-cream">Our Story</a>
     </div>
   </div>
-  <div class="hero-right"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80" alt="Grounds Coffee Co" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></div>
+  <div class="scroll-cue"><div class="scroll-line"></div>Scroll</div>
 </section>
 
-<section class="menu-section" id="menu">
-  <div class="sec-eyebrow">Our Menu</div>
-  <h2 class="sec-h2">The <em>Good Stuff</em></h2>
-  <div class="sec-sub">"Every menu item made in-house. Every bean roasted on-site."</div>
-  <div class="menu-tabs">
-    <div class="menu-tab active">Espresso</div>
-    <div class="menu-tab">Drip & Batch</div>
-    <div class="menu-tab">Cold Bar</div>
-    <div class="menu-tab">Food</div>
+<!-- CHAPTER 2: ORIGIN STORY -->
+<section class="ch2" id="story">
+  <div>
+    <div class="ch2-label">Our Story</div>
+    <h2 class="chapter-h">Started with one<br><em>perfect cup.</em></h2>
+    <p class="chapter-body">In 2014, two friends came back from a backpacking trip through Ethiopia with 12 kilos of coffee they'd bought directly from a family farm in Yirgacheffe. They roasted it in a repurposed popcorn machine on the back porch of a Hyde Park rental.</p>
+    <p class="chapter-body">People started knocking on the door. Within a year, Grounds Coffee Co. had a market stall, a roaster, and a waiting list for bags.</p>
+    <div class="origin-callout"><p>"We don't sell coffee. We share an experience that started in someone's field, traveled thousands of miles, and ended in your cup."</p></div>
+    <p class="chapter-body">Today we source from 14 farms across Ethiopia, Colombia, Guatemala, and Indonesia — visiting each one at least once a year. Every relationship is direct. Every bag is traceable.</p>
   </div>
-  <div class="menu-grid">
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Single Espresso</div><div class="mi-desc">Double shot, rotating single-origin</div><div class="mi-tag">Grounds Classic</div></div><div class="mi-price">$3.50</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Flat White</div><div class="mi-desc">Ristretto shots, microfoam, velvet texture</div><div class="mi-tag">Staff Fave</div></div><div class="mi-price">$5.25</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Cortado</div><div class="mi-desc">2:2 espresso to milk ratio, strong & silky</div></div><div class="mi-price">$4.75</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Latte</div><div class="mi-desc">Double shot, steamed oat or whole milk, seasonal syrup</div></div><div class="mi-price">$5.75</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Caramel Grounds Latte</div><div class="mi-desc">House caramel, espresso, sea salt, steamed milk</div><div class="mi-tag">Signature</div></div><div class="mi-price">$6.50</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Piccolo</div><div class="mi-desc">Single ristretto in a 3oz glass. Intense, beautiful.</div><div class="mi-tag">Barista's Choice</div></div><div class="mi-price">$4.25</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Cappuccino</div><div class="mi-desc">Classic dry cap with stiff microfoam and rich crema</div></div><div class="mi-price">$5.00</div></div>
-    <div class="menu-item reveal"><div class="mi-left"><div class="mi-name">Pour Over</div><div class="mi-desc">Weekly rotating single-origin · Chemex, Kalita, or V60</div><div class="mi-tag">10 min craft</div></div><div class="mi-price">$7.00</div></div>
-  </div>
+  <figure class="ch2-img">
+    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80" alt="Coffee farm Ethiopia">
+    <figcaption>Yirgacheffe, Ethiopia — our original source farm, 2014</figcaption>
+  </figure>
 </section>
 
-<section class="story">
-  <div class="story-inner">
-    <div class="story-left reveal">
-      <div class="sec-eyebrow">Our Story</div>
-      <h2>Rooted in <em>craft</em>.</h2>
-      <p>Grounds started in 2017 as a single window on South Lamar — a former art space turned corner café that smelled like perfectly-timed pulls and toast. We had one espresso machine, one grinder, and very strong opinions about extraction.</p>
-      <p>Today we have two locations, our own roastery, and a small-batch wholesale program shipping to 40 Texas cafés. But every morning still starts the same way: someone tasting the first espresso of the day and nodding slowly.</p>
-      <a href="#" class="btn-caramel" style="display:inline-block;margin-top:16px">Our Full Story →</a>
-    </div>
-    <div class="story-right reveal">
-      <div class="origin-card"><div class="oc-label">Sourcing</div><div class="oc-text">Direct-trade relationships with 8 farm partners across Ethiopia, Colombia, Guatemala, Kenya, and Peru. We visit every farm we buy from.</div></div>
-      <div class="origin-card"><div class="oc-label">Roasting</div><div class="oc-text">In-house on a 12kg Loring Smart Roast. Roasted weekly in small batches. All coffees available within 5 days of roast date.</div></div>
-      <div class="origin-card"><div class="oc-label">Training</div><div class="oc-text">Every barista completes a 40-hour in-house certification before their first solo shift. We've placed 3 baristas in national competitions.</div></div>
-    </div>
+<!-- FULL BLEED IMAGE DIVIDER -->
+<div class="ch-img-full">
+  <img src="https://images.unsplash.com/photo-1501492673258-2514c0088b7e?w=1600&q=80" alt="Roasting">
+  <div class="ch-img-full-caption">Our roastery · South Austin · Est. 2016</div>
+</div>
+
+<!-- CHAPTER 4: COFFEES -->
+<section class="ch4" id="coffees">
+  <div class="ch4-label">Current Offerings</div>
+  <h2 class="ch4-h">What's in the bag<br>right now.</h2>
+  <div class="coffee-list">
+    <div class="coffee-item"><div><div class="coffee-origin">Ethiopia · Yirgacheffe</div><div class="coffee-name">Haresaw Natural</div><div class="coffee-notes">Blueberry · Jasmine · Dark Chocolate</div></div><div class="coffee-roast">Light Roast</div><div class="coffee-price">$22 / 12oz</div></div>
+    <div class="coffee-item"><div><div class="coffee-origin">Colombia · Huila</div><div class="coffee-name">El Paraíso Washed</div><div class="coffee-notes">Red Apple · Caramel · Brown Sugar</div></div><div class="coffee-roast">Medium Roast</div><div class="coffee-price">$20 / 12oz</div></div>
+    <div class="coffee-item"><div><div class="coffee-origin">Guatemala · Antigua</div><div class="coffee-name">La Hermosa</div><div class="coffee-notes">Dark Cherry · Almond · Cocoa</div></div><div class="coffee-roast">Medium-Dark</div><div class="coffee-price">$19 / 12oz</div></div>
+    <div class="coffee-item"><div><div class="coffee-origin">Indonesia · Sumatra</div><div class="coffee-name">Mandheling Peaberry</div><div class="coffee-notes">Cedar · Tobacco · Brown Butter</div></div><div class="coffee-roast">Dark Roast</div><div class="coffee-price">$21 / 12oz</div></div>
+    <div class="coffee-item"><div><div class="coffee-origin">Seasonal Blend</div><div class="coffee-name">South Congress Blend</div><div class="coffee-notes">Walnut · Citrus · Smooth Finish</div></div><div class="coffee-roast">Medium Roast</div><div class="coffee-price">$17 / 12oz</div></div>
   </div>
 </section>
 
-<section class="roasts" id="roasts">
-  <div class="sec-eyebrow">Shop Our Roasts</div>
-  <h2 class="sec-h2">Take It <em>Home</em></h2>
-  <div class="roasts-grid">
-    <div class="roast-card reveal"><div class="roast-top" style="background:linear-gradient(135deg,#3D2412,#1C0F06)">🫘<div class="roast-origin">Ethiopia · Yirgacheffe</div></div><div class="roast-body"><div class="roast-name">Birhan Washed</div><div class="roast-profile">Light Roast</div><div class="roast-notes">Jasmine, Meyer lemon, peach oolong. Delicate and floral with a clean, lingering finish.</div><div class="roast-footer"><div class="roast-price">$22 / 250g</div><button class="roast-btn">Add to Cart</button></div></div></div>
-    <div class="roast-card reveal"><div class="roast-top" style="background:linear-gradient(135deg,#5C3018,#3D2010)">☕<div class="roast-origin">Colombia · Huila</div></div><div class="roast-body"><div class="roast-name">Finca El Paraíso</div><div class="roast-profile">Medium Roast</div><div class="roast-notes">Brown sugar, red apple, dark chocolate. Balanced acidity with a smooth, sweet finish. Our most popular roast.</div><div class="roast-footer"><div class="roast-price">$20 / 250g</div><button class="roast-btn">Add to Cart</button></div></div></div>
-    <div class="roast-card reveal"><div class="roast-top" style="background:linear-gradient(135deg,#7A4020,#5A2C14)">🌙<div class="roast-origin">Guatemala · Huehuetenango</div></div><div class="roast-body"><div class="roast-name">Grounds House Blend</div><div class="roast-profile">Medium-Dark Roast</div><div class="roast-notes">Dark cherry, cocoa nib, toasted hazelnut. Rich body, low acidity. Perfect for espresso or French press.</div><div class="roast-footer"><div class="roast-price">$18 / 250g</div><button class="roast-btn">Add to Cart</button></div></div></div>
-  </div>
-</section>
+<!-- FULL BLEED IMAGE 2 -->
+<div class="ch5-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1600&q=80" alt="Brewing"></div>
 
-<section class="visit" id="visit">
-  <div class="visit-inner">
-    <h2>Come say <em>hello</em>.</h2>
-    <p>Two locations in Austin. Both with good wifi, power outlets, and a no-laptop zone in the corner if you just want to sit and drink your coffee like a human.</p>
-    <div class="visit-info">
-      <div class="vi"><div class="vi-icon">📍</div><div class="vi-label">South Lamar</div><div class="vi-text">1402 S Lamar Blvd<br>Austin, TX 78704<br>Mon–Sun · 6:30 AM – 7 PM</div></div>
-      <div class="vi"><div class="vi-icon">📍</div><div class="vi-label">East 6th Street</div><div class="vi-text">2210 E 6th St<br>Austin, TX 78702<br>Mon–Sun · 7 AM – 8 PM</div></div>
-      <div class="vi"><div class="vi-icon">📦</div><div class="vi-label">Online Shop</div><div class="vi-text">Fresh roasts shipped<br>every Monday & Thursday<br>Free shipping over $50</div></div>
+<!-- CHAPTER 6: VISIT -->
+<section class="ch6" id="visit">
+  <div class="ch6-text">
+    <h2>Come find<br><em>your cup.</em></h2>
+    <p>Our café on South Lamar is where it all started. Pull up a chair, order a pour-over, and let us tell you about what's in the bag this week. Beans always available to take home.</p>
+    <p>Roastery tours available by appointment. Just email us.</p>
+    <div class="hours-list">
+      <div class="hour-row"><span class="hour-day">Monday – Friday</span><span class="hour-time">6:30am – 5:00pm</span></div>
+      <div class="hour-row"><span class="hour-day">Saturday</span><span class="hour-time">7:00am – 6:00pm</span></div>
+      <div class="hour-row"><span class="hour-day">Sunday</span><span class="hour-time">8:00am – 4:00pm</span></div>
     </div>
-    <div class="subscribe-form">
-      <input class="sub-input" type="email" placeholder="Email for new roast alerts">
-      <button class="sub-btn">Subscribe →</button>
+    <div style="margin-top:24px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px">
+      <div>📍 1800 S Lamar Blvd, Austin TX 78704</div>
+      <div>📞 (512) 555-0144</div>
+      <div>📧 hello@groundscoffeeco.com</div>
     </div>
   </div>
+  <div class="ch6-img"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800&q=80" alt="Café interior"></div>
 </section>
 
-<footer>
-  <div class="footer-logo">Grounds<em>.</em></div>
-  <div class="footer-copy">© 2025 Grounds Coffee Co. · Austin, TX · hello@groundsatx.com</div>
-  <div class="footer-links"><a href="#">Instagram</a><a href="#">Wholesale</a><a href="#">Careers</a></div>
-</footer>
-
-<script>
-document.querySelectorAll('.menu-tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.menu-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')})});
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+<footer><div class="footer-logo">Grounds Coffee Co.</div><span>1800 S Lamar Blvd · Austin TX · hello@groundscoffeeco.com</span><span>© 2025 Grounds Coffee Co.</span></footer>
+</body></html>

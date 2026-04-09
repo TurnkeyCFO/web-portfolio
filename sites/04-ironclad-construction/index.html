@@ -1,215 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ironclad Construction — Built to Last</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --steel:#1C2B3A;--steel-mid:#243447;--steel-soft:#2E4057;
-  --orange:#E85D04;--orange-light:#F48C06;--orange-pale:#FFF3E0;
-  --silver:#C8D0D8;--ice:#EDF2F7;--white:#FFFFFF;
-  --text:#1C2B3A;--text-soft:#435A6F;--text-muted:#7B93A6;
-}
-body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,43,58,0.96);backdrop-filter:blur(16px)}
-.nav-logo{display:flex;align-items:center;gap:12px}
-.nav-logo-mark{width:40px;height:40px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:white}
-.nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;letter-spacing:0.05em;color:var(--white);text-transform:uppercase}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);transition:color 0.2s}
-.nav-links a:hover{color:var(--orange)}
-.nav-cta{background:var(--orange);color:var(--white);padding:12px 28px;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;clip-path:polygon(8px 0%,100% 0%,100% 100%,0% 100%)}
-.nav-cta:hover{background:var(--orange-light)}
-
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
-.hero-left{background:var(--steel);padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.hero-left::after{content:'';position:absolute;bottom:-40px;right:-40px;width:300px;height:300px;background:var(--orange);opacity:0.06;transform:rotate(45deg)}
-.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
-.hero-h1{font-family:'Barlow Condensed',sans-serif;font-size:80px;font-weight:900;line-height:0.95;color:var(--white);text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:32px}
-.hero-h1 span{color:var(--orange)}
-.hero-sub{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.6);max-width:440px;margin-bottom:48px}
-.hero-btns{display:flex;gap:16px;align-items:center}
-.btn-orange{background:var(--orange);color:var(--white);padding:16px 36px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(10px 0%,100% 0%,100% 100%,0% 100%);transition:background 0.2s}
-.btn-orange:hover{background:var(--orange-light)}
-.btn-ghost-white{color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s}
-.btn-ghost-white:hover{color:var(--orange)}
-.hero-right{background:var(--steel-soft);display:flex;align-items:center;justify-content:center;font-size:120px;position:relative;overflow:hidden}
-
-.numbers-band{background:var(--orange);padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr)}
-.number-item{padding:32px 0;text-align:center;border-right:1px solid rgba(255,255,255,0.2)}
-.number-item:last-child{border-right:none}
-.number-val{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:var(--white);line-height:1}
-.number-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:6px}
-
-.services{padding:80px 60px;background:var(--ice)}
-.services-inner{max-width:1200px;margin:0 auto}
-.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
-.services-left .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
-.services-left h2{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;text-transform:uppercase;line-height:1;color:var(--steel)}
-.services-left h2 span{color:var(--orange)}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.service-card{background:var(--white);padding:36px 32px;position:relative;transition:all 0.3s;cursor:default}
-.service-card:hover{background:var(--steel);transform:translateY(-4px)}
-.service-card:hover .service-name,.service-card:hover .service-desc{color:var(--white)}
-.service-card:hover .service-icon{background:var(--orange)}
-.service-num{font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:900;color:rgba(0,0,0,0.04);position:absolute;top:16px;right:20px;line-height:1;transition:color 0.3s}
-.service-card:hover .service-num{color:rgba(255,255,255,0.06)}
-.service-icon{width:52px;height:52px;background:var(--steel);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;transition:background 0.3s;clip-path:polygon(6px 0%,100% 0%,100% 100%,0% 100%)}
-.service-name{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;color:var(--steel);margin-bottom:12px;transition:color 0.3s}
-.service-desc{font-size:14px;line-height:1.7;color:var(--text-soft);transition:color 0.3s}
-
-.projects{padding:80px 60px;max-width:1200px;margin:0 auto}
-.projects-header{margin-bottom:48px}
-.projects-header .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
-.projects-header h2{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;text-transform:uppercase;color:var(--steel)}
-.projects-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:3px}
-.project-card{background:var(--steel-soft);position:relative;overflow:hidden;display:flex;align-items:flex-end;cursor:pointer}
-.project-card.tall{grid-row:1/3}
-.project-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg,var(--steel) 0%,var(--steel-soft) 100%);transition:transform 0.4s}
-.project-card:hover .project-bg{transform:scale(1.04)}
-.project-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,43,58,0.9) 0%,transparent 60%)}
-.project-info{position:relative;z-index:1;padding:24px}
-.project-type{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
-.project-name{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;text-transform:uppercase;color:var(--white);line-height:1.1}
-.project-meta{font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px}
-
-.cta-band{background:var(--steel);padding:80px 60px;text-align:center}
-.cta-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
-.cta-h2{font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;text-transform:uppercase;color:var(--white);margin-bottom:16px;line-height:1}
-.cta-h2 span{color:var(--orange)}
-.cta-sub{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:40px}
-.cta-form{display:flex;max-width:560px;margin:0 auto;gap:0}
-.cta-input{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-right:none;padding:16px 20px;color:white;font-family:'Barlow',sans-serif;font-size:14px;outline:none}
-.cta-input::placeholder{color:rgba(255,255,255,0.35)}
-.cta-input:focus{border-color:var(--orange)}
-.cta-btn{background:var(--orange);color:white;padding:16px 32px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s}
-.cta-btn:hover{background:var(--orange-light)}
-
-footer{background:var(--steel);border-top:1px solid rgba(255,255,255,0.08);padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
-.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;text-transform:uppercase;color:var(--white)}
-.footer-logo span{color:var(--orange)}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
-.footer-links a:hover{color:var(--orange)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--carbon:#0E0E0E;--steel:#1C1C1C;--orange:#E85D04;--orange-dim:#C44D00;--silver:#8C9099;--light:#E8E9EA;--white:#fff}
+body{font-family:'Barlow',sans-serif;background:var(--carbon);color:var(--light);overflow-x:hidden}
+/* TOP BAR */
+.topbar{background:var(--orange);padding:8px 60px;display:flex;justify-content:space-between;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.topbar a{color:var(--carbon);text-decoration:none}
+/* NAV */
+nav{background:var(--carbon);border-bottom:1px solid rgba(255,255,255,.07);padding:0 60px;display:flex;justify-content:space-between;align-items:center;height:72px;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;gap:0}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--silver);text-decoration:none;padding:0 20px;height:72px;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.04)}
+.nav-cta{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--orange);color:var(--white);padding:0 28px;height:72px;display:flex;align-items:center;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--orange-dim)}
+/* HERO — BLUEPRINT GRID */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;padding:0 60px 72px;overflow:hidden;background:var(--steel)}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80') center/cover no-repeat;opacity:.35}
+.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(232,93,4,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(232,93,4,.06) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--orange);padding:6px 14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(80px,11vw,160px);font-weight:800;line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--white)}
+h1 .accent{color:var(--orange);display:block}
+.hero-sub{font-size:16px;font-weight:300;color:var(--silver);max-width:520px;line-height:1.65;margin-top:24px;margin-bottom:36px}
+.hero-actions{display:flex;gap:0;flex-wrap:wrap}
+.btn-primary{background:var(--orange);color:var(--white);padding:16px 36px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn-primary:hover{background:var(--orange-dim)}
+.btn-ghost{background:transparent;color:var(--light);padding:16px 36px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.2);margin-left:1px;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+/* NUMBERS BAND */
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);background:var(--orange)}
+.num-item{padding:28px 36px;border-right:1px solid rgba(255,255,255,.2);text-align:center}
+.num-item:last-child{border-right:none}
+.num-val{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;color:var(--white);line-height:1}
+.num-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+/* SERVICES — ALTERNATING BANDS */
+.services{padding:0}
+.svc-row{display:grid;grid-template-columns:72px 1fr;border-bottom:1px solid rgba(255,255,255,.07);transition:background .2s}
+.svc-row:hover{background:rgba(255,255,255,.03)}
+.svc-num{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:800;color:rgba(255,255,255,.08);padding:24px 20px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.07);line-height:1}
+.svc-body{padding:24px 40px;display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:40px}
+.svc-name{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;color:var(--white)}
+.svc-desc{font-size:14px;font-weight:300;color:var(--silver);line-height:1.6}
+.svc-icon{font-size:28px;opacity:.6}
+/* PROJECTS — HORIZONTAL STRIP */
+.projects-section{padding:72px 0 0;border-top:1px solid rgba(255,255,255,.07)}
+.sec-header{padding:0 60px 36px;display:flex;justify-content:space-between;align-items:flex-end}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;text-transform:uppercase;color:var(--white);line-height:1}
+.sec-link{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none}
+.projects-scroll{display:flex;gap:2px;overflow-x:auto;padding:0 60px 60px;scrollbar-width:none}
+.projects-scroll::-webkit-scrollbar{display:none}
+.project-card{flex:0 0 380px;position:relative;aspect-ratio:4/3;overflow:hidden}
+.project-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.project-card:hover img{transform:scale(1.06)}
+.project-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,14,14,.85) 0%,transparent 60%)}
+.project-info{position:absolute;bottom:0;left:0;right:0;padding:24px}
+.project-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.project-name{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--white)}
+.project-detail{font-size:13px;color:var(--silver);margin-top:3px}
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.contact-left{background:var(--orange);padding:72px 60px;display:flex;flex-direction:column;justify-content:center}
+.contact-right{background:var(--steel);padding:72px 60px}
+.contact-left h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:800;text-transform:uppercase;color:var(--white);line-height:.95;margin-bottom:24px}
+.contact-info{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.ci{font-size:14px;color:rgba(255,255,255,.8);display:flex;gap:12px}
+.ci strong{color:var(--white);font-weight:600;width:72px;flex-shrink:0}
+.form-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);display:block;margin-bottom:6px}
+.form-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:12px 16px;font-family:'Barlow',sans-serif;font-size:14px;margin-bottom:14px;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:var(--orange)}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{background:var(--orange);color:var(--white);border:none;padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;width:100%;margin-top:4px;transition:background .2s}
+.form-submit:hover{background:var(--orange-dim)}
+/* FOOTER */
+footer{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:24px 60px;display:flex;justify-content:space-between;align-items:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver)}
 @media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:60px 24px}
-  .hero-h1{font-size:56px}
-  .hero-right{min-height:260px}
-  .numbers-band{grid-template-columns:repeat(2,1fr);padding:0 24px}
-  .services{padding:60px 24px}
-  .services-grid{grid-template-columns:1fr}
-  .projects{padding:60px 24px}
-  .projects-grid{grid-template-columns:1fr;grid-template-rows:auto}
-  .project-card.tall{grid-row:auto}
-  .project-card{height:200px}
-  .cta-band{padding:60px 24px}
-  .cta-h2{font-size:48px}
-  .cta-form{flex-direction:column}
-  .cta-input{border-right:1px solid rgba(255,255,255,0.15);border-bottom:none}
-  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+  .topbar,.numbers{display:none}
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{padding:0 24px 56px;min-height:auto;padding-top:80px}
+  .projects-scroll{padding:0 24px 40px}.project-card{flex:0 0 300px}
+  .sec-header{padding:0 24px 24px}
+  .contact{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:48px 24px}
+  .form-row-2{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:6px;text-align:center;padding:18px 24px}
 }
 </style>
 </head>
 <body>
+<div class="topbar"><span>Licensed · Bonded · Insured · Since 1987</span><a href="tel:5125550190">(512) 555-0190 — Call 24/7</a></div>
 <nav>
-  <div class="nav-logo">
-    <div class="nav-logo-mark">IC</div>
-    <div class="nav-logo-text">Ironclad</div>
+  <div class="nav-logo">Iron<span>clad</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
-  <ul class="nav-links">
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Projects</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Safety</a></li>
-    <li><a href="#">Careers</a></li>
-  </ul>
   <a href="#contact" class="nav-cta">Get a Quote</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Licensed · Bonded · Insured · Since 1987</div>
-    <h1 class="hero-h1">Built<br><span>Iron</span><br>Tough.</h1>
+  <div class="hero-img"></div>
+  <div class="grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Central Texas · Est. 1987</div>
+    <h1>Built<br><span class="accent">Iron</span><br>Tough.</h1>
     <p class="hero-sub">General contracting, commercial construction, and industrial builds delivered on time, on budget, and built to last. No exceptions.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-orange">Request a Bid</a>
-      <a href="#projects" class="btn-ghost-white">▶ View Our Work</a>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Bid</a>
+      <a href="#projects" class="btn-ghost">View Our Work</a>
     </div>
   </div>
-  <div class="hero-right"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80" alt="Construction site" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></div>
 </section>
 
-<div class="numbers-band">
-  <div class="number-item"><div class="number-val">37</div><div class="number-label">Years in Business</div></div>
-  <div class="number-item"><div class="number-val">$1.2B</div><div class="number-label">Projects Delivered</div></div>
-  <div class="number-item"><div class="number-val">850+</div><div class="number-label">Completed Projects</div></div>
-  <div class="number-item"><div class="number-val">Zero</div><div class="number-label">Lost-Time Incidents</div></div>
+<div class="numbers">
+  <div class="num-item"><div class="num-val">37</div><div class="num-label">Years in Business</div></div>
+  <div class="num-item"><div class="num-val">400+</div><div class="num-label">Projects Completed</div></div>
+  <div class="num-item"><div class="num-val">$2.1B</div><div class="num-label">Construction Value</div></div>
+  <div class="num-item"><div class="num-val">0</div><div class="num-label">OSHA Violations</div></div>
 </div>
 
-<section class="services">
-  <div class="services-inner">
-    <div class="services-header">
-      <div class="services-left">
-        <div class="eyebrow">What We Build</div>
-        <h2>Our <span>Services</span></h2>
-      </div>
+<div class="services" id="services">
+  <div class="svc-row"><div class="svc-num">01</div><div class="svc-body"><div class="svc-name">Commercial Construction</div><div class="svc-desc">Office buildings, retail centers, mixed-use developments, and multi-story commercial projects from ground-up through Certificate of Occupancy.</div><div class="svc-icon">🏢</div></div></div>
+  <div class="svc-row"><div class="svc-num">02</div><div class="svc-body"><div class="svc-name">Industrial & Warehouse</div><div class="svc-desc">Tilt-wall, pre-engineered steel, and custom industrial facilities. Dock-high, clear-span, and heavy-load designs built for real operations.</div><div class="svc-icon">🏭</div></div></div>
+  <div class="svc-row"><div class="svc-num">03</div><div class="svc-body"><div class="svc-name">Tenant Improvements</div><div class="svc-desc">Full interior buildouts for office, medical, retail, and restaurant tenants. Design-build delivery from permit to punch list.</div><div class="svc-icon">🔧</div></div></div>
+  <div class="svc-row"><div class="svc-num">04</div><div class="svc-body"><div class="svc-name">Civil Infrastructure</div><div class="svc-desc">Site utilities, earthwork, paving, and civil infrastructure for municipalities, developers, and private owners.</div><div class="svc-icon">🌉</div></div></div>
+</div>
+
+<div class="projects-section" id="projects">
+  <div class="sec-header"><div><div class="sec-label">Portfolio</div><div class="sec-h">Recent Projects</div></div><a href="#contact" class="sec-link">Start Your Project →</a></div>
+  <div class="projects-scroll">
+    <div class="project-card"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Tech Campus"><div class="project-overlay"></div><div class="project-info"><div class="project-tag">Commercial</div><div class="project-name">Lakeline Tech Campus</div><div class="project-detail">Cedar Park, TX · 180,000 SF</div></div></div>
+    <div class="project-card"><img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80" alt="Distribution Center"><div class="project-overlay"></div><div class="project-info"><div class="project-tag">Industrial</div><div class="project-name">RR Distribution Hub</div><div class="project-detail">Round Rock, TX · 320,000 SF</div></div></div>
+    <div class="project-card"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Mixed Use"><div class="project-overlay"></div><div class="project-info"><div class="project-tag">Mixed-Use</div><div class="project-name">Mueller Mixed-Use Block</div><div class="project-detail">Austin, TX · 9-story · $62M</div></div></div>
+    <div class="project-card"><img src="https://images.unsplash.com/photo-1590486803833-1b5dc97207f2?w=600&q=80" alt="Medical Office"><div class="project-overlay"></div><div class="project-info"><div class="project-tag">Medical</div><div class="project-name">St. David's MOB</div><div class="project-detail">Austin, TX · 48,000 SF</div></div></div>
+  </div>
+</div>
+
+<div class="contact" id="contact">
+  <div class="contact-left">
+    <h2>Request<br>a Bid.</h2>
+    <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:32px">We respond to all RFPs within 24 hours. Pre-bid meetings available. References on request.</p>
+    <div class="contact-info">
+      <div class="ci"><strong>Phone</strong>(512) 555-0190</div>
+      <div class="ci"><strong>Email</strong>bids@ironcladtx.com</div>
+      <div class="ci"><strong>Address</strong>4200 N Lamar Blvd, Austin TX 78756</div>
+      <div class="ci"><strong>Hours</strong>Mon–Fri 7am–6pm · 24/7 Emergency</div>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal"><div class="service-num">01</div><div class="service-icon">🏢</div><div class="service-name">Commercial Construction</div><div class="service-desc">Office buildings, retail centers, mixed-use developments, and multi-story commercial projects from ground-up through CO.</div></div>
-      <div class="service-card reveal"><div class="service-num">02</div><div class="service-icon">🏭</div><div class="service-name">Industrial & Warehouse</div><div class="service-desc">Tilt-wall, pre-engineered steel, and custom industrial facilities. Dock-high, clear-span, heavy-load designs built for operations.</div></div>
-      <div class="service-card reveal"><div class="service-num">03</div><div class="service-icon">🔧</div><div class="service-name">Tenant Improvements</div><div class="service-desc">Full interior buildouts for office, medical, retail, and restaurant tenants. Design-build delivery from permit to punch list.</div></div>
-      <div class="service-card reveal"><div class="service-num">04</div><div class="service-icon">🌉</div><div class="service-name">Infrastructure</div><div class="service-desc">Site utilities, earthwork, paving, bridges, and civil infrastructure for municipalities, developers, and private owners.</div></div>
-      <div class="service-card reveal"><div class="service-num">05</div><div class="service-icon">🏗️</div><div class="service-name">Design-Build</div><div class="service-desc">Single point of responsibility from concept through construction. Faster delivery, cost certainty, and unified accountability.</div></div>
-      <div class="service-card reveal"><div class="service-num">06</div><div class="service-icon">♻️</div><div class="service-name">Renovation & Retrofit</div><div class="service-desc">Occupied building renovations, historic preservation, seismic upgrades, and complete facility rehabilitations.</div></div>
-    </div>
   </div>
-</section>
-
-<section class="projects" id="projects">
-  <div class="projects-header reveal">
-    <div class="eyebrow">Featured Work</div>
-    <h2>Recent Projects</h2>
+  <div class="contact-right">
+    <form onsubmit="return false">
+      <div class="form-row-2"><div><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John"></div><div><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div></div>
+      <label class="form-label">Company</label><input class="form-input" type="text" placeholder="Smith Development LLC">
+      <label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="(512) 555-0100">
+      <label class="form-label">Project Type</label>
+      <select class="form-input"><option>Commercial Construction</option><option>Industrial / Warehouse</option><option>Tenant Improvement</option><option>Civil Infrastructure</option><option>Other</option></select>
+      <label class="form-label">Project Description</label>
+      <textarea class="form-input" style="height:80px;resize:none" placeholder="Brief description of your project..."></textarea>
+      <button class="form-submit">Submit RFP</button>
+    </form>
   </div>
-  <div class="projects-grid">
-    <div class="project-card tall reveal"><div class="project-bg">🏢</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Commercial</div><div class="project-name">Meridian Tower — Austin, TX</div><div class="project-meta">24-Story · 380,000 SF · $94M</div></div></div>
-    <div class="project-card reveal"><div class="project-bg">🏭</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Industrial</div><div class="project-name">Amazon Fulfillment Hub</div><div class="project-meta">1.2M SF · $58M</div></div></div>
-    <div class="project-card reveal"><div class="project-bg">🏥</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Medical</div><div class="project-name">St. David's MOB</div><div class="project-meta">180,000 SF · $44M</div></div></div>
-    <div class="project-card reveal"><div class="project-bg">🏫</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Education</div><div class="project-name">UT Research Complex</div><div class="project-meta">220,000 SF · $71M</div></div></div>
-    <div class="project-card reveal"><div class="project-bg">🛒</div><div class="project-overlay"></div><div class="project-info"><div class="project-type">Retail</div><div class="project-name">Domain Northside Phase III</div><div class="project-meta">310,000 SF · $38M</div></div></div>
-  </div>
-</section>
+</div>
 
-<section class="cta-band" id="contact">
-  <div class="cta-eyebrow">Start Your Project</div>
-  <h2 class="cta-h2">Let's Build <span>Something</span> Lasting.</h2>
-  <p class="cta-sub">Tell us about your project. We'll respond within one business day with a preliminary assessment and timeline.</p>
-  <div class="cta-form">
-    <input class="cta-input" type="email" placeholder="your@email.com">
-    <button class="cta-btn">Request a Bid →</button>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">IRON<span>CLAD</span></div>
-  <div class="footer-copy">© 2025 Ironclad Construction Group · TX License #A-1234567 · All Rights Reserved</div>
-  <div class="footer-links"><a href="#">Privacy</a><a href="#">Safety</a><a href="#">Careers</a></div>
-</footer>
-
-<script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+<footer><span>© 2025 Ironclad Construction Inc.</span><span>Licensed GC · Texas Dept of Licensing & Regulation</span><span>(512) 555-0190</span></footer>
+</body></html>

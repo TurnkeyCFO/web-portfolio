@@ -1,214 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumina — Medical Aesthetics & Wellness</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina Med Spa — Austin, Texas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --blush:#F5E6E0;--blush-mid:#EDD5CC;--rose:#C47A6A;--rose-dark:#A3594A;
-  --charcoal:#2C2C2C;--charcoal-soft:#4A4A4A;--text-muted:#888;
-  --nude:#F9F4F1;--nude-mid:#F0E8E3;--white:#FFFFFF;--gold:#C9A87C;
-}
-body{font-family:'Raleway',sans-serif;background:var(--nude);color:var(--charcoal);overflow-x:hidden}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,244,241,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(196,122,106,0.12)}
-.nav-logo{font-family:'Libre Baskerville',serif;font-size:24px;font-weight:400;letter-spacing:0.08em;color:var(--charcoal)}
-.nav-logo span{color:var(--rose);font-style:italic}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal-soft);transition:color 0.2s}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blush:#F2E6E1;--rose:#C4806A;--rose-deep:#9E5A46;--mist:#F8F4F2;--ink:#2C1810;--silver:#9A8E89;--white:#fff}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+/* MINIMAL NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 80px;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal;transition:background .4s,padding .3s}
+nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);padding:18px 80px;border-bottom:1px solid rgba(44,24,16,.08)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--rose)}
-.nav-book{background:var(--rose);color:var(--white);padding:11px 28px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:0;transition:all 0.2s}
-.nav-book:hover{background:var(--rose-dark)}
-
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:76px}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px;background:var(--nude)}
-.hero-tag{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:24px;display:flex;align-items:center;gap:12px}
-.hero-tag::before{content:'';width:32px;height:1px;background:var(--rose)}
-.hero-h1{font-family:'Libre Baskerville',serif;font-size:60px;font-weight:400;line-height:1.15;color:var(--charcoal);margin-bottom:28px}
-.hero-h1 em{font-style:italic;color:var(--rose)}
-.hero-sub{font-size:15px;line-height:1.9;color:var(--charcoal-soft);max-width:420px;margin-bottom:48px;font-weight:400}
-.hero-actions{display:flex;gap:20px;align-items:center}
-.btn-rose{background:var(--rose);color:var(--white);padding:16px 40px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
-.btn-rose:hover{background:var(--rose-dark)}
-.btn-text{font-size:13px;font-weight:600;color:var(--charcoal-soft);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s}
-.btn-text:hover{color:var(--rose)}
-.hero-right{background:var(--blush);display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
-.hero-right::after{content:'LUMINA';position:absolute;font-family:'Libre Baskerville',serif;font-size:80px;font-weight:700;color:rgba(196,122,106,0.06);letter-spacing:0.1em}
-
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);background:var(--rose)}
-.pillar{padding:40px 36px;border-right:1px solid rgba(255,255,255,0.15);text-align:center}
-.pillar:last-child{border-right:none}
-.pillar-icon{font-size:28px;margin-bottom:16px}
-.pillar-name{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:400;color:var(--white);margin-bottom:8px}
-.pillar-desc{font-size:12px;line-height:1.7;color:rgba(255,255,255,0.7)}
-
-.treatments{padding:80px 60px;max-width:1200px;margin:0 auto}
-.section-tag{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.section-tag::before{content:'';width:32px;height:1px;background:var(--rose)}
-.section-h2{font-family:'Libre Baskerville',serif;font-size:48px;font-weight:400;line-height:1.2;color:var(--charcoal);margin-bottom:12px}
-.section-h2 em{font-style:italic;color:var(--rose)}
-.section-sub{font-size:15px;color:var(--text-muted);margin-bottom:56px;font-style:italic;font-family:'Libre Baskerville',serif}
-.treatments-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.treatment-card{background:var(--white);overflow:hidden;transition:all 0.3s;cursor:pointer}
-.treatment-card:hover{box-shadow:0 20px 48px rgba(196,122,106,0.15);transform:translateY(-4px)}
-.treatment-img{height:220px;background:var(--blush-mid);display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden}
-.treatment-tag{position:absolute;top:16px;left:16px;background:var(--rose);color:white;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px}
-.treatment-body{padding:28px}
-.treatment-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--charcoal);margin-bottom:10px}
-.treatment-desc{font-size:13px;line-height:1.7;color:var(--charcoal-soft);margin-bottom:20px}
-.treatment-footer{display:flex;justify-content:space-between;align-items:center}
-.treatment-price{font-size:14px;font-weight:700;color:var(--rose)}
-.treatment-link{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--charcoal-soft);text-decoration:none;transition:color 0.2s}
-.treatment-link:hover{color:var(--rose)}
-
-.team{background:var(--blush);padding:80px 60px}
-.team-inner{max-width:1200px;margin:0 auto}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
-.team-card{background:var(--white);padding:36px;text-align:center;transition:all 0.3s}
-.team-card:hover{box-shadow:0 16px 40px rgba(196,122,106,0.12)}
-.team-avatar{width:88px;height:88px;background:linear-gradient(135deg,var(--rose),var(--blush-mid));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--white);margin:0 auto 20px}
-.team-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--charcoal);margin-bottom:4px}
-.team-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:16px}
-.team-bio{font-size:13px;line-height:1.8;color:var(--charcoal-soft)}
-.team-creds{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
-.cred{font-size:10px;font-weight:600;letter-spacing:0.08em;background:var(--nude);color:var(--rose);padding:4px 10px;border:1px solid var(--blush-mid)}
-
-.book-section{background:var(--charcoal);padding:80px 60px}
-.book-inner{max-width:800px;margin:0 auto;text-align:center}
-.book-tag{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:20px}
-.book-h2{font-family:'Libre Baskerville',serif;font-size:52px;font-weight:400;color:var(--white);margin-bottom:12px}
-.book-h2 em{font-style:italic;color:var(--blush)}
-.book-sub{font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:48px;font-style:italic;font-family:'Libre Baskerville',serif}
-.book-form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.book-form-full{grid-column:1/-1}
-.bf{display:flex;flex-direction:column;gap:8px}
-.bf label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-align:left}
-.bf input,.bf select{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:14px 16px;color:white;font-family:'Raleway',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
-.bf input:focus,.bf select:focus{border-color:var(--rose)}
-.bf select option{background:var(--charcoal)}
-.book-btn{background:var(--rose);color:white;padding:16px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;grid-column:1/-1;transition:all 0.2s}
-.book-btn:hover{background:var(--rose-dark)}
-
-footer{background:#1A1A1A;padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
-.footer-logo{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--white)}
-.footer-logo span{color:var(--rose);font-style:italic}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+.nav-book{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);text-decoration:none;border-bottom:1px solid var(--rose);padding-bottom:2px;transition:color .2s}
+/* MAGAZINE INTRO — text only, no hero image */
+.intro{min-height:100vh;display:flex;align-items:center;padding:140px 80px 100px;background:var(--mist)}
+.intro-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1280px;margin:0 auto;width:100%}
+.intro-text{}
+.intro-tag{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.intro-tag::before{content:'';width:24px;height:1px;background:var(--rose)}
+.intro-h{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,5vw,80px);font-weight:300;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+.intro-h em{font-style:italic;color:var(--rose)}
+.intro-body{font-size:14px;font-weight:300;line-height:1.85;color:var(--silver);margin-top:24px;max-width:400px}
+.intro-actions{display:flex;align-items:center;gap:24px;margin-top:36px}
+.btn-rose{background:var(--rose);color:var(--white);padding:14px 32px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn-rose:hover{background:var(--rose-deep)}
+.btn-text{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.intro-img{position:relative}
+.intro-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.intro-img-caption{position:absolute;bottom:24px;left:-32px;background:var(--white);padding:16px 20px;box-shadow:0 8px 32px rgba(44,24,16,.1);max-width:200px}
+.caption-stat{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--rose);line-height:1}
+.caption-label{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-top:4px}
+/* TREATMENT STRIP — horizontal layout, no cards */
+.treatments{padding:120px 80px;background:var(--white)}
+.treat-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px}
+.treat-intro p{font-size:14px;font-weight:300;line-height:1.8;color:var(--silver);max-width:360px;margin-top:16px}
+.treat-list{display:flex;flex-direction:column;gap:0}
+.treat-item{display:grid;grid-template-columns:48px 1fr 140px;align-items:center;gap:24px;padding:28px 0;border-bottom:1px solid rgba(44,24,16,.08);transition:background .2s}
+.treat-item:hover{background:var(--mist);margin:0 -20px;padding-left:20px;padding-right:20px}
+.treat-num{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--rose)}
+.treat-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink)}
+.treat-desc{font-size:12px;font-weight:300;color:var(--silver);line-height:1.5;margin-top:4px}
+.treat-price{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--rose);text-align:right}
+.treat-from{font-size:9px;color:var(--silver);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:2px}
+/* ASYMMETRIC FEATURE — image left, text right */
+.feature{display:grid;grid-template-columns:55% 1fr;background:var(--blush)}
+.feature-img img{width:100%;height:100%;object-fit:cover;min-height:600px}
+.feature-text{padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
+.feature-eyebrow{font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:20px}
+.feature-h{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:20px}
+.feature-h em{font-style:italic}
+.feature-body{font-size:13px;font-weight:300;line-height:1.85;color:var(--silver);margin-bottom:32px}
+.provider{display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid rgba(44,24,16,.1)}
+.provider-img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top}
+.provider-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink)}
+.provider-title{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--silver)}
+/* BOOKING */
+.booking{background:var(--ink);padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.booking-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:20px}
+.booking-text h2 em{font-style:italic;color:var(--rose)}
+.booking-text p{font-size:14px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75}
+.booking-form{background:rgba(255,255,255,.05);padding:40px;border:1px solid rgba(255,255,255,.1)}
+.bf-field{margin-bottom:16px}
+.bf-field label{display:block;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px}
+.bf-field input,.bf-field select{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.15);color:var(--white);padding:10px 0;font-family:'Montserrat',sans-serif;font-size:13px;outline:none;transition:border-color .2s}
+.bf-field input:focus,.bf-field select:focus{border-bottom-color:var(--rose)}
+.bf-field select option{background:var(--ink);color:var(--white)}
+.bf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.book-btn{width:100%;background:var(--rose);color:var(--white);border:none;padding:16px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;cursor:pointer;margin-top:8px;transition:background .2s}
+.book-btn:hover{background:var(--rose-deep)}
+/* FOOTER */
+footer{background:var(--mist);border-top:1px solid rgba(44,24,16,.08);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.footer-info{font-size:11px;color:var(--silver);letter-spacing:.06em}
+.footer-links a{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);text-decoration:none;margin-left:20px}
 .footer-links a:hover{color:var(--rose)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
 @media(max-width:768px){
-  nav{padding:16px 24px}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:60px 24px}
-  .hero-h1{font-size:42px}
-  .hero-right{min-height:280px}
-  .pillars{grid-template-columns:1fr}
-  .treatments{padding:60px 24px}
-  .treatments-grid{grid-template-columns:1fr}
-  .team{padding:60px 24px}
-  .team-grid{grid-template-columns:1fr}
-  .book-section{padding:60px 24px}
-  .book-h2{font-size:36px}
-  .book-form{grid-template-columns:1fr}
-  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+  nav,.nav-links{padding:18px 24px}.nav-links{display:none}
+  .intro,.treatments,.booking{padding:100px 24px 60px;grid-template-columns:1fr}
+  .intro-inner,.treat-header,.booking{grid-template-columns:1fr;gap:40px}
+  .feature{grid-template-columns:1fr}
+  .feature-img img{min-height:320px}
+  .feature-text{padding:48px 28px}
+  .intro-img-caption{left:0;bottom:16px}
+  .treat-item{grid-template-columns:40px 1fr;gap:12px}
+  .treat-price{display:none}
+  .bf-row{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:32px 24px}
 }
 </style>
 </head>
 <body>
-<nav>
-  <div class="nav-logo">Lumina<span>.</span></div>
-  <ul class="nav-links">
-    <li><a href="#">Treatments</a></li>
-    <li><a href="#">Our Team</a></li>
-    <li><a href="#">Memberships</a></li>
-    <li><a href="#">Blog</a></li>
-  </ul>
-  <a href="#book" class="nav-book">Book Now</a>
+<nav id="sitenav">
+  <div class="nav-logo">Lumina</div>
+  <div class="nav-links">
+    <a href="#treatments">Treatments</a>
+    <a href="#team">Our Team</a>
+    <a href="#book">Book</a>
+  </div>
+  <a href="#book" class="nav-book">Book a Consultation</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Medical Aesthetics · Austin, TX</div>
-    <h1 class="hero-h1">Reveal Your Most <em>Luminous</em> Self.</h1>
-    <p class="hero-sub">Science-backed treatments. Artful results. Lumina offers the most advanced medical aesthetics in Central Texas, delivered by board-certified providers in a sanctuary designed for you.</p>
-    <div class="hero-actions">
-      <a href="#book" class="btn-rose">Book a Consultation</a>
-      <a href="#treatments" class="btn-text">Explore Treatments →</a>
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-text">
+      <div class="intro-tag">Medical Aesthetics · Austin, TX</div>
+      <h1 class="intro-h">Reveal your most<br><em>luminous</em> self.</h1>
+      <p class="intro-body">Science-backed treatments. Artful results. Lumina offers the most advanced medical aesthetics in Central Texas, delivered by board-certified providers in a sanctuary designed for you.</p>
+      <div class="intro-actions">
+        <a href="#book" class="btn-rose">Book a Consultation</a>
+        <a href="#treatments" class="btn-text">View Treatments</a>
+      </div>
+    </div>
+    <div class="intro-img">
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=80" alt="Lumina Med Spa">
+      <div class="intro-img-caption">
+        <div class="caption-stat">4.98★</div>
+        <div class="caption-label">Google Rating · 1,800+ Reviews</div>
+      </div>
     </div>
   </div>
-  <div class="hero-right"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=80" alt="Lumina Med Spa treatment" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1"></div>
 </section>
-
-<div class="pillars">
-  <div class="pillar"><div class="pillar-icon">🩺</div><div class="pillar-name">Medical-Grade</div><div class="pillar-desc">Every treatment overseen by board-certified providers and licensed aestheticians</div></div>
-  <div class="pillar"><div class="pillar-icon">🌸</div><div class="pillar-name">Personalized Care</div><div class="pillar-desc">Individualized treatment plans tailored to your skin type, goals, and lifestyle</div></div>
-  <div class="pillar"><div class="pillar-icon">⚗️</div><div class="pillar-name">Latest Technology</div><div class="pillar-desc">Cutting-edge devices including HALO, BBL HERO, Morpheus8, and CoolSculpting Elite</div></div>
-</div>
 
 <section class="treatments" id="treatments">
-  <div class="section-tag">What We Offer</div>
-  <h2 class="section-h2">Signature <em>Treatments</em></h2>
-  <div class="section-sub">"Every visit is an investment in the skin you live in."</div>
-  <div class="treatments-grid">
-    <div class="treatment-card reveal"><div class="treatment-img">💉<div class="treatment-tag">Most Popular</div></div><div class="treatment-body"><div class="treatment-name">Neurotoxin (Botox/Dysport)</div><div class="treatment-desc">Smooth fine lines and dynamic wrinkles with precision-placed neuromodulators. Natural results that last 3–4 months.</div><div class="treatment-footer"><div class="treatment-price">From $12/unit</div><a href="#book" class="treatment-link">Book →</a></div></div></div>
-    <div class="treatment-card reveal"><div class="treatment-img">✨<div class="treatment-tag">Signature</div></div><div class="treatment-body"><div class="treatment-name">HALO Hybrid Laser</div><div class="treatment-desc">Lumina's most transformative treatment. Combines ablative and non-ablative wavelengths for dramatically youthful skin.</div><div class="treatment-footer"><div class="treatment-price">From $1,200</div><a href="#book" class="treatment-link">Book →</a></div></div></div>
-    <div class="treatment-card reveal"><div class="treatment-img">🌊<div class="treatment-tag">New</div></div><div class="treatment-body"><div class="treatment-name">Morpheus8 RF Microneedling</div><div class="treatment-desc">Subdermal adipose tissue remodeling combined with collagen induction. Tightens skin and reduces fat simultaneously.</div><div class="treatment-footer"><div class="treatment-price">From $900</div><a href="#book" class="treatment-link">Book →</a></div></div></div>
-    <div class="treatment-card reveal"><div class="treatment-img">💆<div class="treatment-tag">Best Seller</div></div><div class="treatment-body"><div class="treatment-name">Dermal Fillers</div><div class="treatment-desc">Restore volume, define contours, and hydrate with hyaluronic acid and biostimulator fillers placed by artists.</div><div class="treatment-footer"><div class="treatment-price">From $700/syringe</div><a href="#book" class="treatment-link">Book →</a></div></div></div>
-    <div class="treatment-card reveal"><div class="treatment-img">❄️</div><div class="treatment-body"><div class="treatment-name">CoolSculpting Elite</div><div class="treatment-desc">FDA-cleared fat freezing technology with dual applicators for 2× faster treatments. Eliminate stubborn pockets permanently.</div><div class="treatment-footer"><div class="treatment-price">From $750/cycle</div><a href="#book" class="treatment-link">Book →</a></div></div></div>
-    <div class="treatment-card reveal"><div class="treatment-img">☀️<div class="treatment-tag">Lumina Fave</div></div><div class="treatment-body"><div class="treatment-name">BBL HERO Phototherapy</div><div class="treatment-desc">Broadband light therapy corrects pigmentation, redness, and texture while clinically proven to reverse signs of aging.</div><div class="treatment-footer"><div class="treatment-price">From $650</div><a href="#book" class="treatment-link">Book →</a></div></div></div>
+  <div class="treat-header">
+    <div>
+      <div class="intro-tag" style="margin-bottom:16px">Our Services</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,54px);font-weight:300;line-height:1.1;color:var(--ink)">Treatments<br><em style="font-style:italic;color:var(--rose)">tailored to you.</em></h2>
+    </div>
+    <div class="treat-intro"><p>Every treatment plan begins with a private consultation. We assess your skin, understand your goals, and recommend only what will genuinely serve your results.</p></div>
+  </div>
+  <div class="treat-list">
+    <div class="treat-item"><div class="treat-num">01</div><div><div class="treat-name">Botox & Dysport</div><div class="treat-desc">Precision relaxation of dynamic lines. Natural-looking results, zero downtime.</div></div><div class="treat-price"><span class="treat-from">From</span>$12 / unit</div></div>
+    <div class="treat-item"><div class="treat-num">02</div><div><div class="treat-name">Dermal Fillers</div><div class="treat-desc">Volume restoration and contouring with Juvederm, Restylane, and Sculptra.</div></div><div class="treat-price"><span class="treat-from">From</span>$700 / syringe</div></div>
+    <div class="treat-item"><div class="treat-num">03</div><div><div class="treat-name">Laser Skin Resurfacing</div><div class="treat-desc">CO₂ fractional and IPL treatments for texture, pigment, and tone correction.</div></div><div class="treat-price"><span class="treat-from">From</span>$450</div></div>
+    <div class="treat-item"><div class="treat-num">04</div><div><div class="treat-name">Morpheus8 RF Microneedling</div><div class="treat-desc">Deep tissue remodeling for skin laxity and advanced rejuvenation.</div></div><div class="treat-price"><span class="treat-from">From</span>$1,200</div></div>
+    <div class="treat-item"><div class="treat-num">05</div><div><div class="treat-name">Medical-Grade Facials</div><div class="treat-desc">HydraFacial, chemical peels, and custom clinical facials for every skin type.</div></div><div class="treat-price"><span class="treat-from">From</span>$180</div></div>
   </div>
 </section>
 
-<section class="team">
-  <div class="team-inner">
-    <div class="section-tag">Our Providers</div>
-    <h2 class="section-h2">Meet the <em>Team</em></h2>
-    <div class="team-grid">
-      <div class="team-card reveal"><div class="team-avatar">DR</div><div class="team-name">Dr. Rachel Nguyen</div><div class="team-title">Medical Director · Board-Certified Dermatologist</div><div class="team-bio">Harvard-trained dermatologist with 15 years of aesthetic expertise. Known for natural-looking results and a patient-first philosophy.</div><div class="team-creds"><span class="cred">MD</span><span class="cred">FAAD</span><span class="cred">Board Certified</span></div></div>
-      <div class="team-card reveal"><div class="team-avatar">SA</div><div class="team-name">Sarah Anderson, PA-C</div><div class="team-title">Lead Injector · Aesthetic Specialist</div><div class="team-bio">Nationally recognized injector with 10+ years focused exclusively on facial aesthetics. Faculty trainer for JUVÉDERM and Restylane programs.</div><div class="team-creds"><span class="cred">PA-C</span><span class="cred">NCCPA</span></div></div>
-      <div class="team-card reveal"><div class="team-avatar">MK</div><div class="team-name">Maya Kim, RN</div><div class="team-title">Aesthetic Nurse · Laser Specialist</div><div class="team-bio">Certified laser specialist with advanced training in HALO, BBL, and Morpheus8. Passionate about transformative skin health outcomes.</div><div class="team-creds"><span class="cred">RN</span><span class="cred">CLSo</span></div></div>
+<section class="feature" id="team">
+  <div class="feature-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=80" alt="Dr. Sarah Chen"></div>
+  <div class="feature-text">
+    <div class="feature-eyebrow">Medical Director</div>
+    <h2 class="feature-h">Where medicine<br>meets <em>artistry.</em></h2>
+    <p class="feature-body">Dr. Sarah Chen, MD is double board-certified in Dermatology and Plastic & Reconstructive Surgery. She founded Lumina in 2016 with a single conviction: that medical aesthetics should be as precise as surgery and as thoughtful as art.</p>
+    <p class="feature-body" style="margin-top:0">Every provider at Lumina trained under Dr. Chen's direct supervision. We don't hire technicians — we develop artists.</p>
+    <div class="provider">
+      <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&q=80" alt="Dr. Chen" class="provider-img">
+      <div><div class="provider-name">Dr. Sarah Chen, MD</div><div class="provider-title">Founder · Double Board-Certified</div></div>
     </div>
   </div>
 </section>
 
-<section class="book-section" id="book">
-  <div class="book-inner">
-    <div class="book-tag">Book Your Visit</div>
-    <h2 class="book-h2">Your <em>Transformation</em> Starts Here</h2>
-    <p class="book-sub">"The first consultation is always complimentary."</p>
+<section class="booking" id="book">
+  <div class="booking-text">
+    <h2>Reserve your<br><em>consultation.</em></h2>
+    <p>Your first visit is always a one-on-one consultation with a board-certified provider. No pressure. No upselling. Just honest guidance for your goals.</p>
+    <div style="margin-top:36px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:rgba(255,255,255,.5)">📍 &nbsp;2200 S Lamar Blvd, Suite 101, Austin, TX</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5)">📞 &nbsp;(512) 555-0144</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5)">🕐 &nbsp;Mon–Sat 9am – 6pm</div>
+    </div>
+  </div>
+  <div class="booking-form">
     <form onsubmit="return false">
-      <div class="book-form">
-        <div class="bf"><label>First Name</label><input type="text" placeholder="Sophia"></div>
-        <div class="bf"><label>Last Name</label><input type="text" placeholder="Williams"></div>
-        <div class="bf"><label>Email</label><input type="email" placeholder="sophia@email.com"></div>
-        <div class="bf"><label>Phone</label><input type="tel" placeholder="(512) 555-0100"></div>
-        <div class="bf"><label>Treatment Interest</label>
-          <select><option>Choose a treatment</option><option>Neurotoxin (Botox/Dysport)</option><option>HALO Laser</option><option>Morpheus8</option><option>Dermal Fillers</option><option>CoolSculpting Elite</option><option>BBL HERO</option><option>Consultation Only</option></select>
-        </div>
-        <div class="bf"><label>Preferred Date</label><input type="date"></div>
-        <button class="book-btn" type="submit">Schedule My Consultation →</button>
-      </div>
+      <div class="bf-row"><div class="bf-field"><label>First Name</label><input type="text" placeholder="Jane"></div><div class="bf-field"><label>Last Name</label><input type="text" placeholder="Smith"></div></div>
+      <div class="bf-field"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+      <div class="bf-field"><label>Phone</label><input type="tel" placeholder="(512) 555-0100"></div>
+      <div class="bf-field"><label>Treatment Interest</label><select><option>Botox / Dysport</option><option>Dermal Fillers</option><option>Laser Resurfacing</option><option>Morpheus8</option><option>Medical Facial</option><option>Not Sure — Want Advice</option></select></div>
+      <div class="bf-row"><div class="bf-field"><label>Preferred Date</label><input type="date"></div><div class="bf-field"><label>Preferred Time</label><select><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div></div>
+      <button class="book-btn">Request Consultation</button>
     </form>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">Lumina<span>.</span></div>
-  <div class="footer-copy">© 2025 Lumina Medical Aesthetics · 2800 Bee Cave Rd · Austin, TX 78746 · (512) 555-0175</div>
-  <div class="footer-links"><a href="#">Instagram</a><a href="#">Privacy</a><a href="#">HIPAA</a></div>
+  <div class="footer-logo">Lumina</div>
+  <div class="footer-info">2200 S Lamar Blvd · Austin TX 78704 · (512) 555-0144</div>
+  <div class="footer-links"><a href="#treatments">Treatments</a><a href="#book">Book</a></div>
 </footer>
-
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const nav=document.getElementById('sitenav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
 </script>
-</body>
-</html>
+</body></html>

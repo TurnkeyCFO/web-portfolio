@@ -1,240 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premier Auto Group — Luxury & Performance Vehicles</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Auto Group — Luxury Pre-Owned, Austin TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --carbon:#111418;--carbon-mid:#1A1F24;--carbon-card:#222830;
-  --silver:#C8CDD4;--silver-light:#E0E4EA;--chrome:#F0F4F8;
-  --red:#C0392B;--red-light:#E74C3C;
-  --white:#FFFFFF;--dim:rgba(255,255,255,0.6);--muted:rgba(255,255,255,0.3);
-  --border:rgba(255,255,255,0.07);
-}
-body{font-family:'Inter',sans-serif;background:var(--carbon);color:var(--white);overflow-x:hidden}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(17,20,24,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--white)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#050505;--dark:#0D0D0D;--mid:#161616;--chrome:#C0C0C0;--silver:#8A8A8A;--red:#CC1F1F;--white:#F4F4F4;--rule:rgba(255,255,255,.07)}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+/* TOP UTILITY STRIP */
+.topstrip{background:var(--red);padding:6px 60px;display:flex;justify-content:space-between;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+/* NAV */
+nav{background:var(--dark);border-bottom:1px solid var(--rule);padding:0 60px;height:70px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
 .nav-logo span{color:var(--red)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.06em;color:var(--dim);transition:color 0.2s}
-.nav-links a:hover{color:var(--silver-light)}
-.nav-right{display:flex;gap:12px;align-items:center}
-.nav-phone{font-size:13px;font-weight:600;color:var(--dim);text-decoration:none;transition:color 0.2s}
-.nav-phone:hover{color:var(--white)}
-.nav-cta{background:var(--red);color:var(--white);padding:10px 24px;font-size:13px;font-weight:600;letter-spacing:0.06em;text-decoration:none;clip-path:polygon(6px 0%,100% 0%,100% calc(100% - 6px),calc(100% - 6px) 100%,0% 100%,0% 6px);transition:background 0.2s}
-.nav-cta:hover{background:var(--red-light)}
-
-.hero{min-height:100vh;background:var(--carbon);display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;padding-top:70px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0A0C0F 0%,#111418 50%,#1A1F24 100%)}
-.hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(192,57,43,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(192,57,43,0.03) 1px,transparent 1px);background-size:100px 100px}
-.hero-big-text{position:absolute;right:-20px;bottom:40px;font-family:'Rajdhani',sans-serif;font-size:280px;font-weight:700;color:rgba(255,255,255,0.02);letter-spacing:0.05em;line-height:1;pointer-events:none;text-transform:uppercase}
-.hero-content{position:relative;z-index:1;max-width:700px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.3);padding:6px 16px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-light);margin-bottom:28px}
-.hero-h1{font-family:'Rajdhani',sans-serif;font-size:88px;font-weight:700;line-height:0.95;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:28px}
-.hero-h1 em{font-style:normal;color:var(--red)}
-.hero-sub{font-size:16px;line-height:1.8;color:var(--dim);max-width:520px;margin-bottom:48px}
-.hero-btns{display:flex;gap:16px;margin-bottom:60px}
-.btn-red{background:var(--red);color:white;padding:16px 40px;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;clip-path:polygon(8px 0%,100% 0%,100% calc(100% - 8px),calc(100% - 8px) 100%,0% 100%,0% 8px);transition:background 0.2s}
-.btn-red:hover{background:var(--red-light)}
-.btn-ghost{border:1px solid rgba(255,255,255,0.2);color:var(--dim);padding:16px 36px;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
-.btn-ghost:hover{border-color:var(--silver);color:var(--white)}
-.hero-stats{display:flex;gap:48px}
-.hs{display:flex;flex-direction:column;gap:4px}
-.hs-val{font-family:'Rajdhani',sans-serif;font-size:42px;font-weight:700;color:var(--white);line-height:1}
-.hs-val span{color:var(--red)}
-.hs-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
-
-.brands{background:var(--carbon-mid);padding:24px 60px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:60px;overflow:hidden}
-.brands-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.brands-list{display:flex;gap:48px;align-items:center;flex-wrap:wrap}
-.brand-name{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:0.1em;color:rgba(255,255,255,0.2);text-transform:uppercase;transition:color 0.2s}
-.brand-name:hover{color:rgba(255,255,255,0.5)}
-
-.inventory{padding:80px 60px;max-width:1400px;margin:0 auto}
-.sec-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
-.sec-h2{font-family:'Rajdhani',sans-serif;font-size:56px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:12px}
-.sec-h2 span{color:var(--red)}
-.sec-sub{font-size:15px;color:var(--dim);margin-bottom:40px}
-.inv-filter{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap}
-.filter-btn{padding:8px 20px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--border);color:var(--dim);cursor:pointer;background:transparent;transition:all 0.2s}
-.filter-btn.active,.filter-btn:hover{border-color:var(--red);color:var(--white);background:rgba(192,57,43,0.1)}
-.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.car-card{background:var(--carbon-card);overflow:hidden;transition:all 0.3s;cursor:pointer}
-.car-card:hover{transform:translateY(-4px)}
-.car-img{height:260px;background:linear-gradient(135deg,var(--carbon-mid),var(--carbon));display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden}.car-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.car-badge{position:absolute;top:16px;left:16px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px}
-.badge-new{background:var(--red);color:white}
-.badge-certified{background:rgba(255,255,255,0.1);color:var(--silver-light);border:1px solid rgba(255,255,255,0.15)}
-.badge-sale{background:rgba(255,200,0,0.15);color:#FFD700;border:1px solid rgba(255,200,0,0.3)}
-.car-body{padding:20px}
-.car-year-make{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
-.car-model{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:12px}
-.car-specs{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
-.car-spec{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:4px}
-.car-footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--border)}
-.car-price{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--white)}
-.car-mo{font-size:11px;color:var(--muted)}
-.car-btn{background:var(--carbon-mid);border:1px solid var(--border);color:var(--silver);padding:8px 18px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
-.car-btn:hover{border-color:var(--red);color:var(--white)}
-
-.services{background:var(--carbon-mid);padding:80px 60px;border-top:1px solid var(--border)}
-.services-inner{max-width:1200px;margin:0 auto}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;background:var(--border)}
-.svc{background:var(--carbon-mid);padding:36px 28px;transition:all 0.3s}
-.svc:hover{background:var(--carbon-card)}
-.svc-icon{font-size:32px;margin-bottom:16px}
-.svc-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:10px}
-.svc-desc{font-size:13px;line-height:1.7;color:var(--dim)}
-
-.cta-band{background:var(--red);padding:60px;text-align:center}
-.cta-band h2{font-family:'Rajdhani',sans-serif;font-size:64px;font-weight:700;text-transform:uppercase;color:white;letter-spacing:0.04em;margin-bottom:12px}
-.cta-band p{font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:36px}
-.cta-form{display:flex;max-width:520px;margin:0 auto}
-.cta-input{flex:1;background:rgba(0,0,0,0.2);border:none;padding:16px 20px;color:white;font-family:'Inter',sans-serif;font-size:14px;outline:none}
-.cta-input::placeholder{color:rgba(255,255,255,0.5)}
-.cta-btn{background:var(--carbon);color:white;padding:16px 28px;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s}
-.cta-btn:hover{background:#1A1F24}
-
-footer{background:var(--carbon);border-top:1px solid var(--border);padding:40px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--white)}
-.footer-logo span{color:var(--red)}
-.footer-copy{font-size:12px;color:var(--muted)}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
-.footer-links a:hover{color:var(--red)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
+.nav-links{display:flex;gap:0}
+.nav-links a{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--silver);text-decoration:none;padding:0 20px;height:70px;display:flex;align-items:center;border-right:1px solid var(--rule);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--red);color:var(--white);padding:0 28px;height:70px;display:flex;align-items:center;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+/* HERO — spotlight on car */
+.hero{position:relative;height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1600&q=80') center/cover}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(5,5,5,.3) 0%,rgba(5,5,5,.85) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px;padding:0 40px}
+.hero-kicker{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:16px}
+.hero-kicker::before,.hero-kicker::after{content:'';width:40px;height:1px;background:var(--red)}
+h1{font-family:'Rajdhani',sans-serif;font-size:clamp(80px,11vw,150px);font-weight:700;line-height:.9;letter-spacing:.04em;text-transform:uppercase;color:var(--white)}
+h1 em{color:var(--red);font-style:normal;display:block}
+.hero-sub{font-size:14px;font-weight:300;color:var(--silver);max-width:460px;margin:20px auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:2px;justify-content:center;flex-wrap:wrap}
+.btn-red{background:var(--red);color:var(--white);padding:15px 36px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.btn-red:hover{opacity:.85}
+.btn-outline{border:1px solid rgba(255,255,255,.2);color:var(--white);padding:15px 36px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:border-color .2s;margin-left:2px}
+.btn-outline:hover{border-color:var(--red)}
+/* STATS BAR */
+.stats-bar{background:var(--red);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:20px 32px;border-right:1px solid rgba(255,255,255,.2);text-align:center}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;color:var(--white);line-height:1}
+.stat-l{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:2px}
+/* INVENTORY — horizontal scroll */
+.inventory{padding:80px 0;border-top:1px solid var(--rule)}
+.inv-header{padding:0 60px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+.inv-label{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.inv-h{font-family:'Rajdhani',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:.95}
+.inv-count{font-size:12px;color:var(--silver);text-align:right}
+.inv-scroll{display:flex;gap:2px;overflow-x:auto;padding:0 60px 40px;scrollbar-width:none}
+.inv-scroll::-webkit-scrollbar{display:none}
+.car-card{flex:0 0 360px;background:var(--mid);border:1px solid var(--rule);overflow:hidden;transition:border-color .2s}
+.car-card:hover{border-color:var(--red)}
+.car-img{position:relative;aspect-ratio:16/9;overflow:hidden}
+.car-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.car-card:hover .car-img img{transform:scale(1.04)}
+.car-badge{position:absolute;top:12px;left:12px;background:var(--red);font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);padding:4px 12px}
+.car-body{padding:20px 22px}
+.car-year{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.car-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:3px}
+.car-trim{font-size:12px;color:var(--silver);margin-bottom:12px}
+.car-specs{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.car-spec{font-size:11px;color:var(--silver);display:flex;align-items:center;gap:4px}
+.car-price{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--chrome);border-top:1px solid var(--rule);padding-top:12px}
+/* EXPERIENCE SECTION */
+.experience{padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--dark);border-top:1px solid var(--rule)}
+.exp-text h2{font-family:'Rajdhani',sans-serif;font-size:clamp(40px,5vw,64px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:.95;margin-bottom:20px}
+.exp-text h2 span{color:var(--red)}
+.exp-text p{font-size:14px;font-weight:300;color:var(--silver);line-height:1.75;margin-bottom:16px}
+.exp-list{display:flex;flex-direction:column;gap:0;margin-top:24px}
+.exp-item{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.exp-num{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red);width:40px;flex-shrink:0}
+.exp-name{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;color:var(--white)}
+.exp-desc{font-size:12px;color:var(--silver);margin-top:1px}
+.exp-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+/* CONTACT */
+.contact{background:var(--black);padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-top:1px solid var(--rule)}
+.ct-text h2{font-family:'Rajdhani',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:.95;margin-bottom:16px}
+.ct-text h2 span{color:var(--red)}
+.ct-text p{font-size:14px;font-weight:300;color:var(--silver);line-height:1.75;margin-bottom:24px}
+.ct-info{display:flex;flex-direction:column;gap:8px}
+.ct-row{font-size:13px;color:var(--silver);display:flex;gap:10px}
+.ct-row strong{color:var(--white);font-weight:500;width:64px;flex-shrink:0}
+.form-label{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);display:block;margin-bottom:6px}
+.form-input{width:100%;background:rgba(255,255,255,.05);border:none;border-bottom:1px solid var(--rule);color:var(--white);padding:11px 0;font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:14px;transition:border-color .2s}
+.form-input:focus{border-bottom-color:var(--red)}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-sub{background:var(--red);color:var(--white);border:none;padding:14px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;width:100%;transition:opacity .2s}
+.form-sub:hover{opacity:.85}
+footer{background:#020202;border-top:1px solid var(--rule);padding:18px 60px;display:flex;justify-content:space-between;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);flex-wrap:wrap;gap:8px}
 @media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  .hero{padding:80px 24px 60px}
-  .hero-h1{font-size:56px}
-  .hero-big-text{display:none}
-  .brands{padding:24px;gap:20px;flex-direction:column}
-  .inventory{padding:60px 24px}
-  .inv-grid{grid-template-columns:1fr}
-  .services{padding:60px 24px}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .cta-band{padding:60px 24px}
-  .cta-band h2{font-size:40px}
-  .cta-form{flex-direction:column}
-  footer{padding:32px 24px}
+  .topstrip{display:none}
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero-content{padding:0 20px}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .inventory,.experience,.contact{padding-left:20px;padding-right:20px}
+  .inv-header,.inv-scroll{padding-left:20px;padding-right:20px}
+  .car-card{flex:0 0 300px}
+  .experience,.contact{grid-template-columns:1fr;gap:40px}
+  .form-row-2{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:16px}
 }
 </style>
 </head>
 <body>
+<div class="topstrip"><span>Austin's Premier Luxury Pre-Owned Dealer</span><span>(512) 555-0199 · Open Mon–Sat 9AM–7PM</span></div>
 <nav>
-  <div class="nav-logo">PREMIER<span>AUTO</span></div>
-  <ul class="nav-links">
-    <li><a href="#">New</a></li>
-    <li><a href="#">Used</a></li>
-    <li><a href="#">Certified Pre-Owned</a></li>
-    <li><a href="#">Finance</a></li>
-    <li><a href="#">Service</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="tel:5125550160" class="nav-phone">📞 (512) 555-0160</a>
-    <a href="#inventory" class="nav-cta">View Inventory</a>
-  </div>
+  <div class="nav-logo">Premier<span>Auto</span></div>
+  <div class="nav-links"><a href="#inventory">Inventory</a><a href="#experience">Why Premier</a><a href="#contact">Contact</a></div>
+  <a href="#inventory" class="nav-cta">Browse Inventory</a>
 </nav>
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-lines"></div>
-  <div class="hero-big-text">DRIVE</div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">◆ Austin's Premier Luxury Dealership Since 2001</div>
-    <h1 class="hero-h1">DRIVE<br>YOUR <em>BEST</em><br>LIFE.</h1>
-    <p class="hero-sub">Premier Auto Group carries the finest selection of new, used, and certified pre-owned luxury and performance vehicles in Central Texas. No pressure. Just great cars.</p>
-    <div class="hero-btns">
-      <a href="#inventory" class="btn-red">Browse Inventory</a>
-      <a href="#contact" class="btn-ghost">Value My Trade →</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hs"><div class="hs-val">800<span>+</span></div><div class="hs-label">Vehicles in Stock</div></div>
-      <div class="hs"><div class="hs-val">24</div><div class="hs-label">Years in Austin</div></div>
-      <div class="hs"><div class="hs-val">4.9<span>★</span></div><div class="hs-label">Google Rating</div></div>
-      <div class="hs"><div class="hs-val">5K<span>+</span></div><div class="hs-label">Happy Customers</div></div>
-    </div>
+    <div class="hero-kicker">Austin's Finest Pre-Owned</div>
+    <h1>DRIVE<br><em>ELITE.</em></h1>
+    <p class="hero-sub">300+ certified pre-owned luxury and performance vehicles in stock. Every car inspected, every detail documented.</p>
+    <div class="hero-btns"><a href="#inventory" class="btn-red">Browse Inventory</a><a href="#contact" class="btn-outline">Schedule Test Drive</a></div>
   </div>
 </section>
 
-<div class="brands">
-  <div class="brands-label">We Carry</div>
-  <div class="brands-list">
-    <div class="brand-name">BMW</div>
-    <div class="brand-name">Mercedes</div>
-    <div class="brand-name">Audi</div>
-    <div class="brand-name">Porsche</div>
-    <div class="brand-name">Lexus</div>
-    <div class="brand-name">Tesla</div>
-    <div class="brand-name">Land Rover</div>
-    <div class="brand-name">Ferrari</div>
-    <div class="brand-name">Lamborghini</div>
-  </div>
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">300+</div><div class="stat-l">Vehicles in Stock</div></div>
+  <div class="stat"><div class="stat-n">22yr</div><div class="stat-l">Serving Austin</div></div>
+  <div class="stat"><div class="stat-n">4.96</div><div class="stat-l">Google Rating</div></div>
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Carfax Certified</div></div>
 </div>
 
 <section class="inventory" id="inventory">
-  <div class="sec-label">Current Inventory</div>
-  <h2 class="sec-h2">Featured <span>Vehicles</span></h2>
-  <p class="sec-sub">Handpicked inventory. Every vehicle inspected, detailed, and ready to drive.</p>
-  <div class="inv-filter">
-    <div class="filter-btn active">All Vehicles</div>
-    <div class="filter-btn">New</div>
-    <div class="filter-btn">Used</div>
-    <div class="filter-btn">Certified Pre-Owned</div>
-    <div class="filter-btn">Under $50K</div>
-    <div class="filter-btn">$50K–$100K</div>
-    <div class="filter-btn">$100K+</div>
-  </div>
-  <div class="inv-grid">
-    <div class="car-card reveal"><div class="car-img"><img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&q=80" alt="Porsche 911 Carrera S"><div class="car-badge badge-new">New</div></div><div class="car-body"><div class="car-year-make">2025 · Porsche</div><div class="car-model">911 Carrera S</div><div class="car-specs"><span class="car-spec">🏁 443 hp</span><span class="car-spec">⚙️ PDK</span><span class="car-spec">🎨 GT Silver</span></div><div class="car-footer"><div><div class="car-price">$142,900</div><div class="car-mo">Est. $2,180/mo</div></div><button class="car-btn">View Details</button></div></div></div>
-    <div class="car-card reveal"><div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="BMW M3 Competition"><div class="car-badge badge-certified">Certified</div></div><div class="car-body"><div class="car-year-make">2023 · BMW</div><div class="car-model">M3 Competition xDrive</div><div class="car-specs"><span class="car-spec">🏁 503 hp</span><span class="car-spec">⚙️ 8-Speed</span><span class="car-spec">📍 8,200 mi</span></div><div class="car-footer"><div><div class="car-price">$84,500</div><div class="car-mo">Est. $1,290/mo</div></div><button class="car-btn">View Details</button></div></div></div>
-    <div class="car-card reveal"><div class="car-img"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80" alt="Mercedes GLE 63 S AMG"><div class="car-badge badge-new">New</div></div><div class="car-body"><div class="car-year-make">2025 · Mercedes-Benz</div><div class="car-model">GLE 63 S AMG</div><div class="car-specs"><span class="car-spec">🏁 630 hp</span><span class="car-spec">⚙️ 9G-Tronic</span><span class="car-spec">🎨 Obsidian Black</span></div><div class="car-footer"><div><div class="car-price">$118,200</div><div class="car-mo">Est. $1,800/mo</div></div><button class="car-btn">View Details</button></div></div></div>
-    <div class="car-card reveal"><div class="car-img"><img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=600&q=80" alt="Tesla Model S Plaid"><div class="car-badge badge-new">New</div></div><div class="car-body"><div class="car-year-make">2025 · Tesla</div><div class="car-model">Model S Plaid</div><div class="car-specs"><span class="car-spec">🏁 1,020 hp</span><span class="car-spec">⚡ Full EV</span><span class="car-spec">🛣️ 396 mi range</span></div><div class="car-footer"><div><div class="car-price">$106,990</div><div class="car-mo">Est. $1,630/mo</div></div><button class="car-btn">View Details</button></div></div></div>
-    <div class="car-card reveal"><div class="car-img"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80" alt="Audi RS7 Sportback"><div class="car-badge badge-sale">Price Drop</div></div><div class="car-body"><div class="car-year-make">2022 · Audi</div><div class="car-model">RS7 Sportback</div><div class="car-specs"><span class="car-spec">🏁 591 hp</span><span class="car-spec">⚙️ 8-Speed</span><span class="car-spec">📍 14,500 mi</span></div><div class="car-footer"><div><div class="car-price">$97,400</div><div class="car-mo">Est. $1,490/mo</div></div><button class="car-btn">View Details</button></div></div></div>
-    <div class="car-card reveal"><div class="car-img"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Lamborghini Urus Performante"><div class="car-badge badge-new">New</div></div><div class="car-body"><div class="car-year-make">2025 · Lamborghini</div><div class="car-model">Urus Performante</div><div class="car-specs"><span class="car-spec">🏁 666 hp</span><span class="car-spec">⚙️ 8-Speed</span><span class="car-spec">🎨 Nero Noctis</span></div><div class="car-footer"><div><div class="car-price">$274,000</div><div class="car-mo">Est. $4,180/mo</div></div><button class="car-btn">View Details</button></div></div></div>
+  <div class="inv-header"><div><div class="inv-label">Available Now</div><div class="inv-h">FEATURED<br>VEHICLES.</div></div><div class="inv-count">Showing 6 of 300+ · Updated daily</div></div>
+  <div class="inv-scroll">
+    <div class="car-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Porsche"><div class="car-badge">Just Arrived</div></div><div class="car-body"><div class="car-year">2022</div><div class="car-name">Porsche 911</div><div class="car-trim">Carrera S · Coupe · PDK</div><div class="car-specs"><span class="car-spec">🔢 8,200 mi</span><span class="car-spec">🎨 GT Silver</span><span class="car-spec">⚙️ PDK</span></div><div class="car-price">$139,900</div></div></div>
+    <div class="car-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="BMW M"><div class="car-badge">Certified</div></div><div class="car-body"><div class="car-year">2023</div><div class="car-name">BMW M3</div><div class="car-trim">Competition xDrive · Sedan</div><div class="car-specs"><span class="car-spec">🔢 4,100 mi</span><span class="car-spec">🎨 Isle Blue</span><span class="car-spec">⚙️ Auto</span></div><div class="car-price">$94,500</div></div></div>
+    <div class="car-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=600&q=80" alt="Land Rover"><div class="car-badge">Certified</div></div><div class="car-body"><div class="car-year">2023</div><div class="car-name">Range Rover</div><div class="car-trim">HSE · SWB · P400</div><div class="car-specs"><span class="car-spec">🔢 12,800 mi</span><span class="car-spec">🎨 Carpathian Grey</span><span class="car-spec">⚙️ Auto</span></div><div class="car-price">$117,000</div></div></div>
+    <div class="car-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=600&q=80" alt="Mercedes AMG"><div class="car-badge">Just Arrived</div></div><div class="car-body"><div class="car-year">2021</div><div class="car-name">Mercedes AMG</div><div class="car-trim">GT 63 S · 4MATIC+</div><div class="car-specs"><span class="car-spec">🔢 18,400 mi</span><span class="car-spec">🎨 Obsidian Black</span><span class="car-spec">⚙️ Speedshift</span></div><div class="car-price">$128,900</div></div></div>
   </div>
 </section>
 
-<section class="services">
-  <div class="services-inner">
-    <div class="sec-label">More Than Cars</div>
-    <h2 class="sec-h2">Full Service <span>Experience</span></h2>
-    <div class="services-grid">
-      <div class="svc reveal"><div class="svc-icon">🔧</div><div class="svc-name">Service Center</div><div class="svc-desc">Factory-trained technicians, OEM parts, and state-of-the-art equipment. Express service and loaner vehicles available.</div></div>
-      <div class="svc reveal"><div class="svc-icon">💰</div><div class="svc-name">Financing</div><div class="svc-desc">Competitive rates from 30+ lenders. Same-day approvals. Options for all credit profiles. Lease and purchase available.</div></div>
-      <div class="svc reveal"><div class="svc-icon">🔄</div><div class="svc-name">Trade-In</div><div class="svc-desc">Instant online valuation. We buy all makes and models. Top dollar paid — even if you don't buy from us.</div></div>
-      <div class="svc reveal"><div class="svc-icon">🛡️</div><div class="svc-name">Protection Plans</div><div class="svc-desc">Extended warranties, GAP insurance, paint protection, and tire & wheel coverage to protect your investment.</div></div>
+<section class="experience" id="experience">
+  <div class="exp-text">
+    <h2>THE PREMIER<br><span>DIFFERENCE.</span></h2>
+    <p>We don't move metal. We match people with machines. Every member of our team is a car enthusiast who understands that buying a vehicle is a significant, personal decision.</p>
+    <div class="exp-list">
+      <div class="exp-item"><div class="exp-num">01</div><div><div class="exp-name">150-Point Inspection</div><div class="exp-desc">Every vehicle certified by factory-trained technicians</div></div></div>
+      <div class="exp-item"><div class="exp-num">02</div><div><div class="exp-name">Carfax & AutoCheck</div><div class="exp-desc">Full vehicle history on every car, no exceptions</div></div></div>
+      <div class="exp-item"><div class="exp-num">03</div><div><div class="exp-name">Nationwide Shipping</div><div class="exp-desc">White-glove enclosed transport to your door</div></div></div>
+      <div class="exp-item"><div class="exp-num">04</div><div><div class="exp-name">30-Day Guarantee</div><div class="exp-desc">Drive it, love it — or we'll make it right</div></div></div>
     </div>
   </div>
+  <div class="exp-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Showroom"></div>
 </section>
 
-<section class="cta-band" id="contact">
-  <h2>FIND YOUR DRIVE.</h2>
-  <p>Drop your email and we'll match you to vehicles that fit your wishlist.</p>
-  <div class="cta-form">
-    <input class="cta-input" type="email" placeholder="your@email.com">
-    <button class="cta-btn">Get Matched →</button>
+<section class="contact" id="contact">
+  <div class="ct-text">
+    <h2>FIND YOUR<br><span>NEXT DRIVE.</span></h2>
+    <p>Tell us what you're looking for and our team will find it — in our inventory or through our nationwide dealer network.</p>
+    <div class="ct-info">
+      <div class="ct-row"><strong>Address</strong>6300 S IH-35, Austin TX 78745</div>
+      <div class="ct-row"><strong>Hours</strong>Mon–Sat 9am–7pm · Sun 11am–5pm</div>
+      <div class="ct-row"><strong>Phone</strong>(512) 555-0199</div>
+    </div>
   </div>
+  <form onsubmit="return false">
+    <div class="form-row-2"><div><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John"></div><div><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div></div>
+    <label class="form-label">Email</label><input class="form-input" type="email" placeholder="john@email.com">
+    <label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="(512) 555-0100">
+    <label class="form-label">Vehicle of Interest</label><input class="form-input" type="text" placeholder="e.g. 2022 Porsche 911 Carrera">
+    <label class="form-label">How Can We Help?</label>
+    <select class="form-input"><option>Schedule a Test Drive</option><option>Get Financing Info</option><option>Trade-In Appraisal</option><option>Vehicle Search Request</option><option>General Inquiry</option></select>
+    <button class="form-sub">Submit Inquiry</button>
+  </form>
 </section>
-
-<footer>
-  <div class="footer-logo">PREMIER<span>AUTO</span></div>
-  <div class="footer-copy">© 2025 Premier Auto Group · 5200 N Lamar Blvd, Austin TX · TXDMV #12345 · All prices exclude tax, title, license</div>
-  <div class="footer-links"><a href="#">Privacy</a><a href="#">Finance Disclosure</a><a href="#">Careers</a></div>
-</footer>
-
-<script>
-document.querySelectorAll('.filter-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active')})});
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+<footer><span>© 2025 Premier Auto Group Inc.</span><span>Licensed Texas Motor Vehicle Dealer</span><span>(512) 555-0199</span></footer>
+</body></html>

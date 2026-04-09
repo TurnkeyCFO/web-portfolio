@@ -1,195 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Haus — Creative Design Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Haus — Creative Agency, Austin TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --ink:#0E0E0E;--ink-mid:#1A1A1A;--ink-card:#242424;
-  --electric:#4AFF91;--electric-dark:#2DE070;
-  --white:#FFFFFF;--dim:rgba(255,255,255,0.55);--muted:rgba(255,255,255,0.25);
-  --border:rgba(255,255,255,0.07);
-}
-body{font-family:'Space Grotesk',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,14,14,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;letter-spacing:0.04em;color:var(--white)}
-.nav-logo span{color:var(--electric)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;font-size:13px;font-weight:500;color:var(--dim);transition:color 0.2s}
-.nav-links a:hover{color:var(--electric)}
-.nav-cta{background:var(--electric);color:var(--ink);padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s}
-.nav-cta:hover{background:var(--electric-dark)}
-
-.hero{min-height:100vh;padding:140px 48px 80px;position:relative;overflow:hidden}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(74,255,145,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,255,145,0.03) 1px,transparent 1px);background-size:80px 80px}
-.hero-content{position:relative;z-index:1;max-width:900px}
-.hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;color:var(--electric);letter-spacing:0.15em;margin-bottom:28px}
-.hero-h1{font-size:88px;font-weight:700;line-height:0.95;letter-spacing:-0.03em;margin-bottom:32px}
-.hero-h1 .highlight{color:var(--electric)}
-.hero-sub{font-size:18px;line-height:1.7;color:var(--dim);max-width:600px;margin-bottom:48px}
-.hero-btns{display:flex;gap:16px;margin-bottom:80px}
-.btn-electric{background:var(--electric);color:var(--ink);padding:16px 40px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s}
-.btn-electric:hover{background:var(--electric-dark);transform:translateY(-2px)}
-.btn-outline-e{border:1px solid var(--border);color:var(--white);padding:16px 36px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s}
-.btn-outline-e:hover{border-color:var(--electric);color:var(--electric)}
-.hero-clients{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.hc-label{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.1em}
-.hc-logos{display:flex;gap:28px;flex-wrap:wrap}
-.hc-logo{font-size:13px;font-weight:700;color:rgba(255,255,255,0.18);letter-spacing:0.1em;text-transform:uppercase}
-
-.work{padding:80px 48px;max-width:1400px;margin:0 auto}
-.sec-label{font-family:'Space Mono',monospace;font-size:11px;color:var(--electric);letter-spacing:0.15em;margin-bottom:16px}
-.sec-h2{font-size:52px;font-weight:700;letter-spacing:-0.02em;margin-bottom:48px}
-.sec-h2 span{color:var(--electric)}
-.work-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:2px}
-.work-card{background:var(--ink-card);overflow:hidden;cursor:pointer;transition:all 0.3s;position:relative}
-.work-card:hover{transform:scale(0.99)}
-.work-card.tall{grid-row:1/3}
-.work-img{height:340px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
-.work-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,14,14,0.9) 0%,transparent 60%);opacity:0;transition:opacity 0.3s}
-.work-card:hover .work-overlay{opacity:1}
-.work-info{padding:24px;position:relative;z-index:1}
-.work-cat{font-family:'Space Mono',monospace;font-size:11px;color:var(--electric);letter-spacing:0.1em;margin-bottom:6px}
-.work-name{font-size:18px;font-weight:700}
-.work-tags{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-.work-tag{font-size:11px;font-weight:500;background:rgba(255,255,255,0.06);color:var(--dim);padding:4px 10px;border-radius:100px}
-
-.services{background:var(--ink-mid);padding:80px 48px}
-.services-inner{max-width:1200px;margin:0 auto}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;background:var(--border)}
-.svc{background:var(--ink-mid);padding:40px 32px;transition:all 0.3s;cursor:default}
-.svc:hover{background:var(--ink-card)}
-.svc-icon{font-size:36px;margin-bottom:20px}
-.svc-name{font-size:20px;font-weight:700;margin-bottom:12px}
-.svc-desc{font-size:14px;line-height:1.7;color:var(--dim);margin-bottom:20px}
-.svc-items{display:flex;flex-direction:column;gap:8px}
-.svc-item{font-family:'Space Mono',monospace;font-size:11px;color:var(--electric);letter-spacing:0.06em;display:flex;align-items:center;gap:6px}
-.svc-item::before{content:'→'}
-
-.process{padding:80px 48px;max-width:1200px;margin:0 auto}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;background:var(--border)}
-.process-step{background:var(--ink);padding:36px 28px;position:relative}
-.ps-num{font-family:'Space Mono',monospace;font-size:48px;font-weight:700;color:rgba(74,255,145,0.08);margin-bottom:16px;line-height:1}
-.ps-name{font-size:18px;font-weight:700;margin-bottom:12px}
-.ps-desc{font-size:14px;line-height:1.7;color:var(--dim)}
-
-.cta{background:var(--electric);padding:80px 48px;text-align:center}
-.cta h2{font-size:64px;font-weight:700;color:var(--ink);letter-spacing:-0.03em;margin-bottom:16px}
-.cta p{font-size:18px;color:rgba(0,0,0,0.6);margin-bottom:40px}
-.cta-form{display:flex;max-width:520px;margin:0 auto;gap:0}
-.cta-input{flex:1;background:rgba(0,0,0,0.12);border:none;padding:16px 20px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--ink);outline:none}
-.cta-input::placeholder{color:rgba(0,0,0,0.4)}
-.cta-btn{background:var(--ink);color:var(--electric);padding:16px 28px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s}
-.cta-btn:hover{background:#1A1A1A}
-
-footer{background:var(--ink);border-top:1px solid var(--border);padding:48px;display:flex;justify-content:space-between;align-items:center}
-.footer-logo{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--white)}
-.footer-logo span{color:var(--electric)}
-.footer-copy{font-size:12px;color:var(--muted)}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
-.footer-links a:hover{color:var(--electric)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#070707;--white:#F8F8F6;--mid:#111;--gray:#3A3A3A;--muted:#6A6A6A;--accent:#FF4500}
+body{font-family:'Space Grotesk',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+/* ULTRA-MINIMAL FLOATING NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal}
+.nav-logo{font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+.nav-contact{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-contact:hover{color:var(--accent)}
+/* PROJECT GRID IS THE PAGE */
+.grid-intro{padding:100px 48px 48px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid rgba(255,255,255,.07)}
+.grid-intro h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:.95;letter-spacing:-.03em;max-width:600px}
+.grid-intro h1 span{color:var(--accent)}
+.grid-intro p{font-size:14px;font-weight:300;color:var(--muted);max-width:260px;line-height:1.7;text-align:right}
+/* WORK GRID */
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:160px;gap:2px;padding:2px}
+.project{position:relative;overflow:hidden;cursor:pointer;background:var(--mid)}
+.project img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:brightness(.7)}
+.project:hover img{transform:scale(1.06);filter:brightness(.5)}
+.project-overlay{position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity .3s;background:linear-gradient(0deg,rgba(7,7,7,.9) 0%,transparent 60%)}
+.project:hover .project-overlay{opacity:1}
+.proj-cat{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.proj-name{font-size:18px;font-weight:700;color:var(--white);margin-bottom:3px}
+.proj-detail{font-size:11px;color:rgba(255,255,255,.5)}
+/* GRID LAYOUT ASSIGNMENTS */
+.p1{grid-column:1/7;grid-row:1/4}
+.p2{grid-column:7/10;grid-row:1/3}
+.p3{grid-column:10/13;grid-row:1/2}
+.p4{grid-column:10/13;grid-row:2/3}
+.p5{grid-column:7/10;grid-row:3/4}
+.p6{grid-column:10/13;grid-row:3/5}
+.p7{grid-column:1/4;grid-row:4/5}
+.p8{grid-column:4/7;grid-row:4/5}
+.p9{grid-column:7/10;grid-row:4/5}
+/* SERVICES + ABOUT STRIP */
+.info-strip{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0;border-top:1px solid rgba(255,255,255,.07)}
+.info-col{padding:56px 48px}
+.ic-num{font-size:52px;font-weight:700;color:rgba(255,255,255,.07);line-height:1;margin-bottom:12px}
+.ic-head{font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px}
+.ic-body{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+.ic-rule{background:rgba(255,255,255,.07);width:1px}
+/* CLIENT MARQUEE */
+.clients-band{border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);height:44px;overflow:hidden;display:flex;align-items:center}
+.clients-track{display:flex;gap:0;animation:marquee 24s linear infinite;white-space:nowrap}
+.client-name{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);padding:0 40px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* CONTACT */
+.contact{padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;border-top:1px solid rgba(255,255,255,.07)}
+.contact-text h2{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:.95;letter-spacing:-.03em;margin-bottom:24px}
+.contact-text h2 span{color:var(--accent)}
+.contact-text p{font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.contact-text a{color:var(--white);font-size:14px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:border-color .2s}
+.contact-text a:hover{border-color:var(--accent)}
+.contact-form{}
+.cf-label{display:block;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cf-input{width:100%;background:var(--mid);border:none;border-bottom:1px solid rgba(255,255,255,.1);color:var(--white);padding:14px 0;font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;margin-bottom:16px;transition:border-color .2s}
+.cf-input:focus{border-bottom-color:var(--accent)}
+.cf-input::placeholder{color:rgba(255,255,255,.2)}
+.cf-btn{background:var(--white);color:var(--black);border:none;padding:16px 40px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.cf-btn:hover{background:var(--accent);color:var(--white)}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:20px 48px;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);flex-wrap:wrap;gap:8px}
 @media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  .hero{padding:100px 24px 60px}
-  .hero-h1{font-size:52px}
-  .work-grid{grid-template-columns:1fr;grid-template-rows:auto}
-  .work-card.tall{grid-row:auto}
-  .services{padding:60px 24px}
-  .services-grid{grid-template-columns:1fr}
-  .process{padding:60px 24px}
-  .process-steps{grid-template-columns:repeat(2,1fr)}
-  .cta{padding:60px 24px}
-  .cta h2{font-size:40px}
-  .cta-form{flex-direction:column}
-  footer{padding:32px 24px;flex-direction:column;gap:16px}
+  nav{padding:18px 20px}
+  .grid-intro{flex-direction:column;align-items:flex-start;gap:20px;padding:80px 20px 32px}
+  .grid-intro p{text-align:left}
+  .work-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9{grid-column:span 1;grid-row:span 1}
+  .info-strip{grid-template-columns:1fr}.ic-rule{display:none}.info-col{padding:40px 20px}
+  .contact{grid-template-columns:1fr;padding:60px 20px;gap:48px}
+  footer{flex-direction:column;text-align:center;padding:16px 20px}
 }
 </style>
 </head>
 <body>
 <nav>
-  <div class="nav-logo">STUDIO<span>HAUS</span></div>
-  <ul class="nav-links"><li><a href="#">Work</a></li><li><a href="#">Services</a></li><li><a href="#">Studio</a></li><li><a href="#">Journal</a></li></ul>
-  <a href="#contact" class="nav-cta">Start a Project</a>
+  <div class="nav-logo">Studio Haus</div>
+  <a href="#contact" class="nav-contact">Start a Project →</a>
 </nav>
-<section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">// DESIGN STUDIO · AUSTIN, TX · EST. 2017</div>
-    <h1 class="hero-h1">We make<br>brands feel<br><span class="highlight">inevitable.</span></h1>
-    <p class="hero-sub">Studio Haus is a strategic design agency building brand identities, digital experiences, and motion systems for companies that refuse to be ordinary.</p>
-    <div class="hero-btns">
-      <a href="#work" class="btn-electric">See Our Work</a>
-      <a href="#contact" class="btn-outline-e">Start a Project →</a>
-    </div>
-    <div class="hero-clients">
-      <div class="hc-label">Selected clients:</div>
-      <div class="hc-logos">
-        <span class="hc-logo">Spotify</span><span class="hc-logo">Figma</span><span class="hc-logo">Stripe</span><span class="hc-logo">Notion</span><span class="hc-logo">Linear</span>
-      </div>
-    </div>
+
+<div class="grid-intro">
+  <h1>Work that<br>makes you<br><span>stop.</span></h1>
+  <p>Brand identity, digital design, and creative campaigns for companies that refuse to blend in.</p>
+</div>
+
+<!-- THE WORK — project grid IS the page -->
+<div class="work-grid" id="work">
+  <div class="project p1"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Brand"><div class="project-overlay"><div class="proj-cat">Brand Identity</div><div class="proj-name">Luminary Coffee</div><div class="proj-detail">Full rebrand · Austin, TX</div></div></div>
+  <div class="project p2"><img src="https://images.unsplash.com/photo-1535303311164-664fc9ec6532?w=600&q=80" alt="Web"><div class="project-overlay"><div class="proj-cat">Web Design</div><div class="proj-name">Vertex Capital</div><div class="proj-detail">Site + motion system</div></div></div>
+  <div class="project p3"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&q=80" alt="Print"><div class="project-overlay"><div class="proj-cat">Print & Packaging</div><div class="proj-name">Oxa Skincare</div><div class="proj-detail">Packaging design</div></div></div>
+  <div class="project p4"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&q=80" alt="Campaign"><div class="project-overlay"><div class="proj-cat">Campaign</div><div class="proj-name">Trailhead App</div><div class="proj-detail">Launch campaign</div></div></div>
+  <div class="project p5"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=500&q=80" alt="Visual"><div class="project-overlay"><div class="proj-cat">Visual Identity</div><div class="proj-name">Mesa Hospitality</div><div class="proj-detail">Brand + wayfinding</div></div></div>
+  <div class="project p6"><img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?w=400&q=80" alt="Digital"><div class="project-overlay"><div class="proj-cat">Digital Design</div><div class="proj-name">Northline Fund</div><div class="proj-detail">Pitch deck + site</div></div></div>
+  <div class="project p7"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Type"><div class="project-overlay"><div class="proj-cat">Typography</div><div class="proj-name">Serif & Sons</div><div class="proj-detail">Custom wordmark</div></div></div>
+  <div class="project p8"><img src="https://images.unsplash.com/photo-1501959915551-4e8d30928317?w=400&q=80" alt="Photo"><div class="project-overlay"><div class="proj-cat">Art Direction</div><div class="proj-name">Bloom Events</div><div class="proj-detail">Campaign + photos</div></div></div>
+  <div class="project p9"><img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&q=80" alt="Motion"><div class="project-overlay"><div class="proj-cat">Motion Design</div><div class="proj-name">Pulse Fitness</div><div class="proj-detail">Brand in motion</div></div></div>
+</div>
+
+<div class="clients-band">
+  <div class="clients-track">
+    <span class="client-name">Whole Foods Market</span><span class="client-name">Yeti</span><span class="client-name">Indeed</span><span class="client-name">Dell Technologies</span><span class="client-name">H-E-B</span><span class="client-name">Silicon Labs</span><span class="client-name">Texas Monthly</span><span class="client-name">Austin FC</span>
+    <span class="client-name">Whole Foods Market</span><span class="client-name">Yeti</span><span class="client-name">Indeed</span><span class="client-name">Dell Technologies</span><span class="client-name">H-E-B</span><span class="client-name">Silicon Labs</span><span class="client-name">Texas Monthly</span><span class="client-name">Austin FC</span>
+  </div>
+</div>
+
+<div class="info-strip">
+  <div class="info-col"><div class="ic-num">01</div><div class="ic-head">Brand Identity</div><div class="ic-body">Strategy, naming, logo, color, type, voice — every system you need to show up consistently and memorably everywhere.</div></div>
+  <div class="ic-rule"></div>
+  <div class="info-col"><div class="ic-num">02</div><div class="ic-head">Digital Design</div><div class="ic-body">Websites, apps, and digital products designed to convert. We design from user behavior, not aesthetics alone.</div></div>
+  <div class="ic-rule"></div>
+  <div class="info-col"><div class="ic-num">03</div><div class="ic-head">Creative Campaigns</div><div class="ic-body">Launch campaigns, brand films, print, and OOH built for impact. We make things people actually want to look at.</div></div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="contact-text">
+    <h2>Let's build<br>something<br><span>worth seeing.</span></h2>
+    <p>Studio Haus is a boutique creative agency based in Austin, TX. We work with 6–8 clients at a time and give every project our full attention.</p>
+    <a href="mailto:hello@studiohaus.co">hello@studiohaus.co</a>
+  </div>
+  <div class="contact-form">
+    <form onsubmit="return false">
+      <label class="cf-label">Your Name</label><input class="cf-input" type="text" placeholder="Alex Rivera">
+      <label class="cf-label">Email</label><input class="cf-input" type="email" placeholder="alex@company.com">
+      <label class="cf-label">Company</label><input class="cf-input" type="text" placeholder="Acme Inc.">
+      <label class="cf-label">What do you need?</label><input class="cf-input" type="text" placeholder="Brand identity, website, campaign...">
+      <button class="cf-btn">Start the Conversation</button>
+    </form>
   </div>
 </section>
-
-<section class="work" id="work">
-  <div class="sec-label">// SELECTED WORK</div>
-  <h2 class="sec-h2">Recent <span>Projects</span></h2>
-  <div class="work-grid">
-    <div class="work-card tall reveal"><div class="work-img" style="height:700px;background:linear-gradient(135deg,#1A1A1A,#0E0E0E)">🎨<div class="work-overlay"></div></div><div class="work-info"><div class="work-cat">Brand Identity</div><div class="work-name">Apex Revenue — Complete Rebrand</div><div class="work-tags"><span class="work-tag">Logo</span><span class="work-tag">Identity System</span><span class="work-tag">Motion</span></div></div></div>
-    <div class="work-card reveal"><div class="work-img" style="background:linear-gradient(135deg,#1A2A1A,#0E1A0E)">🌐<div class="work-overlay"></div></div><div class="work-info"><div class="work-cat">Web Design</div><div class="work-name">Verdant — Restaurant Website</div><div class="work-tags"><span class="work-tag">UI/UX</span><span class="work-tag">CMS</span></div></div></div>
-    <div class="work-card reveal"><div class="work-img" style="background:linear-gradient(135deg,#2A1A1A,#1A0E0E)">📱<div class="work-overlay"></div></div><div class="work-info"><div class="work-cat">Mobile App</div><div class="work-name">Forge Fitness — Training App UI</div><div class="work-tags"><span class="work-tag">App Design</span><span class="work-tag">Prototype</span></div></div></div>
-  </div>
-</section>
-
-<section class="services">
-  <div class="services-inner">
-    <div class="sec-label">// WHAT WE DO</div>
-    <h2 class="sec-h2">Our <span>Services</span></h2>
-    <div class="services-grid">
-      <div class="svc reveal"><div class="svc-icon">🎯</div><div class="svc-name">Brand Strategy</div><div class="svc-desc">Positioning, messaging frameworks, and competitive differentiation before a single pixel is touched.</div><div class="svc-items"><span class="svc-item">Brand Strategy</span><span class="svc-item">Naming</span><span class="svc-item">Messaging</span><span class="svc-item">Competitive Audit</span></div></div>
-      <div class="svc reveal"><div class="svc-icon">✏️</div><div class="svc-name">Visual Identity</div><div class="svc-desc">Logo systems, typography, color, iconography, and brand guidelines that scale across every touchpoint.</div><div class="svc-items"><span class="svc-item">Logo Design</span><span class="svc-item">Identity System</span><span class="svc-item">Brand Guidelines</span><span class="svc-item">Print & Packaging</span></div></div>
-      <div class="svc reveal"><div class="svc-icon">💻</div><div class="svc-name">Digital Design</div><div class="svc-desc">Websites, landing pages, web apps, and digital campaigns that convert and captivate.</div><div class="svc-items"><span class="svc-item">Website Design</span><span class="svc-item">Web Development</span><span class="svc-item">App UI/UX</span><span class="svc-item">Motion Design</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="process">
-  <div class="sec-label">// OUR PROCESS</div>
-  <h2 class="sec-h2">How We <span>Work</span></h2>
-  <div class="process-steps">
-    <div class="process-step reveal"><div class="ps-num">01</div><div class="ps-name">Discover</div><div class="ps-desc">Deep dive into your business, competition, customers, and goals. We ask the questions nobody else asks.</div></div>
-    <div class="process-step reveal"><div class="ps-num">02</div><div class="ps-name">Strategize</div><div class="ps-desc">Positioning, direction, and creative brief locked. No speculation — every decision grounded in insight.</div></div>
-    <div class="process-step reveal"><div class="ps-num">03</div><div class="ps-name">Create</div><div class="ps-desc">3–4 focused concepts. Two rounds of refinement. We present work we'd be proud to put in our portfolio.</div></div>
-    <div class="process-step reveal"><div class="ps-num">04</div><div class="ps-name">Launch</div><div class="ps-desc">Handoff package, brand guidelines, implementation support. We stay until you're live and confident.</div></div>
-  </div>
-</section>
-
-<section class="cta" id="contact">
-  <h2>LET'S BUILD.</h2>
-  <p>Tell us about your project. We take on 8 new clients per year.</p>
-  <div class="cta-form">
-    <input class="cta-input" type="email" placeholder="your@email.com">
-    <button class="cta-btn">Start Project →</button>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">STUDIO<span>HAUS</span></div>
-  <div class="footer-copy">© 2025 Studio Haus · Austin, TX · All rights reserved.</div>
-  <div class="footer-links"><a href="#">Instagram</a><a href="#">Dribbble</a><a href="#">Privacy</a></div>
-</footer>
-
-<script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+<footer><span>© 2025 Studio Haus Creative LLC · Austin, TX</span><span>Selected for Print Magazine Top 50 Studios, 2024</span><span>hello@studiohaus.co</span></footer>
+</body></html>
