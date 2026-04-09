@@ -24,7 +24,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .nav-inquire{background:var(--dusty);color:white;padding:11px 28px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
 .nav-inquire:hover{background:var(--dusty-mid)}
 
-.hero{min-height:100vh;background:var(--text);display:flex;align-items:flex-end;padding:0 60px 100px;position:relative;overflow:hidden;padding-top:80px}
+.hero{min-height:100vh;background:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80') center/cover no-repeat;display:flex;align-items:flex-end;padding:0 60px 100px;position:relative;overflow:hidden;padding-top:80px}.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(30,18,12,0.72) 0%,rgba(20,12,8,0.82) 100%)}
 .hero-bg-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:220px;font-weight:700;color:rgba(139,123,110,0.04);letter-spacing:0.1em;pointer-events:none}
 .hero-content{position:relative;z-index:1;max-width:700px}
 .hero-florals{position:absolute;top:80px;right:60px;font-size:80px;opacity:0.4;z-index:1}
@@ -58,7 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .spaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .space-card{background:var(--white);overflow:hidden;transition:all 0.3s}
 .space-card:hover{box-shadow:0 16px 48px rgba(44,36,32,0.1);transform:translateY(-4px)}
-.space-img{height:240px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.space-img{height:240px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}.space-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .space-tag{position:absolute;bottom:16px;left:16px;background:var(--dusty);color:white;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px}
 .space-body{padding:28px}
 .space-name{font-family:'Cinzel',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:8px;letter-spacing:0.04em}
@@ -184,9 +184,9 @@ footer{background:#1A1210;padding:40px 60px;display:flex;justify-content:space-b
     <h2 class="spaces-title">Every Setting Tells a Story</h2>
     <p class="spaces-subtitle">"From intimate elopements to grand celebrations — we have a space for every vision."</p>
     <div class="spaces-grid">
-      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#3D2B1A,#2A1E12)">🌅<div class="space-tag">Most Popular</div></div><div class="space-body"><div class="space-name">The Hilltop Lawn</div><div class="space-desc">Open-air ceremony lawn with panoramic Hill Country views, mature oak trees, and a natural stone altar.</div><div class="space-cap">Up to 250 guests</div></div></div>
-      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#3A3020,#2C2418)">🏚️<div class="space-tag">Signature</div></div><div class="space-body"><div class="space-name">The Heritage Barn</div><div class="space-desc">Restored 1920s cedar barn with original post-and-beam structure, bistro lighting, and a 3,200 sq ft dance floor.</div><div class="space-cap">Up to 200 guests</div></div></div>
-      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#2A3020,#1E2818)">🌳</div><div class="space-body"><div class="space-name">The Grove</div><div class="space-desc">Intimate woodland clearing surrounded by century-old live oaks — perfect for elopements and micro-weddings up to 40.</div><div class="space-cap">Up to 40 guests</div></div></div>
+      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#3D2B1A,#2A1E12)"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Hilltop Lawn"><div class="space-tag">Most Popular</div></div><div class="space-body"><div class="space-name">The Hilltop Lawn</div><div class="space-desc">Open-air ceremony lawn with panoramic Hill Country views, mature oak trees, and a natural stone altar.</div><div class="space-cap">Up to 250 guests</div></div></div>
+      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#3A3020,#2C2418)"><img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&q=80" alt="Heritage Barn"><div class="space-tag">Signature</div></div><div class="space-body"><div class="space-name">The Heritage Barn</div><div class="space-desc">Restored 1920s cedar barn with original post-and-beam structure, bistro lighting, and a 3,200 sq ft dance floor.</div><div class="space-cap">Up to 200 guests</div></div></div>
+      <div class="space-card reveal"><div class="space-img" style="background:linear-gradient(135deg,#2A3020,#1E2818)"><img src="https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21e?w=600&q=80" alt="The Grove"></div><div class="space-body"><div class="space-name">The Grove</div><div class="space-desc">Intimate woodland clearing surrounded by century-old live oaks — perfect for elopements and micro-weddings up to 40.</div><div class="space-cap">Up to 40 guests</div></div></div>
     </div>
   </div>
 </section>

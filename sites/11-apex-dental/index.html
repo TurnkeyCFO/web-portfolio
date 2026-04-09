@@ -44,7 +44,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 60px;d
 .hero-proof{display:flex;gap:32px}
 .proof-num{font-size:28px;font-weight:800;color:var(--teal)}
 .proof-label{font-size:12px;font-weight:500;color:var(--text-muted);margin-top:2px}
-.hero-right{background:var(--teal-pale);display:flex;align-items:center;justify-content:center;min-height:600px;font-size:120px;position:relative}
+.hero-right{background:var(--teal-pale);display:flex;align-items:center;justify-content:center;min-height:600px;font-size:120px;position:relative;overflow:hidden}
 
 .insurance-bar{background:var(--teal);padding:20px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .ins-label{font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
@@ -71,7 +71,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 60px;d
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .doc-card{background:var(--white);border-radius:20px;overflow:hidden;transition:all 0.3s}
 .doc-card:hover{box-shadow:0 20px 48px rgba(11,122,117,0.12);transform:translateY(-4px)}
-.doc-img{height:240px;background:linear-gradient(135deg,var(--teal-pale),var(--sky));display:flex;align-items:center;justify-content:center;font-size:72px;position:relative}
+.doc-img{height:240px;background:linear-gradient(135deg,var(--teal-pale),var(--sky));display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden}.doc-img img{width:100%;height:100%;object-fit:cover;object-position:top}
 .doc-accepting{position:absolute;bottom:12px;right:12px;background:rgba(11,122,117,0.9);color:white;font-size:10px;font-weight:700;letter-spacing:0.1em;padding:5px 12px;border-radius:100px}
 .doc-body{padding:24px}
 .doc-name{font-size:21px;font-weight:700;color:var(--text);margin-bottom:4px}
@@ -175,7 +175,7 @@ footer{background:var(--text);padding:48px 60px 24px}
       <div><div class="proof-num">24hr</div><div class="proof-label">Emergency Availability</div></div>
     </div>
   </div>
-  <div class="hero-right">😁</div>
+  <div class="hero-right"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=900&q=80" alt="Apex Dental office" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></div>
 </section>
 
 <div class="insurance-bar">
@@ -211,9 +211,9 @@ footer{background:var(--text);padding:48px 60px 24px}
     <div class="sec-eyebrow">Our Dentists</div>
     <h2 class="sec-h2">Meet Your <span>Doctors</span></h2>
     <div class="team-grid">
-      <div class="doc-card reveal"><div class="doc-img">👨‍⚕️<div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. James Park, DDS</div><div class="doc-title">Founder · General & Cosmetic</div><div class="doc-bio">UT Dental School '04. 20 years crafting exceptional smiles in Austin. Known for a calm chairside manner and artistic cosmetic work.</div><div class="doc-creds"><span class="cred-tag">DDS</span><span class="cred-tag">Invisalign Diamond</span><span class="cred-tag">AACD</span></div></div></div>
-      <div class="doc-card reveal"><div class="doc-img">👩‍⚕️<div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. Priya Sharma, DMD</div><div class="doc-title">Implant & Oral Surgery Specialist</div><div class="doc-bio">Tufts Dental '12. Fellowship-trained implantologist. Placed 1,200+ implants. Offers IV sedation for complex procedures.</div><div class="doc-creds"><span class="cred-tag">DMD</span><span class="cred-tag">Implant Cert.</span><span class="cred-tag">IV Sedation</span></div></div></div>
-      <div class="doc-card reveal"><div class="doc-img">👨‍⚕️<div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. Ethan Cole, DDS</div><div class="doc-title">Orthodontics & Pediatric Care</div><div class="doc-bio">NYU Dental '15, Ortho residency '17. Transforms smiles with Invisalign and braces. Beloved by kids and anxious patients alike.</div><div class="doc-creds"><span class="cred-tag">DDS</span><span class="cred-tag">Orthodontics</span><span class="cred-tag">Pediatric Cert.</span></div></div></div>
+      <div class="doc-card reveal"><div class="doc-img"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" alt="Dr. James Park"><div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. James Park, DDS</div><div class="doc-title">Founder · General & Cosmetic</div><div class="doc-bio">UT Dental School '04. 20 years crafting exceptional smiles in Austin. Known for a calm chairside manner and artistic cosmetic work.</div><div class="doc-creds"><span class="cred-tag">DDS</span><span class="cred-tag">Invisalign Diamond</span><span class="cred-tag">AACD</span></div></div></div>
+      <div class="doc-card reveal"><div class="doc-img"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80" alt="Dr. Priya Sharma"><div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. Priya Sharma, DMD</div><div class="doc-title">Implant & Oral Surgery Specialist</div><div class="doc-bio">Tufts Dental '12. Fellowship-trained implantologist. Placed 1,200+ implants. Offers IV sedation for complex procedures.</div><div class="doc-creds"><span class="cred-tag">DMD</span><span class="cred-tag">Implant Cert.</span><span class="cred-tag">IV Sedation</span></div></div></div>
+      <div class="doc-card reveal"><div class="doc-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt="Dr. Ethan Cole"><div class="doc-accepting">Accepting New Patients</div></div><div class="doc-body"><div class="doc-name">Dr. Ethan Cole, DDS</div><div class="doc-title">Orthodontics & Pediatric Care</div><div class="doc-bio">NYU Dental '15, Ortho residency '17. Transforms smiles with Invisalign and braces. Beloved by kids and anxious patients alike.</div><div class="doc-creds"><span class="cred-tag">DDS</span><span class="cred-tag">Orthodontics</span><span class="cred-tag">Pediatric Cert.</span></div></div></div>
     </div>
   </div>
 </section>

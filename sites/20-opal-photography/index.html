@@ -56,8 +56,7 @@ nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px)}
 .gallery-item{background:var(--mid);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3}
 .gallery-item.tall{aspect-ratio:3/4}
 .gallery-item.wide{grid-column:span 2;aspect-ratio:16/7}
-.gallery-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform 0.4s;background:linear-gradient(135deg,var(--dark),var(--mid))}
-.gallery-item:hover .gallery-inner{transform:scale(1.04)}
+.gallery-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;transition:transform 0.4s;background:linear-gradient(135deg,var(--dark),var(--mid));position:relative}.gallery-inner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 0.4s}.gallery-item:hover .gallery-inner img{transform:scale(1.04)}
 .gallery-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,0.85) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:24px}
 .gallery-item:hover .gallery-overlay{opacity:1}
 .gallery-caption{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--white)}
@@ -179,11 +178,11 @@ footer{background:#080808;padding:40px 60px;display:flex;justify-content:space-b
     <div class="pf-btn">Commercial</div>
   </div>
   <div class="gallery">
-    <div class="gallery-item wide reveal"><div class="gallery-inner">🎭</div><div class="gallery-overlay"><div><div class="gallery-cat">Editorial</div><div class="gallery-caption">Texas Monthly — Winter 2024 Feature</div></div></div></div>
-    <div class="gallery-item tall reveal"><div class="gallery-inner">👤</div><div class="gallery-overlay"><div><div class="gallery-cat">Portrait</div><div class="gallery-caption">Artist Series — Maria Santos</div></div></div></div>
-    <div class="gallery-item reveal"><div class="gallery-inner">💍</div><div class="gallery-overlay"><div><div class="gallery-cat">Wedding</div><div class="gallery-caption">Villa del Lago — June 2024</div></div></div></div>
-    <div class="gallery-item reveal"><div class="gallery-inner">👗</div><div class="gallery-overlay"><div><div class="gallery-cat">Commercial</div><div class="gallery-caption">Freda Salvador — SS25 Campaign</div></div></div></div>
-    <div class="gallery-item tall reveal"><div class="gallery-inner">🌅</div><div class="gallery-overlay"><div><div class="gallery-cat">Editorial</div><div class="gallery-caption">Austin Monthly — Architecture Issue</div></div></div></div>
+    <div class="gallery-item wide reveal"><div class="gallery-inner"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" alt="Editorial"></div><div class="gallery-overlay"><div><div class="gallery-cat">Editorial</div><div class="gallery-caption">Texas Monthly — Winter 2024 Feature</div></div></div></div>
+    <div class="gallery-item tall reveal"><div class="gallery-inner"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Portrait"></div><div class="gallery-overlay"><div><div class="gallery-cat">Portrait</div><div class="gallery-caption">Artist Series — Maria Santos</div></div></div></div>
+    <div class="gallery-item reveal"><div class="gallery-inner"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding"></div><div class="gallery-overlay"><div><div class="gallery-cat">Wedding</div><div class="gallery-caption">Villa del Lago — June 2024</div></div></div></div>
+    <div class="gallery-item reveal"><div class="gallery-inner"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80" alt="Commercial"></div><div class="gallery-overlay"><div><div class="gallery-cat">Commercial</div><div class="gallery-caption">Freda Salvador — SS25 Campaign</div></div></div></div>
+    <div class="gallery-item tall reveal"><div class="gallery-inner"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80" alt="Editorial landscape"></div><div class="gallery-overlay"><div><div class="gallery-cat">Editorial</div><div class="gallery-caption">Austin Monthly — Architecture Issue</div></div></div></div>
     <div class="gallery-item wide reveal"><div class="gallery-inner">🎪</div><div class="gallery-overlay"><div><div class="gallery-cat">Commercial</div><div class="gallery-caption">ACL Festival 2024 — Official Photographer</div></div></div></div>
   </div>
 </section>

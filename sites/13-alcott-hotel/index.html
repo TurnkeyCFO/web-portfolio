@@ -25,7 +25,7 @@ nav.dark{background:rgba(10,9,8,0.97);backdrop-filter:blur(20px)}
 .nav-book:hover{background:var(--sand);color:var(--dark)}
 
 .hero{min-height:100vh;background:var(--black);display:flex;align-items:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0D0B09 0%,#1A1610 50%,#0A0908 100%)}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1600&q=80') center/cover no-repeat}.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(13,11,9,0.88) 0%,rgba(26,22,16,0.72) 100%)}
 .hero-text-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bodoni Moda',serif;font-size:280px;font-weight:300;color:rgba(200,184,154,0.04);letter-spacing:0.15em;pointer-events:none;text-transform:uppercase}
 .hero-content{position:relative;z-index:1;max-width:720px}
 .hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--sand);margin-bottom:28px;display:flex;align-items:center;gap:16px}
@@ -61,7 +61,7 @@ nav.dark{background:rgba(10,9,8,0.97);backdrop-filter:blur(20px)}
 .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 .room-card{background:var(--card);overflow:hidden;cursor:pointer;transition:all 0.3s}
 .room-card:hover{transform:translateY(-4px)}
-.room-img{height:280px;background:linear-gradient(135deg,#1C1A18,#0A0908);display:flex;align-items:center;justify-content:center;font-size:72px;position:relative}
+.room-img{height:280px;background:linear-gradient(135deg,#1C1A18,#0A0908);display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden}.room-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .room-badge{position:absolute;top:16px;left:0;background:var(--sand);color:var(--dark);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px}
 .room-body{padding:28px 24px}
 .room-name{font-family:'Bodoni Moda',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:8px}
@@ -184,9 +184,9 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   <div class="sec-eyebrow">Accommodations</div>
   <h2 class="sec-h2">Rooms &amp; <em>Suites</em></h2>
   <div class="rooms-grid">
-    <div class="room-card reveal"><div class="room-img">🛏️<div class="room-badge">Most Booked</div></div><div class="room-body"><div class="room-name">Deluxe King</div><div class="room-desc">485 sq ft of curated comfort. Oak floors, Duxiana bed, Malin+Goetz bath program, and downtown views from floor-to-ceiling windows.</div><div class="room-footer"><div class="room-price">From $395 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 2</span><span class="room-detail">📐 485sf</span></div></div></div></div>
-    <div class="room-card reveal"><div class="room-img">🌆</div><div class="room-body"><div class="room-name">Skyline Suite</div><div class="room-desc">900 sq ft, dual-exposure corner suite with living room, soaking tub, private balcony, and panoramic Capitol and skyline views.</div><div class="room-footer"><div class="room-price">From $695 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 2</span><span class="room-detail">📐 900sf</span></div></div></div></div>
-    <div class="room-card reveal"><div class="room-img">🌟<div class="room-badge">Signature</div></div><div class="room-body"><div class="room-name">The Alcott Suite</div><div class="room-desc">The hotel's crown. 1,400 sq ft penthouse suite with private rooftop terrace, dining room, dedicated butler, and twice-daily housekeeping.</div><div class="room-footer"><div class="room-price">From $1,200 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 4</span><span class="room-detail">📐 1,400sf</span></div></div></div></div>
+    <div class="room-card reveal"><div class="room-img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Deluxe King"><div class="room-badge">Most Booked</div></div><div class="room-body"><div class="room-name">Deluxe King</div><div class="room-desc">485 sq ft of curated comfort. Oak floors, Duxiana bed, Malin+Goetz bath program, and downtown views from floor-to-ceiling windows.</div><div class="room-footer"><div class="room-price">From $395 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 2</span><span class="room-detail">📐 485sf</span></div></div></div></div>
+    <div class="room-card reveal"><div class="room-img"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80" alt="Skyline Suite"></div><div class="room-body"><div class="room-name">Skyline Suite</div><div class="room-desc">900 sq ft, dual-exposure corner suite with living room, soaking tub, private balcony, and panoramic Capitol and skyline views.</div><div class="room-footer"><div class="room-price">From $695 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 2</span><span class="room-detail">📐 900sf</span></div></div></div></div>
+    <div class="room-card reveal"><div class="room-img"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="The Alcott Suite"><div class="room-badge">Signature</div></div><div class="room-body"><div class="room-name">The Alcott Suite</div><div class="room-desc">The hotel's crown. 1,400 sq ft penthouse suite with private rooftop terrace, dining room, dedicated butler, and twice-daily housekeeping.</div><div class="room-footer"><div class="room-price">From $1,200 <span>/ night</span></div><div class="room-details"><span class="room-detail">👤 4</span><span class="room-detail">📐 1,400sf</span></div></div></div></div>
   </div>
 </section>
 

@@ -70,7 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;padding:0 48px;d
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .vet-card{background:white;border-radius:20px;overflow:hidden;transition:all 0.3s}
 .vet-card:hover{box-shadow:0 16px 40px rgba(0,122,135,0.12);transform:translateY(-4px)}
-.vet-img{height:220px;background:linear-gradient(135deg,var(--teal-pale),#D0EFF2);display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
+.vet-img{height:220px;background:linear-gradient(135deg,var(--teal-pale),#D0EFF2);display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden}.vet-img img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
 .vet-accepting{position:absolute;bottom:12px;right:12px;background:rgba(0,122,135,0.9);color:white;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:100px}
 .vet-body{padding:24px}
 .vet-name{font-size:20px;font-weight:800;color:var(--text);margin-bottom:4px}
@@ -158,7 +158,7 @@ footer{background:var(--text);padding:40px 48px;display:flex;justify-content:spa
       <div class="em-text"><span>Emergency hours:</span> Mon–Sat until 9 PM · 24hr referral line available</div>
     </div>
   </div>
-  <div class="hero-right">🐶</div>
+  <div class="hero-right"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900&q=80" alt="Happy dog at Pawsome Vet" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></div>
 </section>
 
 <div class="features">
@@ -186,9 +186,9 @@ footer{background:var(--text);padding:40px 48px;display:flex;justify-content:spa
     <div class="sec-eyebrow">Our Veterinarians</div>
     <h2 class="sec-h2">Meet Your Pet's <span>Doctors</span></h2>
     <div class="team-grid">
-      <div class="vet-card reveal"><div class="vet-img">👩‍⚕️<div class="vet-accepting">Accepting New Patients</div></div><div class="vet-body"><div class="vet-name">Dr. Lisa Park, DVM</div><div class="vet-title">Medical Director · Small Animal</div><div class="vet-bio">Texas A&M CVM '09. 15 years in Austin. Specializes in internal medicine and fear-free handling for anxious pets.</div><div class="vet-creds"><span class="vc">DVM</span><span class="vc">Fear Free Cert.</span><span class="vc">ACVIM</span></div></div></div>
-      <div class="vet-card reveal"><div class="vet-img">👨‍⚕️<div class="vet-accepting">Accepting New Patients</div></div><div class="vet-body"><div class="vet-name">Dr. Marcus Webb, DVM</div><div class="vet-title">Surgeon · Orthopedics</div><div class="vet-bio">Board-certified surgeon with fellowship training in orthopedics. Performed 800+ TPLO surgeries. Canine and feline specialist.</div><div class="vet-creds"><span class="vc">DVM</span><span class="vc">DACVS</span><span class="vc">Board Certified</span></div></div></div>
-      <div class="vet-card reveal"><div class="vet-img">👩‍⚕️<div class="vet-accepting">Exotic Specialist</div></div><div class="vet-body"><div class="vet-name">Dr. Amy Nguyen, DVM</div><div class="vet-title">Exotic & Avian Specialist</div><div class="vet-bio">LSU School of Vet Med '14. Exotic animal medicine residency. One of only 12 board-certified exotic vets in Texas.</div><div class="vet-creds"><span class="vc">DVM</span><span class="vc">DACZM</span><span class="vc">Exotics</span></div></div></div>
+      <div class="vet-card reveal"><div class="vet-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Dr. Lisa Park"><div class="vet-accepting">Accepting New Patients</div></div><div class="vet-body"><div class="vet-name">Dr. Lisa Park, DVM</div><div class="vet-title">Medical Director · Small Animal</div><div class="vet-bio">Texas A&M CVM '09. 15 years in Austin. Specializes in internal medicine and fear-free handling for anxious pets.</div><div class="vet-creds"><span class="vc">DVM</span><span class="vc">Fear Free Cert.</span><span class="vc">ACVIM</span></div></div></div>
+      <div class="vet-card reveal"><div class="vet-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt="Dr. Marcus Webb"><div class="vet-accepting">Accepting New Patients</div></div><div class="vet-body"><div class="vet-name">Dr. Marcus Webb, DVM</div><div class="vet-title">Surgeon · Orthopedics</div><div class="vet-bio">Board-certified surgeon with fellowship training in orthopedics. Performed 800+ TPLO surgeries. Canine and feline specialist.</div><div class="vet-creds"><span class="vc">DVM</span><span class="vc">DACVS</span><span class="vc">Board Certified</span></div></div></div>
+      <div class="vet-card reveal"><div class="vet-img"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80" alt="Dr. Amy Nguyen"><div class="vet-accepting">Exotic Specialist</div></div><div class="vet-body"><div class="vet-name">Dr. Amy Nguyen, DVM</div><div class="vet-title">Exotic & Avian Specialist</div><div class="vet-bio">LSU School of Vet Med '14. Exotic animal medicine residency. One of only 12 board-certified exotic vets in Texas.</div><div class="vet-creds"><span class="vc">DVM</span><span class="vc">DACZM</span><span class="vc">Exotics</span></div></div></div>
     </div>
   </div>
 </section>
