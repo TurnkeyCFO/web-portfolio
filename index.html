@@ -328,16 +328,16 @@ footer{
       <button onclick="filterLP(this,'ecommerce')" class="lp-chip" style="padding:6px 16px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--tk-border-light);color:var(--tk-text-muted);background:transparent;cursor:pointer;font-family:inherit">Ecommerce</button>
     </div>
     <!-- LP Cards Grid -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px">
+    <div class="lp-grid-container" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:start">
 
       <!-- LP1 SaaS -->
-      <div class="lp-card" data-tag="saas" style="background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
+      <div class="lp-card" data-tag="saas" style="display:flex;flex-direction:column;min-height:360px;background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
         <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#060C14,#0D1521);display:flex;align-items:center;justify-content:center;position:relative">
           <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=85" alt="SaaS LP" style="width:100%;height:100%;object-fit:cover;opacity:.6">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(6,12,20,.8))"></div>
           <div style="position:absolute;bottom:14px;left:16px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#06B6D4;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.25);padding:4px 10px;border-radius:3px">SaaS / Free Trial</div>
         </div>
-        <div style="padding:20px 22px 22px">
+        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column">
           <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tk-green);margin-bottom:6px">Sales / Conversion</div>
           <div style="font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:6px">CloseIQ — SaaS Free Trial</div>
           <div style="font-size:13px;color:var(--tk-text-muted);line-height:1.5;margin-bottom:18px">Email capture, animated CTA, social proof logos, feature grid, testimonials, and 30-day guarantee.</div>
@@ -346,13 +346,13 @@ footer{
       </div>
 
       <!-- LP2 Webinar Funnel -->
-      <div class="lp-card" data-tag="webinar" style="background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
+      <div class="lp-card" data-tag="webinar" style="display:flex;flex-direction:column;min-height:360px;background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
         <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#0A0A0A,#1A1A1A);display:flex;align-items:center;justify-content:center;position:relative">
           <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=85" alt="Webinar LP" style="width:100%;height:100%;object-fit:cover;opacity:.5">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.85))"></div>
           <div style="position:absolute;top:14px;left:16px;font-size:11px;font-weight:700;color:#EF4444;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);padding:4px 10px;border-radius:3px;letter-spacing:.1em;text-transform:uppercase">🔴 Webinar Funnel</div>
         </div>
-        <div style="padding:20px 22px 22px">
+        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column">
           <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tk-green);margin-bottom:6px">ClickFunnels-Style</div>
           <div style="font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:6px">$1M Business Webinar</div>
           <div style="font-size:13px;color:var(--tk-text-muted);line-height:1.5;margin-bottom:18px">Live countdown timer, urgency bar, scarcity spots counter, video embed, speaker bio, registration form.</div>
@@ -360,13 +360,13 @@ footer{
         </div>
   
       <!-- LP4 Local Service -->
-      <div class="lp-card" data-tag="local" style="background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
+      <div class="lp-card" data-tag="local" style="display:flex;flex-direction:column;min-height:360px;background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
         <div style="height:180px;overflow:hidden;background:var(--tk-navy);display:flex;align-items:center;justify-content:center;position:relative">
           <img src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=600&q=85" alt="Local Service LP" style="width:100%;height:100%;object-fit:cover;opacity:.55">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,38,58,.8))"></div>
           <div style="position:absolute;bottom:14px;left:16px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00C85A;background:rgba(0,200,90,.12);border:1px solid rgba(0,200,90,.25);padding:4px 10px;border-radius:3px">Local Lead Gen</div>
         </div>
-        <div style="padding:20px 22px 22px">
+        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column">
           <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tk-green);margin-bottom:6px">Local / Service Business</div>
           <div style="font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:6px">ClearLedger — Bookkeeping Lead Gen</div>
           <div style="font-size:13px;color:var(--tk-text-muted);line-height:1.5;margin-bottom:18px">Hero with inline lead form, how-it-works steps, stats band, testimonials, sticky CTA nav. Fully branded.</div>
@@ -375,17 +375,17 @@ footer{
       </div>
 
       <!-- LP5 Ecommerce -->
-      <div class="lp-card" data-tag="ecommerce" style="background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
+      <div class="lp-card" data-tag="ecommerce" style="display:flex;flex-direction:column;min-height:360px;background:rgba(255,255,255,.03);border:1px solid var(--tk-border-light);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer" onmouseenter="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,200,90,.3)'" onmouseleave="this.style.transform='';this.style.borderColor=''">
         <div style="height:180px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative">
           <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=85" alt="Ecommerce LP" style="width:100%;height:100%;object-fit:cover">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(28,18,16,.7))"></div>
           <div style="position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;color:#1C1210;background:#F97316;padding:5px 12px;border-radius:3px;letter-spacing:.08em;text-transform:uppercase">🔥 Sale Active</div>
           <div style="position:absolute;bottom:14px;left:16px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C8806A;background:rgba(200,128,106,.12);border:1px solid rgba(200,128,106,.3);padding:4px 10px;border-radius:3px">Ecommerce Product</div>
         </div>
-        <div style="padding:20px 22px 22px">
+        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column">
           <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tk-green);margin-bottom:6px">Ecommerce / DTC</div>
           <div style="font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:6px">VELOUR Skincare — Product Page</div>
-          <div style="font-size:13px;color:var(--tk-text-muted);line-height:1.5;margin-bottom:18px">Full product page with qty selector, variants, add-to-cart, urgency offer banner, reviews, and buy-now flow.</div>
+          <div style="font-size:13px;color:var(--tk-text-muted);line-height:1.5;margin-bottom:18px;flex:1">Full product page with qty selector, variants, add-to-cart, urgency offer banner, reviews, and buy-now flow.</div>
           <a href="landing-pages/05-ecommerce-product.html" target="_blank" style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tk-green);text-decoration:none">View Page →</a>
         </div>
       </div>
