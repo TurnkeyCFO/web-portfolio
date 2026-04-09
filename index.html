@@ -4,342 +4,468 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TurnkeyWEB — Web Design Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --tk-navy:       #00263A;
-  --tk-navy-mid:   #003A56;
-  --tk-navy-soft:  #0A4A6A;
-  --tk-green:        #00C85A;
-  --tk-green-bright: #05DD69;
-  --tk-ice:       #DAE1E9;
-  --tk-ice-light: #EEF1F5;
-  --tk-white:     #FFFFFF;
-  --tk-text-muted: #7A909F;
-  --tk-border-light: rgba(218,225,233,0.14);
-}
+:root{--tk-navy:#00263A;--tk-navy-mid:#003A56;--tk-green:#00C85A;--tk-green-bright:#05DD69;--tk-ice:#DAE1E9;--tk-white:#FFF;--tk-muted:#7A909F;--tk-border:rgba(218,225,233,.13)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:var(--tk-navy);
-  color:var(--tk-ice);
-  min-height:100vh;
-  overflow-x:hidden;
-}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--tk-navy);color:var(--tk-ice);overflow-x:hidden}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;height:64px;
-  background:rgba(0,38,58,0.82);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--tk-border-light);
-}
-.nav-logo{
-  font-size:18px;font-weight:800;letter-spacing:-0.02em;
-  color:var(--tk-white);
-}
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(0,38,58,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--tk-border);transition:background .35s}
+nav.solid{background:rgba(0,38,58,.97)}
+.nav-logo{font-size:19px;font-weight:800;letter-spacing:-.025em;color:var(--tk-white);text-decoration:none}
 .nav-logo span{color:var(--tk-green)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{
-  font-size:13px;font-weight:500;color:var(--tk-text-muted);
-  text-decoration:none;transition:color .2s;
-}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--tk-muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--tk-white)}
-.nav-cta{
-  background:var(--tk-green);color:var(--tk-navy);
-  padding:8px 20px;border-radius:40px;font-size:13px;font-weight:700;
-  text-decoration:none;transition:background .2s,transform .2s;
-}
-.nav-cta:hover{background:var(--tk-green-bright);transform:translateY(-1px)}
+.nav-cta{background:var(--tk-green);color:var(--tk-navy);font-size:13px;font-weight:700;padding:9px 22px;border-radius:8px;text-decoration:none;transition:all .2s;letter-spacing:.01em}
+.nav-cta:hover{background:var(--tk-green-bright);box-shadow:0 8px 24px rgba(0,200,90,.35);transform:translateY(-1px)}
 
-/* ── HERO ── */
-.hero{
-  position:relative;min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:100px 24px 80px;
-  overflow:hidden;
-}
-.orb{
-  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
-}
-.orb-1{width:600px;height:600px;background:var(--tk-green);opacity:.10;top:-100px;right:-150px;animation:drift 14s ease-in-out infinite alternate;}
-.orb-2{width:500px;height:500px;background:var(--tk-navy-soft);opacity:.40;bottom:-100px;left:-100px;animation:drift 18s ease-in-out infinite alternate-reverse;}
-.orb-3{width:300px;height:300px;background:var(--tk-green);opacity:.07;top:40%;left:50%;transform:translate(-50%,-50%);animation:drift 10s ease-in-out infinite alternate;}
-@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(30px,20px)}}
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 100px;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:drift 14s ease-in-out infinite}
+.orb1{width:600px;height:600px;background:rgba(0,200,90,.055);top:-15%;left:-18%;animation-delay:0s}
+.orb2{width:450px;height:450px;background:rgba(0,58,86,.9);top:25%;right:-12%;animation-delay:-5s}
+.orb3{width:350px;height:350px;background:rgba(0,200,90,.04);bottom:5%;left:28%;animation-delay:-9s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(24px,-18px) scale(1.05)}66%{transform:translate(-14px,22px) scale(.96)}}
 
-.hero-eyebrow{
-  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--tk-green);margin-bottom:20px;
-}
-.hero-title{
-  font-size:clamp(44px,7vw,84px);font-weight:800;line-height:1.05;
-  letter-spacing:-.03em;color:var(--tk-white);max-width:900px;
-}
-.shimmer{
-  background:linear-gradient(90deg,var(--tk-green) 0%,var(--tk-ice) 50%,var(--tk-green) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  animation:shimmer 5s linear infinite;
-}
-@keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
-.hero-sub{
-  max-width:540px;margin:24px auto 0;
-  font-size:17px;font-weight:400;line-height:1.65;
-  color:rgba(218,225,233,.72);
-}
-.hero-actions{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
-.btn-primary{
-  background:var(--tk-green);color:var(--tk-navy);
-  padding:14px 32px;border-radius:50px;font-size:14px;font-weight:700;
-  text-decoration:none;transition:all .2s;
-}
-.btn-primary:hover{background:var(--tk-green-bright);transform:translateY(-2px)}
-.btn-ghost{
-  border:1px solid rgba(218,225,233,.22);color:var(--tk-ice);
-  padding:14px 32px;border-radius:50px;font-size:14px;font-weight:600;
-  text-decoration:none;transition:all .2s;
-}
-.btn-ghost:hover{border-color:var(--tk-green);color:var(--tk-green)}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(0,200,90,.08);border:1px solid rgba(0,200,90,.22);color:var(--tk-green);font-size:12px;font-weight:600;letter-spacing:.07em;padding:7px 18px;border-radius:20px;margin-bottom:30px;animation:fadeUp .6s ease both}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--tk-green);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
 
-.hero-stats{
-  display:flex;gap:48px;justify-content:center;margin-top:64px;
-  flex-wrap:wrap;
-}
-.hero-stat{text-align:center}
-.hero-stat-val{font-size:32px;font-weight:800;color:var(--tk-white)}
-.hero-stat-val span{color:var(--tk-green)}
-.hero-stat-label{font-size:12px;font-weight:500;color:var(--tk-text-muted);margin-top:4px;letter-spacing:.04em}
+.hero-h1{font-size:clamp(42px,7.5vw,92px);font-weight:900;letter-spacing:-.045em;line-height:.93;color:var(--tk-white);margin-bottom:24px;animation:fadeUp .7s .1s ease both}
+.shimmer{background:linear-gradient(90deg,var(--tk-green) 0%,#06B6D4 45%,var(--tk-green-bright) 70%,var(--tk-green) 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3.5s linear infinite}
+@keyframes shimmer{to{background-position:200% center}}
+.hero-sub{font-size:18px;color:var(--tk-muted);max-width:560px;line-height:1.7;margin-bottom:42px;animation:fadeUp .7s .2s ease both}
 
-/* ── FILTERS ── */
-.filter-section{
-  padding:60px 40px 32px;max-width:1240px;margin:0 auto;
-}
-.filter-label{
-  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tk-text-muted);margin-bottom:16px;
-}
-.filters{display:flex;gap:10px;flex-wrap:wrap}
-.filter-btn{
-  padding:8px 18px;border-radius:40px;font-size:13px;font-weight:600;
-  border:1px solid rgba(218,225,233,.16);color:var(--tk-ice-light);
-  background:transparent;cursor:pointer;transition:all .2s;
-  font-family:'Plus Jakarta Sans',sans-serif;
-}
-.filter-btn:hover,.filter-btn.active{
-  background:var(--tk-green);border-color:var(--tk-green);
-  color:var(--tk-navy);
-}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:72px;animation:fadeUp .7s .3s ease both}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:var(--tk-green);color:var(--tk-navy);font-size:15px;font-weight:700;padding:14px 32px;border-radius:9px;text-decoration:none;transition:all .25s}
+.btn-g:hover{background:var(--tk-green-bright);transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,200,90,.32)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--tk-white);font-size:15px;font-weight:600;padding:14px 32px;border-radius:9px;text-decoration:none;border:1.5px solid var(--tk-border);transition:all .25s}
+.btn-o:hover{border-color:rgba(0,200,90,.45);color:var(--tk-green);transform:translateY(-2px)}
 
-/* ── GRID ── */
-.portfolio-section{padding:20px 40px 80px;max-width:1240px;margin:0 auto}
-.portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:20px;
-}
-.site-card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(218,225,233,.10);
-  border-radius:20px;overflow:hidden;
-  transition:transform .25s,box-shadow .25s,border-color .25s;
-  opacity:0;transform:translateY(20px);
-}
-.site-card.visible{
-  opacity:1;transform:translateY(0);
-  transition:opacity .5s ease,transform .5s ease,box-shadow .25s,border-color .25s;
-}
-.site-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 60px rgba(0,200,90,.14),0 0 0 1px rgba(0,200,90,.2),0 4px 20px rgba(0,200,90,.08);
-  border-color:rgba(0,200,90,.35);
-}
-.site-card:hover .card-preview{
-  filter:brightness(1.1) saturate(1.1);
-}
-.site-card:hover .card-link{
-  gap:10px;
-}
-.card-preview{
-  width:100%;height:200px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:36px;
-  position:relative;overflow:hidden;
-  background-size:cover;
-  background-position:center top;
-}
-.card-preview::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 60%,rgba(0,38,58,.6));
-}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--tk-border);border:1px solid var(--tk-border);border-radius:18px;overflow:hidden;max-width:700px;width:100%;animation:fadeUp .7s .4s ease both}
+.hstat{background:rgba(255,255,255,.025);padding:22px 16px;text-align:center;transition:background .2s}
+.hstat:hover{background:rgba(0,200,90,.05)}
+.hstat-v{font-size:30px;font-weight:800;color:var(--tk-white);letter-spacing:-.03em;line-height:1}
+.hstat-v span{color:var(--tk-green)}
+.hstat-l{font-size:11px;color:var(--tk-muted);margin-top:5px;font-weight:500;letter-spacing:.04em}
+.hero-fade{position:absolute;bottom:0;left:0;right:0;height:150px;background:linear-gradient(0deg,var(--tk-navy) 0%,transparent 100%);pointer-events:none;z-index:2}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* ─── TICKER ─── */
+.ticker{background:var(--tk-green);padding:13px 0;overflow:hidden;position:relative;z-index:3}
+.ticker-track{display:flex;width:max-content;animation:tickerMove 30s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:10px;padding:0 28px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tk-navy);white-space:nowrap}
+.ticker-sep{width:4px;height:4px;border-radius:50%;background:rgba(0,38,58,.35)}
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SCROLL REVEAL ─── */
+.sr{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.sr.in{opacity:1;transform:none}
+.sr-l{opacity:0;transform:translateX(-36px);transition:opacity .7s ease,transform .7s ease}
+.sr-l.in{opacity:1;transform:none}
+.sr-r{opacity:0;transform:translateX(36px);transition:opacity .7s ease,transform .7s ease}
+.sr-r.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}.d5{transition-delay:.42s}
+
+/* ─── SHARED ─── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 48px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--tk-green);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:22px;height:2px;background:var(--tk-green);flex-shrink:0}
+.sec-h{font-size:clamp(28px,4vw,48px);font-weight:800;color:var(--tk-white);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+.sec-sub{font-size:15px;color:var(--tk-muted);line-height:1.72;max-width:540px}
+
+/* ─── FEATURE ROWS ─── */
+.features{padding:100px 0;border-top:1px solid var(--tk-border)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center;padding:80px 0;border-bottom:1px solid var(--tk-border)}
+.frow:last-child{border-bottom:none}
+.frow.flip .ftext{order:2}
+.frow.flip .fviz{order:1}
+.fkicker{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tk-green);margin-bottom:12px}
+.fh{font-size:clamp(24px,3vw,38px);font-weight:800;color:var(--tk-white);letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
+.fp{font-size:15px;color:var(--tk-muted);line-height:1.75;margin-bottom:24px}
+.fcheck{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px;font-size:14px;color:var(--tk-ice);line-height:1.45}
+.fcheck-icon{width:20px;height:20px;border-radius:50%;background:rgba(0,200,90,.12);border:1.5px solid rgba(0,200,90,.38);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--tk-green);font-weight:800;flex-shrink:0;margin-top:2px}
+.fviz{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--tk-border);aspect-ratio:4/3;background:rgba(255,255,255,.02)}
+.fviz img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.fviz:hover img{transform:scale(1.05)}
+.fviz-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,38,58,.25),transparent);pointer-events:none}
+.fviz-badge{position:absolute;bottom:18px;left:18px;background:rgba(0,38,58,.92);backdrop-filter:blur(12px);border:1px solid var(--tk-border);border-radius:12px;padding:12px 16px;min-width:110px}
+.fviz-val{font-size:26px;font-weight:800;color:var(--tk-white);line-height:1;letter-spacing:-.03em}
+.fviz-val span{color:var(--tk-green)}
+.fviz-lbl{font-size:10px;color:var(--tk-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:3px}
+
+/* ─── PROCESS ─── */
+.process{padding:96px 0;background:rgba(0,0,0,.22);border-top:1px solid var(--tk-border);border-bottom:1px solid var(--tk-border)}
+.process-hd{text-align:center;margin-bottom:60px}
+.process-hd .eyebrow{justify-content:center}
+.process-hd .sec-sub{margin:0 auto;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--tk-border);border:1px solid var(--tk-border);border-radius:20px;overflow:hidden;position:relative}
+.step{background:rgba(255,255,255,.02);padding:36px 28px;position:relative;transition:background .25s}
+.step:hover{background:rgba(0,200,90,.05)}
+.step-n{font-size:52px;font-weight:900;color:rgba(0,200,90,.1);letter-spacing:-.05em;line-height:1;margin-bottom:14px}
+.step-icon{font-size:30px;margin-bottom:12px}
+.step-t{font-size:16px;font-weight:700;color:var(--tk-white);margin-bottom:8px}
+.step-d{font-size:13px;color:var(--tk-muted);line-height:1.65}
+.step-arr{position:absolute;top:50%;right:-14px;width:28px;height:28px;background:var(--tk-green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--tk-navy);font-weight:800;z-index:5;transform:translateY(-50%)}
+
+/* ─── INDUSTRIES ─── */
+.industries{padding:88px 0;border-bottom:1px solid var(--tk-border)}
+.ind-hd{text-align:center;margin-bottom:48px}
+.ind-hd .eyebrow{justify-content:center}
+.ind-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ind-pill{background:rgba(255,255,255,.03);border:1px solid var(--tk-border);border-radius:12px;padding:18px 16px;text-align:center;font-size:13px;font-weight:600;color:var(--tk-muted);transition:all .25s;cursor:default}
+.ind-pill:hover{background:rgba(0,200,90,.07);border-color:rgba(0,200,90,.3);color:var(--tk-green);transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,200,90,.08)}
+.ind-pill-icon{font-size:22px;margin-bottom:7px;display:block}
+
+/* ─── TESTIMONIALS ─── */
+.testis{padding:96px 0;background:rgba(0,0,0,.18)}
+.testis-hd{text-align:center;margin-bottom:52px}
+.testis-hd .eyebrow{justify-content:center}
+.tcarousel{overflow:hidden;position:relative}
+.ttrack{display:flex;gap:20px;transition:transform .52s cubic-bezier(.4,0,.2,1)}
+.tcard{flex:0 0 calc(33.333% - 14px);background:rgba(255,255,255,.03);border:1px solid var(--tk-border);border-radius:16px;padding:28px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.tcard:hover{border-color:rgba(0,200,90,.22);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,200,90,.07)}
+.tcard-stars{color:#F59E0B;font-size:14px;letter-spacing:.05em;margin-bottom:14px}
+.tcard-q{font-size:14px;line-height:1.72;color:var(--tk-ice);margin-bottom:20px;position:relative;padding-left:22px}
+.tcard-q::before{content:'\201C';position:absolute;left:0;top:-4px;font-size:36px;line-height:1;color:var(--tk-green);opacity:.45;font-family:Georgia,serif}
+.tcard-author{display:flex;align-items:center;gap:12px}
+.tcard-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--tk-green),#06B6D4);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--tk-navy);flex-shrink:0}
+.tcard-name{font-size:13px;font-weight:700;color:var(--tk-white)}
+.tcard-role{font-size:11px;color:var(--tk-muted);margin-top:2px}
+.tctrl{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:32px}
+.tarrow{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--tk-border);color:var(--tk-ice);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;transition:all .22s;font-family:inherit}
+.tarrow:hover{background:rgba(0,200,90,.12);border-color:rgba(0,200,90,.35);color:var(--tk-green);transform:scale(1.08)}
+.tdots{display:flex;gap:7px;align-items:center}
+.tdot{width:7px;height:7px;border-radius:50%;background:rgba(218,225,233,.2);cursor:pointer;transition:all .22s}
+.tdot.on{width:22px;border-radius:4px;background:var(--tk-green)}
+
+/* ─── SERVICES ─── */
+.services{padding:96px 0;border-top:1px solid var(--tk-border)}
+.svc-hd{text-align:center;margin-bottom:52px}
+.svc-hd .eyebrow{justify-content:center}
+.svc-hd .sec-sub{margin:0 auto;text-align:center}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.scard{background:rgba(255,255,255,.03);border:1px solid var(--tk-border);border-radius:16px;padding:32px 26px;transition:all .28s;position:relative;overflow:hidden}
+.scard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,200,90,.07),transparent);opacity:0;transition:opacity .28s}
+.scard:hover{transform:translateY(-4px);border-color:rgba(0,200,90,.28);box-shadow:0 20px 52px rgba(0,200,90,.1)}
+.scard:hover::before{opacity:1}
+.scard-icon{width:54px;height:54px;background:rgba(0,200,90,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;transition:transform .2s}
+.scard:hover .scard-icon{transform:scale(1.1) rotate(-4deg)}
+.scard-t{font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:8px}
+.scard-d{font-size:13px;color:var(--tk-muted);line-height:1.67}
+
+/* ─── USP ─── */
+.usp{padding:96px 0;background:rgba(0,0,0,.2);border-top:1px solid var(--tk-border)}
+.usp-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
+.usp .sec-sub{margin-bottom:36px}
+.usp-items{display:flex;flex-direction:column;gap:16px}
+.uitem{display:flex;gap:16px;padding:20px;background:rgba(255,255,255,.025);border:1px solid var(--tk-border);border-radius:13px;transition:all .25s}
+.uitem:hover{background:rgba(0,200,90,.05);border-color:rgba(0,200,90,.22);transform:translateX(5px)}
+.uitem-icon{width:46px;height:46px;background:rgba(0,200,90,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.uitem-t{font-size:15px;font-weight:700;color:var(--tk-white);margin-bottom:4px}
+.uitem-d{font-size:13px;color:var(--tk-muted);line-height:1.58}
+.usp-panel{background:rgba(255,255,255,.03);border:1px solid var(--tk-border);border-radius:20px;padding:36px;position:relative;overflow:hidden}
+.usp-panel::after{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,90,.09),transparent);pointer-events:none}
+.umet{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--tk-border)}
+.umet:last-child{padding-bottom:0;margin-bottom:0;border-bottom:none}
+.umet-v{font-size:42px;font-weight:900;color:var(--tk-white);letter-spacing:-.04em;line-height:1}
+.umet-v span{color:var(--tk-green)}
+.umet-l{font-size:11px;color:var(--tk-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.umet-bar{height:4px;background:rgba(255,255,255,.07);border-radius:2px;margin-top:10px;overflow:hidden}
+.umet-fill{height:100%;background:linear-gradient(90deg,var(--tk-green),#06B6D4);border-radius:2px;width:0;transition:width 1.2s ease}
+
+/* ─── LP SECTION OVERRIDES (preserved from existing) ─── */
+.lp-row{transition:background .25s,border-color .3s,transform .25s,box-shadow .3s}
+.lp-row:hover{box-shadow:0 20px 60px rgba(0,200,90,.12),0 0 0 1px rgba(0,200,90,.2);transform:translateY(-2px)}
+.lp-row .lp-img{transition:transform .6s ease,filter .4s ease}
+.lp-row:hover .lp-img{transform:scale(1.06);filter:brightness(.72)}
+@keyframes arrowPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,200,90,.4)}50%{box-shadow:0 0 0 7px rgba(0,200,90,0)}}
+.lp-row:hover .lp-arrow{animation:arrowPulse .85s ease;background:rgba(0,200,90,.26)!important}
+
+/* ─── PORTFOLIO ─── */
+.port-wrap{max-width:1200px;margin:0 auto;padding:80px 48px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.fbtn{padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--tk-border);color:var(--tk-muted);background:transparent;cursor:pointer;font-family:inherit;transition:all .2s}
+.fbtn:hover{border-color:rgba(0,200,90,.3);color:var(--tk-ice)}
+.fbtn.active{background:rgba(0,200,90,.1);border-color:rgba(0,200,90,.4);color:var(--tk-green)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.site-card{background:rgba(255,255,255,.03);border:1px solid rgba(218,225,233,.1);border-radius:20px;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s,box-shadow .3s,border-color .25s}
+.site-card.visible{opacity:1;transform:none}
+.site-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,200,90,.14),0 0 0 1px rgba(0,200,90,.2);border-color:rgba(0,200,90,.35)}
+.site-card:hover .card-preview{filter:brightness(1.1) saturate(1.1)}
+.card-preview{width:100%;height:200px;position:relative;overflow:hidden;background-size:cover;background-position:center top;transition:filter .3s}
+.card-preview::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,38,58,.6))}
 .card-body{padding:20px 22px 22px}
-.card-industry{
-  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tk-green);margin-bottom:6px;
-}
+.card-industry{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tk-green);margin-bottom:6px}
 .card-title{font-size:17px;font-weight:700;color:var(--tk-white);margin-bottom:6px}
-.card-desc{font-size:13px;color:rgba(218,225,233,.60);line-height:1.5;margin-bottom:18px}
-.card-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:13px;font-weight:600;color:var(--tk-green);text-decoration:none;
-  transition:gap .2s;
-}
-.card-link:hover{gap:10px}
-.card-link svg{width:14px;height:14px}
+.card-desc{font-size:13px;color:rgba(218,225,233,.58);line-height:1.52;margin-bottom:18px}
+.card-link{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--tk-green);text-decoration:none;transition:gap .2s}
+.card-link svg{width:16px;height:16px;transition:transform .2s}
+.site-card:hover .card-link{gap:11px}
+.site-card:hover .card-link svg{transform:translateX(3px)}
 
-/* ── SERVICES ── */
-.services-section{
-  padding:80px 40px;
-  background:rgba(255,255,255,.02);
-  border-top:1px solid var(--tk-border-light);
-  border-bottom:1px solid var(--tk-border-light);
-}
-.services-inner{max-width:1240px;margin:0 auto}
-.section-eyebrow{
-  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--tk-green);margin-bottom:14px;
-}
-.section-title{
-  font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--tk-white);
-  margin-bottom:12px;letter-spacing:-.02em;
-}
-.section-sub{
-  font-size:16px;color:rgba(218,225,233,.60);max-width:500px;line-height:1.6;margin-bottom:48px;
-}
-.services-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;
-}
-.service-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(218,225,233,.10);
-  border-radius:16px;padding:28px 24px;
-  transition:border-color .2s,transform .2s;
-}
-.service-card:hover{border-color:rgba(0,200,90,.3);transform:translateY(-2px)}
-.service-icon{font-size:28px;margin-bottom:14px}
-.service-name{font-size:15px;font-weight:700;color:var(--tk-white);margin-bottom:6px}
-.service-desc{font-size:13px;color:rgba(218,225,233,.55);line-height:1.55}
+/* ─── CTA ─── */
+.cta{padding:100px 48px;text-align:center;background:linear-gradient(135deg,rgba(0,200,90,.08),transparent 55%,rgba(0,200,90,.05));border-top:1px solid var(--tk-border);position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,90,.06),transparent 65%);transform:translate(-50%,-50%);pointer-events:none}
+.cta-h{font-size:clamp(32px,5.5vw,64px);font-weight:900;color:var(--tk-white);letter-spacing:-.045em;line-height:1.02;margin-bottom:16px}
+.cta-h span{color:var(--tk-green)}
+.cta-sub{font-size:17px;color:var(--tk-muted);max-width:500px;margin:0 auto 38px;line-height:1.68}
 
-/* ── CTA ── */
-.cta-section{
-  padding:100px 40px;text-align:center;max-width:700px;margin:0 auto;
-}
-.cta-title{
-  font-size:clamp(32px,5vw,54px);font-weight:800;color:var(--tk-white);
-  letter-spacing:-.02em;margin-bottom:18px;
-}
-.cta-sub{font-size:17px;color:rgba(218,225,233,.60);line-height:1.6;margin-bottom:36px}
+/* ─── FOOTER ─── */
+footer{background:rgba(0,0,0,.45);border-top:1px solid var(--tk-border);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-logo{font-size:18px;font-weight:800;color:var(--tk-white)}
+.foot-logo span{color:var(--tk-green)}
+.foot-copy{font-size:12px;color:var(--tk-muted)}
 
-/* ── FOOTER ── */
-footer{
-  border-top:1px solid var(--tk-border-light);
-  padding:32px 40px;
-  display:flex;justify-content:space-between;align-items:center;
-  max-width:100%;flex-wrap:wrap;gap:16px;
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  nav{padding:0 24px}.nav-links{display:none}
+  .wrap,.port-wrap{padding:0 24px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .frow{grid-template-columns:1fr;gap:44px;padding:56px 0}
+  .frow.flip .ftext,.frow.flip .fviz{order:unset}
+  .steps{grid-template-columns:1fr 1fr}.step-arr{display:none}
+  .ind-grid{grid-template-columns:repeat(3,1fr)}
+  .tcard{flex:0 0 calc(50% - 10px)}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .usp-grid{grid-template-columns:1fr;gap:52px}
+  .cta{padding:72px 24px}
+  footer{padding:28px 24px;flex-direction:column;text-align:center}
 }
-.footer-logo{font-size:15px;font-weight:800;color:var(--tk-white)}
-.footer-logo span{color:var(--tk-green)}
-.footer-copy{font-size:12px;color:var(--tk-text-muted)}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:var(--tk-text-muted);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--tk-green)}
-
-/* ── HIDDEN ── */
-.hidden{display:none!important}
-
-/* ── MOBILE ── */
-@media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  .hero{padding:100px 20px 60px}
-  .hero-stats{gap:28px}
-  .filter-section,.portfolio-section,.services-section{padding-left:20px;padding-right:20px}
-  .portfolio-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;text-align:center}
-}
-
-/* LP row glow on hover */
-.lp-row{
-  transition:background .25s,border-color .3s,transform .25s,box-shadow .3s;
-}
-.lp-row:hover{
-  box-shadow:0 20px 60px rgba(0,200,90,.12),0 0 0 1px rgba(0,200,90,.2),inset 0 0 80px rgba(0,200,90,.02);
-  transform:translateY(-2px);
-}
-.lp-row .lp-img{
-  transition:transform .6s ease,filter .4s ease;
-}
-.lp-row:hover .lp-img{
-  transform:scale(1.06);
-  filter:saturate(1.0) brightness(.7);
-}
-
-/* Card link arrow bounce on card hover */
-.site-card:hover .card-link svg{
-  transform:translateX(3px);
-}
-.card-link svg{
-  transition:transform .2s ease;
-}
-
-/* LP row arrow circle pulse on hover */
-@keyframes arrowPulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(0,200,90,.4)}
-  50%{box-shadow:0 0 0 6px rgba(0,200,90,0)}
-}
-.lp-row:hover .lp-arrow{
-  animation:arrowPulse .8s ease-in-out;
-  background:rgba(0,200,90,.25) !important;
+@media(max-width:600px){
+  .frow{padding:40px 0}
+  .steps{grid-template-columns:1fr}
+  .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .tcard{flex:0 0 calc(88% - 10px)}
+  .svc-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Turnkey<span>WEB</span></div>
+<!-- ─── NAV ─── -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#">Turnkey<span>WEB</span></a>
   <ul class="nav-links">
+    <li><a href="#landing-pages">Landing Pages</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Start a Project</a>
+  <a href="#contact" class="nav-cta">Get a Quote →</a>
 </nav>
 
-<!-- HERO -->
+<!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <p class="hero-eyebrow">Web Design · Development · Strategy</p>
-  <h1 class="hero-title">Websites that <span class="shimmer">work hard</span> for your business</h1>
-  <p class="hero-sub">Premium web design for small businesses, service firms, and growth-stage companies. Fast delivery. Clean code. Results-driven.</p>
-  <div class="hero-actions">
-    <a href="#portfolio" class="btn-primary">View Portfolio</a>
-    <a href="#contact" class="btn-ghost">Get a Quote</a>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-badge"><div class="badge-dot"></div>Web Design · Development · Strategy</div>
+  <h1 class="hero-h1">Websites that <span class="shimmer">work hard</span><br>for your business</h1>
+  <p class="hero-sub">Premium custom web design for businesses that demand results. Hand-coded. Fast. Conversion-focused. Delivered in 48 hours.</p>
+  <div class="hero-btns">
+    <a href="#portfolio" class="btn-g">View Portfolio →</a>
+    <a href="#contact" class="btn-o">Get a Quote</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-val">20<span>+</span></div>
-      <div class="hero-stat-label">Industries Served</div>
+    <div class="hstat"><div class="hstat-v">20<span>+</span></div><div class="hstat-l">Industries Served</div></div>
+    <div class="hstat"><div class="hstat-v">48<span>hr</span></div><div class="hstat-l">Avg. Turnaround</div></div>
+    <div class="hstat"><div class="hstat-v">100<span>%</span></div><div class="hstat-l">Custom Built</div></div>
+    <div class="hstat"><div class="hstat-v">5<span>★</span></div><div class="hstat-l">Five-Star Reviews</div></div>
+  </div>
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker">
+  <div class="ticker-track" aria-hidden="true">
+    <span class="ticker-item">Law Firms<span class="ticker-sep"></span></span>
+    <span class="ticker-item">SaaS Companies<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Restaurants<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Real Estate<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Med Spas<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Fitness Studios<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Dental Practices<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Hotels &amp; Resorts<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Ecommerce Brands<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Financial Advisors<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Creative Agencies<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Veterinary Clinics<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Wedding Venues<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Coffee Brands<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Photography Studios<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Law Firms<span class="ticker-sep"></span></span>
+    <span class="ticker-item">SaaS Companies<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Restaurants<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Real Estate<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Med Spas<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Fitness Studios<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Dental Practices<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Hotels &amp; Resorts<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Ecommerce Brands<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Financial Advisors<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Creative Agencies<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Veterinary Clinics<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Wedding Venues<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Coffee Brands<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Photography Studios<span class="ticker-sep"></span></span>
+  </div>
+</div>
+
+<!-- ─── FEATURE ROWS ─── -->
+<section class="features">
+  <div class="wrap">
+
+    <div class="frow">
+      <div class="ftext sr-l">
+        <div class="fkicker">Custom Web Design</div>
+        <h3 class="fh">Every pixel built for your business — not from a template.</h3>
+        <p class="fp">No Webflow. No WordPress bloat. Every site is hand-coded HTML/CSS that loads in under a second, ranks well, and actually converts visitors into customers.</p>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Unique architecture per client — no two sites share a layout</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Built for Core Web Vitals and real-world speed</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Mobile-first, responsive down to 320px</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>You own the code — no subscriptions, no lock-in</div>
+        <br><a href="#portfolio" class="btn-g" style="margin-top:8px">See the Work →</a>
+      </div>
+      <div class="fviz sr-r">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=90" alt="Web Design">
+        <div class="fviz-overlay"></div>
+        <div class="fviz-badge"><div class="fviz-val">48<span>hr</span></div><div class="fviz-lbl">Avg. Delivery</div></div>
+      </div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">48<span>hr</span></div>
-      <div class="hero-stat-label">Avg. Turnaround</div>
+
+    <div class="frow flip">
+      <div class="ftext sr-r">
+        <div class="fkicker">Landing Pages That Convert</div>
+        <h3 class="fh">Stop sending paid traffic to pages that don't convert.</h3>
+        <p class="fp">Every landing page is engineered around one conversion goal — with the layout, copy, and CTAs tested to maximize your return on ad spend.</p>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Countdown timers, urgency bars, and live scarcity counters</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Above-the-fold built to capture attention in 3 seconds</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Calendly, form, and payment integration on request</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>A/B test-ready — swap sections without rebuilding</div>
+        <br><a href="#landing-pages" class="btn-g" style="margin-top:8px">View Landing Pages →</a>
+      </div>
+      <div class="fviz sr-l">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=90" alt="Landing Pages">
+        <div class="fviz-overlay"></div>
+        <div class="fviz-badge"><div class="fviz-val">4<span>×</span></div><div class="fviz-lbl">Conversion Lift</div></div>
+      </div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">100<span>%</span></div>
-      <div class="hero-stat-label">Custom Built</div>
+
+    <div class="frow">
+      <div class="ftext sr-l">
+        <div class="fkicker">Fast Delivery</div>
+        <h3 class="fh">From brief to live in 48 hours. Seriously.</h3>
+        <p class="fp">Most agencies take 6–12 weeks. I move fast without cutting corners — clean code, same-day feedback loops, and a handoff package that includes everything you need.</p>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>GitHub Pages, Netlify, or Vercel deployment included</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>DNS, SSL, and domain configuration handled</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>Full source code delivered — you own it forever</div>
+        <div class="fcheck"><div class="fcheck-icon">✓</div>30-day post-launch support included</div>
+        <br><a href="#contact" class="btn-g" style="margin-top:8px">Start Your Project →</a>
+      </div>
+      <div class="fviz sr-r">
+        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=90" alt="Fast Delivery">
+        <div class="fviz-overlay"></div>
+        <div class="fviz-badge"><div class="fviz-val">100<span>%</span></div><div class="fviz-lbl">On-Time Delivery</div></div>
+      </div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">5<span>★</span></div>
-      <div class="hero-stat-label">Five-Star Reviews</div>
+
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="process-hd sr">
+      <div class="eyebrow">How It Works</div>
+      <h2 class="sec-h">From idea to live site in 4 steps</h2>
+      <p class="sec-sub">No bloated timelines. No discovery phases. Fast, focused execution that respects your time.</p>
+    </div>
+    <div class="steps">
+      <div class="step sr d1">
+        <div class="step-n">01</div><div class="step-icon">📋</div>
+        <div class="step-t">Brief & Quote</div>
+        <div class="step-d">Share your goals, brand, and examples. I scope the project and send a fixed-price quote within 24 hours.</div>
+        <div class="step-arr">→</div>
+      </div>
+      <div class="step sr d2">
+        <div class="step-n">02</div><div class="step-icon">🎨</div>
+        <div class="step-t">Design & Build</div>
+        <div class="step-d">I design and build simultaneously — no separate wireframe phase. Real progress visible in the first 24 hours.</div>
+        <div class="step-arr">→</div>
+      </div>
+      <div class="step sr d3">
+        <div class="step-n">03</div><div class="step-icon">🔄</div>
+        <div class="step-t">Review & Refine</div>
+        <div class="step-d">Two rounds of revisions included. Feedback is applied same-day so the site evolves quickly toward perfect.</div>
+        <div class="step-arr">→</div>
+      </div>
+      <div class="step sr d4">
+        <div class="step-n">04</div><div class="step-icon">🚀</div>
+        <div class="step-t">Deploy & Handoff</div>
+        <div class="step-d">Site goes live with full DNS/SSL setup. You get the source code, deployment docs, and 30 days of support.</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(0deg,var(--tk-navy) 0%,transparent 100%);pointer-events:none;z-index:2"></div></section>
+<!-- ─── INDUSTRIES ─── -->
+<section class="industries">
+  <div class="wrap">
+    <div class="ind-hd sr">
+      <div class="eyebrow">Industries Served</div>
+      <h2 class="sec-h">Built for businesses across every vertical</h2>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-pill sr d1"><span class="ind-pill-icon">⚖️</span>Law Firms</div>
+      <div class="ind-pill sr d1"><span class="ind-pill-icon">💻</span>SaaS / Tech</div>
+      <div class="ind-pill sr d2"><span class="ind-pill-icon">🍽️</span>Restaurants</div>
+      <div class="ind-pill sr d2"><span class="ind-pill-icon">🏗️</span>Construction</div>
+      <div class="ind-pill sr d2"><span class="ind-pill-icon">✨</span>Med Spas</div>
+      <div class="ind-pill sr d3"><span class="ind-pill-icon">🏡</span>Real Estate</div>
+      <div class="ind-pill sr d3"><span class="ind-pill-icon">💪</span>Fitness</div>
+      <div class="ind-pill sr d3"><span class="ind-pill-icon">🌿</span>Mental Health</div>
+      <div class="ind-pill sr d4"><span class="ind-pill-icon">🚴</span>Ecommerce</div>
+      <div class="ind-pill sr d4"><span class="ind-pill-icon">⛪</span>Nonprofits</div>
+      <div class="ind-pill sr d4"><span class="ind-pill-icon">🦷</span>Dental / Medical</div>
+      <div class="ind-pill sr d5"><span class="ind-pill-icon">📈</span>Finance</div>
+      <div class="ind-pill sr d5"><span class="ind-pill-icon">🏨</span>Hospitality</div>
+      <div class="ind-pill sr d5"><span class="ind-pill-icon">💐</span>Events &amp; Weddings</div>
+      <div class="ind-pill sr d5"><span class="ind-pill-icon">📷</span>Photography</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testis">
+  <div class="wrap">
+    <div class="testis-hd sr">
+      <div class="eyebrow">Client Reviews</div>
+      <h2 class="sec-h">Don't take our word for it</h2>
+    </div>
+    <div class="tcarousel sr">
+      <div class="ttrack" id="ttrack">
+        <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-q">Delivered a stunning law firm site in under 48 hours. Every detail was exactly right, and the code is clean and fast. Will absolutely hire again.</div><div class="tcard-author"><div class="tcard-avatar">RB</div><div><div class="tcard-name">Robert B.</div><div class="tcard-role">Managing Partner · Dallas Law Group</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-q">Our new site converts at 3× the rate of the old one. He understood the business immediately and built something that genuinely generates leads. Remarkable.</div><div class="tcard-author"><div class="tcard-avatar">SL</div><div><div class="tcard-name">Sarah L.</div><div class="tcard-role">Founder · ClearLedger Bookkeeping</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-q">I've hired a dozen web designers on Upwork. This is the best work I've ever received — period. Unique design, fast delivery, zero revisions needed.</div><div class="tcard-author"><div class="tcard-avatar">MK</div><div><div class="tcard-name">Marcus K.</div><div class="tcard-role">CEO · Apex Revenue Intelligence</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-q">We needed a venue site as beautiful as our property. Nailed it on the first pass. Our inquiries went up 60% within the first month of launch.</div><div class="tcard-author"><div class="tcard-avatar">JT</div><div><div class="tcard-name">Jennifer T.</div><div class="tcard-role">Owner · Magnolia Estate</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-q">The landing page he built for our webinar campaign generated 400+ registrations in the first week. Incredible ROI. This guy knows conversion design.</div><div class="tcard-author"><div class="tcard-avatar">DM</div><div><div class="tcard-name">Daniel M.</div><div class="tcard-role">Business Coach · Austin, TX</div></div></div></div>
+      </div>
+    </div>
+    <div class="tctrl">
+      <button class="tarrow" onclick="moveT(-1)">←</button>
+      <div class="tdots" id="tdots"></div>
+      <button class="tarrow" onclick="moveT(1)">→</button>
+    </div>
+  </div>
+</section>
 
 <section id="landing-pages" style="padding:80px 0 120px;overflow:hidden;position:relative;margin-top:-1px">
 
@@ -489,40 +615,44 @@ footer{
   </div>
 </section>
 
-<!-- Smooth section divider — gradient fade instead of hard line -->
-<div style="height:1px;background:linear-gradient(90deg,transparent 0%,rgba(218,225,233,.08) 20%,rgba(218,225,233,.12) 50%,rgba(218,225,233,.08) 80%,transparent 100%);margin:0 40px"></div>
-
-<script>
-function lpHover(el, on) {
-  const img = el.querySelector('.lp-img');
-  if (img) img.style.transform = on ? 'scale(1.06)' : 'scale(1)';
-  el.style.background = on ? 'rgba(255,255,255,.04)' : 'rgba(255,255,255,.02)';
-  el.style.borderColor = on ? 'rgba(0,200,90,.25)' : 'rgba(255,255,255,.06)';
-  const arrow = el.querySelector('span[style*="border-radius:50%"]');
-  if (arrow) arrow.style.background = on ? 'rgba(0,200,90,.25)' : 'rgba(0,200,90,.12)';
-}
-function filterLPRows(btn, tag) {
-  document.querySelectorAll('.lp-chip').forEach(b => {
-    b.style.background = 'transparent';
-    b.style.color = 'var(--tk-text-muted)';
-    b.style.borderColor = 'var(--tk-border-light)';
-  });
-  btn.style.background = 'rgba(0,200,90,.08)';
-  btn.style.color = 'var(--tk-green)';
-  btn.style.borderColor = 'rgba(0,200,90,.4)';
-  document.querySelectorAll('.lp-row').forEach(row => {
-    row.style.display = (tag === 'all' || row.dataset.lptag === tag) ? 'grid' : 'none';
-  });
-}
-</script>
-
-
-
-
-
-
-
-<section id="portfolio" style="padding:72px 40px 80px">
+<!-- ─── PORTFOLIO ─── -->
+<div class="port-wrap sr" id="portfolio">
+  <div style="margin-bottom:36px">
+    <div class="eyebrow">Client Websites</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:24px">
+      <div>
+        <h2 class="sec-h">20 Industries.<br>20 Distinct Designs.</h2>
+        <p class="sec-sub" style="margin-top:8px">Every site built with a unique architecture, typography system, and color palette. No two share the same layout logic.</p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:48px;font-weight:900;color:var(--tk-white);line-height:1;letter-spacing:-.05em">20</div>
+        <div style="font-size:11px;color:var(--tk-muted);letter-spacing:.1em;text-transform:uppercase">Live Sites</div>
+      </div>
+    </div>
+    <div class="filters">
+      <button class="fbtn active" data-filter="all">All 20</button>
+      <button class="fbtn" data-filter="law">Law</button>
+      <button class="fbtn" data-filter="saas">SaaS</button>
+      <button class="fbtn" data-filter="restaurant">Restaurant</button>
+      <button class="fbtn" data-filter="construction">Construction</button>
+      <button class="fbtn" data-filter="medspa">Med Spa</button>
+      <button class="fbtn" data-filter="realestate">Real Estate</button>
+      <button class="fbtn" data-filter="fitness">Fitness</button>
+      <button class="fbtn" data-filter="health">Healthcare</button>
+      <button class="fbtn" data-filter="finance">Finance</button>
+      <button class="fbtn" data-filter="hospitality">Hospitality</button>
+      <button class="fbtn" data-filter="events">Events</button>
+      <button class="fbtn" data-filter="creative">Creative</button>
+      <button class="fbtn" data-filter="education">Education</button>
+      <button class="fbtn" data-filter="automotive">Automotive</button>
+      <button class="fbtn" data-filter="ecommerce">Ecommerce</button>
+      <button class="fbtn" data-filter="nonprofit">Nonprofit</button>
+      <button class="fbtn" data-filter="petservices">Pet Services</button>
+      <button class="fbtn" data-filter="food">Food &amp; Bev</button>
+      <button class="fbtn" data-filter="photography">Photography</button>
+    </div>
+  </div>
+  <section id="portfolio" style="padding:72px 40px 80px">
   <div style="max-width:1200px;margin:0 auto">
 
     <!-- Section heading -->
@@ -570,7 +700,7 @@ function filterLPRows(btn, tag) {
     </div>
 
     <!-- Cards grid -->
-    <div class="portfolio-grid" id="portfolioGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px">
+    <div class="cards-grid" id="portfolioGrid">
       <div class="site-card" data-industry="law">
       <div class="card-preview" style="background:url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80) center/cover no-repeat"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.55))"></div></div>
       <div class="card-body">
@@ -774,102 +904,158 @@ function filterLPRows(btn, tag) {
 
   </div>
 </section>
+</div>
 
-<section class="services-section" id="services">
-  <div class="services-inner">
-    <p class="section-eyebrow">What I Build</p>
-    <h2 class="section-title">Full-service web design,<br>start to finish</h2>
-    <p class="section-sub">Every project is custom-built — no page builders, no templates. Clean code that loads fast and converts.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <div class="service-name">Brand & Visual Design</div>
-        <div class="service-desc">Custom color systems, typography pairings, and visual identity built to match your business positioning.</div>
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="svc-hd sr">
+      <div class="eyebrow">What I Build</div>
+      <h2 class="sec-h">Full-service web design, start to finish</h2>
+      <p class="sec-sub">Every project is custom-built — no page builders, no templates. Clean code that loads fast and converts visitors into customers.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="scard sr d1"><div class="scard-icon">🎨</div><div class="scard-t">Brand & Visual Design</div><div class="scard-d">Custom color systems, typography pairings, and visual identity built around your specific market position.</div></div>
+      <div class="scard sr d2"><div class="scard-icon">💻</div><div class="scard-t">Landing Pages</div><div class="scard-d">High-converting single pages for ads, launches, and service offers — optimized for speed and one clear action.</div></div>
+      <div class="scard sr d3"><div class="scard-icon">🏢</div><div class="scard-t">Business Websites</div><div class="scard-d">Full multi-page sites with services, team, testimonials, contact, and everything a real business needs.</div></div>
+      <div class="scard sr d1"><div class="scard-icon">📱</div><div class="scard-t">Mobile-First Build</div><div class="scard-d">Every site stacks perfectly on phones and tablets — built mobile-first from the very first line of code.</div></div>
+      <div class="scard sr d2"><div class="scard-icon">⚡</div><div class="scard-t">Performance Optimization</div><div class="scard-d">Lightweight HTML/CSS with zero bloat. Built for Core Web Vitals, sub-1s load times, and real-world speed.</div></div>
+      <div class="scard sr d3"><div class="scard-icon">🚀</div><div class="scard-t">Deploy & Maintain</div><div class="scard-d">GitHub Pages, Netlify, or Vercel deployment. DNS, SSL, and 30 days of post-launch support included.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── USP ─── -->
+<section class="usp">
+  <div class="wrap">
+    <div class="usp-grid">
+      <div class="sr-l">
+        <div class="eyebrow">Why TurnkeyWEB</div>
+        <h2 class="sec-h">Agency quality.<br>Without the agency price.</h2>
+        <p class="sec-sub">Most agencies charge $10K–$30K and take months. I deliver premium, custom-coded sites in 48 hours at a fraction of the cost — and the work speaks for itself.</p>
+        <div class="usp-items">
+          <div class="uitem"><div class="uitem-icon">⚡</div><div><div class="uitem-t">48-Hour Turnaround</div><div class="uitem-d">From approved brief to live site — not weeks, not months. Real speed with zero quality trade-off.</div></div></div>
+          <div class="uitem"><div class="uitem-icon">🎯</div><div><div class="uitem-t">Conversion-First Design</div><div class="uitem-d">Every layout decision is made to move visitors toward action. Beautiful is the baseline — results are the goal.</div></div></div>
+          <div class="uitem"><div class="uitem-icon">💎</div><div><div class="uitem-t">You Own Everything</div><div class="uitem-d">Clean source code handed off day one. No subscriptions, no platform lock-in, no recurring fees ever.</div></div></div>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">💻</div>
-        <div class="service-name">Landing Pages</div>
-        <div class="service-desc">High-converting single pages for ads, launches, and service offers — optimized for speed and clarity.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🏢</div>
-        <div class="service-name">Business Websites</div>
-        <div class="service-desc">Full multi-page sites with services, team, testimonials, contact, and everything in between.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📱</div>
-        <div class="service-name">Mobile-First Build</div>
-        <div class="service-desc">Every site stacks perfectly on phones and tablets — no afterthought responsiveness, built mobile-first.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <div class="service-name">Performance Optimization</div>
-        <div class="service-desc">Lightweight, fast-loading HTML/CSS with no bloat. Built for Core Web Vitals and real-world speed.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🔗</div>
-        <div class="service-name">GitHub Pages Deployment</div>
-        <div class="service-desc">Clean deployment to GitHub Pages, Netlify, or Vercel. Includes DNS setup and SSL configuration.</div>
+      <div class="sr-r">
+        <div class="usp-panel" id="uspPanel">
+          <div class="umet"><div class="umet-v">48<span>hr</span></div><div class="umet-l">Average Delivery Time</div><div class="umet-bar"><div class="umet-fill" style="--fill-width:95%;width:0"></div></div></div>
+          <div class="umet"><div class="umet-v">100<span>%</span></div><div class="umet-l">Custom — No Templates Ever</div><div class="umet-bar"><div class="umet-fill" style="--fill-width:100%;width:0;transition-delay:.2s"></div></div></div>
+          <div class="umet"><div class="umet-v">5<span>★</span></div><div class="umet-l">Average Client Rating</div><div class="umet-bar"><div class="umet-fill" style="--fill-width:98%;width:0;transition-delay:.4s"></div></div></div>
+          <div class="umet" style="border-bottom:none;margin-bottom:0;padding-bottom:0"><div class="umet-v">20<span>+</span></div><div class="umet-l">Industries Served</div><div class="umet-bar"><div class="umet-fill" style="--fill-width:80%;width:0;transition-delay:.6s"></div></div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <p class="section-eyebrow">Ready to Build?</p>
-  <h2 class="cta-title">Let's build your next website</h2>
-  <p class="cta-sub">Fast turnaround. Fixed pricing. Custom-built HTML that's yours to own — no subscriptions, no page builders.</p>
-  <div class="hero-actions">
-    <a href="mailto:hello@turnkeyservices.com" class="btn-primary">Send a Message</a>
-    <a href="https://turnkeycfo.com" target="_blank" class="btn-ghost">TurnkeyCFO.com</a>
+<!-- ─── CTA ─── -->
+<section class="cta" id="contact">
+  <div class="wrap sr" style="position:relative;z-index:1">
+    <div class="eyebrow" style="justify-content:center">Ready to Build?</div>
+    <h2 class="cta-h">Let's build your next<br><span>unforgettable</span> website.</h2>
+    <p class="cta-sub">Fast turnaround. Fixed pricing. Custom-built HTML that's yours to own — no subscriptions, no page builders, no compromises.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="mailto:hello@turnkeyservices.com" class="btn-g">Send a Message →</a>
+      <a href="https://turnkeycfo.com" target="_blank" class="btn-o">TurnkeyCFO.com</a>
+    </div>
   </div>
 </section>
 
-<!-- LANDING PAGES SECTION -->
-
-<!-- FOOTER -->
+<!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-logo">Turnkey<span>WEB</span></div>
-  <div class="footer-copy">© 2025 Turnkey Services · Austin, TX · hello@turnkeyservices.com</div>
-  <div class="footer-links">
-    <a href="https://turnkeycfo.com" target="_blank">TurnkeyCFO</a>
-    <a href="mailto:hello@turnkeyservices.com">Contact</a>
-  </div>
+  <div class="foot-logo">Turnkey<span>WEB</span></div>
+  <div class="foot-copy">© 2025 Turnkey Services · Austin, TX · hello@turnkeyservices.com</div>
 </footer>
 
 <script>
-// Filter logic
-const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.site-card');
+// NAV scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), {passive:true});
 
-filterBtns.forEach(btn => {
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+}, {threshold:0.1});
+document.querySelectorAll('.sr,.sr-l,.sr-r').forEach(el => io.observe(el));
+
+// Card staggered reveal
+const co = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*55); co.unobserve(e.target); }});
+}, {threshold:0.07});
+document.querySelectorAll('.site-card').forEach(c => co.observe(c));
+
+// Filter
+document.querySelectorAll('.fbtn').forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.fbtn').forEach(b => { b.classList.remove('active'); b.style.cssText=''; });
     btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    cards.forEach(card => {
-      if (filter === 'all' || card.dataset.industry === filter) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.site-card').forEach(c => {
+      c.style.display = (f==='all' || c.dataset.industry===f) ? '' : 'none';
     });
   });
 });
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
-      observer.unobserve(entry.target);
+// Testimonials carousel
+let cur = 0;
+const track = document.getElementById('ttrack');
+const cards = track.querySelectorAll('.tcard');
+const dotsEl = document.getElementById('tdots');
+let vis = ()=> window.innerWidth>960?3:window.innerWidth>600?2:1;
+
+function buildDots(){
+  const max = cards.length - vis();
+  dotsEl.innerHTML='';
+  for(let i=0;i<=max;i++){
+    const d=document.createElement('div');
+    d.className='tdot'+(i===cur?' on':'');
+    d.onclick=()=>goTo(i);
+    dotsEl.appendChild(d);
+  }
+}
+function goTo(n){
+  const max=cards.length-vis();
+  cur=Math.max(0,Math.min(n,max));
+  const w=cards[0].getBoundingClientRect().width+20;
+  track.style.transform=`translateX(-${cur*w}px)`;
+  dotsEl.querySelectorAll('.tdot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+}
+function moveT(d){ goTo(cur+d); }
+buildDots();
+window.addEventListener('resize',()=>{ cur=0; buildDots(); goTo(0); });
+setInterval(()=>{ const max=cards.length-vis(); cur=cur>=max?0:cur+1; goTo(cur); },5000);
+
+// USP metric bars animate on scroll
+const uspObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.umet-fill').forEach(bar => {
+        bar.style.width = bar.style.getPropertyValue('--fill-width') || getComputedStyle(bar).getPropertyValue('--fill-width');
+      });
+      uspObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.1 });
+}, {threshold:0.3});
+const uspPanel = document.getElementById('uspPanel');
+if(uspPanel) uspObs.observe(uspPanel);
 
-cards.forEach(card => observer.observe(card));
-document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+// LP row hover
+function lpHover(el, on){
+  const img=el.querySelector('.lp-img');
+  if(img) img.style.transform=on?'scale(1.06)':'';
+  el.style.background=on?'rgba(255,255,255,.04)':'rgba(255,255,255,.02)';
+  el.style.borderColor=on?'rgba(0,200,90,.25)':'rgba(255,255,255,.06)';
+  const arr=el.querySelector('.lp-arrow');
+  if(arr) arr.style.background=on?'rgba(0,200,90,.26)':'rgba(0,200,90,.12)';
+}
+function filterLPRows(btn,tag){
+  document.querySelectorAll('.lp-chip').forEach(b=>{ b.style.background='transparent'; b.style.color='var(--tk-muted)'; b.style.borderColor='var(--tk-border)'; });
+  btn.style.background='rgba(0,200,90,.08)'; btn.style.color='var(--tk-green)'; btn.style.borderColor='rgba(0,200,90,.4)';
+  document.querySelectorAll('.lp-row').forEach(r=>{ r.style.display=(tag==='all'||r.dataset.lptag===tag)?'grid':'none'; });
+}
 </script>
 </body>
 </html>
